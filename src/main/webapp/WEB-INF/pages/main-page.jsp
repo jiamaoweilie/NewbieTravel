@@ -44,7 +44,7 @@
             <img src="/assets/images/sample.jpg" alt="" class="img_avatar"/>
         </div>
         <div id="info-profile" class="profile">
-            <p>Name: XXX</p>
+            <p>Name: ${user.getId()}</p>
             <ul>Honors:<br>
                 <li>FIRST BLOOD!</li>
                 <li>DOUBLE KILL!!</li>
@@ -82,13 +82,22 @@
                     <img src="/assets/images/client.png">
                 </div>
             </div>
-            <c:forEach items="${tasks}" var="task">
-                <c:if test="${task.getType().equals('client')}">
-                    <div class="task_card">
-                        <div class="mark_in_progress">In Progress</div>
-                        <img src="/assets/images/sample.jpg" class="img_unclicked" value="NOT_ACCEPTED">
-                    </div>
-                </c:if>
+            <c:forEach items="${client}" var="clientTask">
+                <div class="task_card">
+                    <div class="mark_in_progress">In Progress</div>
+                        <c:choose>
+                            <c:when test="${clientTask.getTask().getGuard().equals('Qiu Juntao')}">
+                                <img src="/assets/images/sample.jpg" class="img_unclicked" value="NOT_ACCEPTED">
+                            </c:when>
+                            <c:otherwise>
+                                <img src="/assets/images/jiukun.jpg" class="img_unclicked" value="NOT_ACCEPTED">
+                            </c:otherwise>
+                        </c:choose>
+
+                    <c:if test="${clientTask.getStatus().equals('inProcess')}">
+                        <%--<script>&lt;%&ndash;change task status&ndash;%&gt;</script>--%>
+                    </c:if>
+                </div>
             </c:forEach>
             <%--<div id="taskcard-client1" class="task_card">--%>
                 <%--<div class="mark_in_progress">Task in Progress</div>--%>
@@ -106,13 +115,22 @@
                     <img src="/assets/images/Technical.png">
                 </div>
             </div>
-            <c:forEach items="${tasks}" var="task">
-                <c:if test="${task.getType().equals('tech')}">
-                    <div class="task_card">
-                        <div class="mark_in_progress">In Progress</div>
-                        <img src="/assets/images/sample.jpg" class="img_unclicked" value="NOT_ACCEPTED">
-                    </div>
-                </c:if>
+            <c:forEach items="${tech}" var="techTask">
+                <div class="task_card">
+                    <div class="mark_in_progress">In Progress</div>
+                    <c:choose>
+                        <c:when test="${techTask.getTask().getGuard().equals('Qiu Juntao')}">
+                            <img src="/assets/images/sample.jpg" class="img_unclicked" value="NOT_ACCEPTED">
+                        </c:when>
+                        <c:otherwise>
+                            <img src="/assets/images/jiukun.jpg" class="img_unclicked" value="NOT_ACCEPTED">
+                        </c:otherwise>
+                    </c:choose>
+
+                    <c:if test="${techTask.getStatus().equals('inProcess')}">
+                        <%--<script>&lt;%&ndash;change task status&ndash;%&gt;</script>--%>
+                    </c:if>
+                </div>
             </c:forEach>
             <%--<div id="taskcard-tech1" class="task_card">--%>
                 <%--<div class="mark_in_progress">Task in Progress</div>--%>
@@ -130,13 +148,22 @@
                     <img src="/assets/images/process.png">
                 </div>
             </div>
-            <c:forEach items="${tasks}" var="task">
-                <c:if test="${task.getType().equals('process')}">
-                    <div class="task_card">
-                        <div class="mark_in_progress">In Progress</div>
-                        <img src="/assets/images/jiukun.jpg" class="img_unclicked" value="NOT_ACCEPTED">
-                    </div>
-                </c:if>
+            <c:forEach items="${process}" var="processTask">
+                <div class="task_card">
+                    <div class="mark_in_progress">In Progress</div>
+                    <c:choose>
+                        <c:when test="${processTask.getTask().getGuard().equals('Qiu Juntao')}">
+                            <img src="/assets/images/sample.jpg" class="img_unclicked" value="NOT_ACCEPTED">
+                        </c:when>
+                        <c:otherwise>
+                            <img src="/assets/images/jiukun.jpg" class="img_unclicked" value="NOT_ACCEPTED">
+                        </c:otherwise>
+                    </c:choose>
+
+                    <c:if test="${processTask.getStatus().equals('inProcess')}">
+                        <%--<script>&lt;%&ndash;change task status&ndash;%&gt;</script>--%>
+                    </c:if>
+                </div>
             </c:forEach>
             <%--<div id="taskcard-progress1" class="task_card">--%>
                 <%--<div class="mark_in_progress">Task in Progress</div>--%>
@@ -154,13 +181,22 @@
                     <img src="/assets/images/Communication.png">
                 </div>
             </div>
-            <c:forEach items="${tasks}" var="task">
-                <c:if test="${task.getType().equals('comm')}">
-                    <div class="task_card">
-                        <div class="mark_in_progress">In Progress</div>
-                        <img src="/assets/images/sample.jpg" class="img_unclicked" value="NOT_ACCEPTED">
-                    </div>
-                </c:if>
+            <c:forEach items="${comm}" var="commTask">
+                <div class="task_card">
+                    <div class="mark_in_progress">In Progress</div>
+                    <c:choose>
+                        <c:when test="${commTask.getTask().getGuard().equals('Qiu Juntao')}">
+                            <img src="/assets/images/sample.jpg" class="img_unclicked" value="NOT_ACCEPTED">
+                        </c:when>
+                        <c:otherwise>
+                            <img src="/assets/images/jiukun.jpg" class="img_unclicked" value="NOT_ACCEPTED">
+                        </c:otherwise>
+                    </c:choose>
+
+                    <c:if test="${commTask.getStatus().equals('inProcess')}">
+                        <%--<script>&lt;%&ndash;change task status&ndash;%&gt;</script>--%>
+                    </c:if>
+                </div>
             </c:forEach>
             <%--<div id="taskcard-comm1" class="task_card">--%>
                 <%--<div class="mark_in_progress">Task in Progress</div>--%>
