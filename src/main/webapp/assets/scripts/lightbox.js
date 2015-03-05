@@ -27,11 +27,11 @@ var lightbox = {
 
 	        $(image.data).siblings(".mark_in_progress").show();
 	        $(image.data).parent().css("background-color", "#333");
-	        for (i = 0; i < accepted_tasks.length; i++) {
-	        	if (0 === $(accepted_tasks[i]).children().length) {
-	        		$(accepted_tasks[i]).append('<img src="'+ imgUrl +'" alt="" class="img_task_accepted"/>');
+	        for (i = 0; i < 3; i++) {
+	        	if (i === accepted_tasks.length) {
+	        		$("#info-tasks-accepted").append('<div class="accepted_task"><img src="'+ imgUrl +'" alt="" class="img_task_accepted"/></div>');
 	        		countTasksAccepted = '' + (i + 1);
-	        		$("#info-tasks-accepted").attr("value", "" + (i + 1));
+	        		$("#info-tasks-accepted").attr("value", ""+ (i + 1) );
 	        		$(image.data).attr("value", "ACCEPTED");
 	        		break;
 	        	};
