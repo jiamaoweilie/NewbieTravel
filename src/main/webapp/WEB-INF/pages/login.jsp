@@ -2,7 +2,7 @@
 <html>
 <head>
     <title></title>
-    <script type="text/javascript" src="/WEB-INF/scripts/libs/jquery-2.1.3.js"></script>
+    <script type="text/javascript" src="/assets/scripts/libs/jquery-2.1.3.js"></script>
 </head>
 <body>
 
