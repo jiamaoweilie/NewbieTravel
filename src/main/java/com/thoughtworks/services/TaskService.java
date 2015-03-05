@@ -8,4 +8,6 @@ public interface TaskService {
     List<Task> findTask();
 
     void addTask(Task task);
+
+    Task findTaskById(String taskId);
 }

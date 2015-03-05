@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title></title>
+    <title>Add Task</title>
 </head>
 <body>
 <form class="form-login" method="post" role="form">

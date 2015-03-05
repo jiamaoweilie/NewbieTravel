@@ -1,10 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Main Page</title>
+    <title>Task Details</title>
 </head>
 <body>
-${test}
-${error}
+<p>${error}</p>
+<p>${task.context}</p>
 </body>
 </html>

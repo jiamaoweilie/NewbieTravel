@@ -22,4 +22,9 @@ public class TaskServiceImpl implements TaskService {
     public void addTask(Task task) {
         taskRepository.addTask(task);
     }
+
+    @Override
+    public Task findTaskById(String taskId) {
+        return taskRepository.findTaskById(taskId);
+    }
 }
