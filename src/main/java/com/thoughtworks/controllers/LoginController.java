@@ -1,5 +1,6 @@
 package com.thoughtworks.controllers;
 
+import com.thoughtworks.controllers.forms.UserTaskForm;
 import com.thoughtworks.entities.Task;
 import com.thoughtworks.entities.User;
 import com.thoughtworks.services.TaskService;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -49,11 +51,55 @@ public class LoginController {
             httpSession.setAttribute("userId", user.getId());
         }
         List<Task> tasks = taskService.findTask();
-        model.addAttribute("process", taskService.getProcessTask(tasks, user));
-        model.addAttribute("client", taskService.getClientTask(tasks, user));
-        model.addAttribute("tech", taskService.getTechTask(tasks, user));
-        model.addAttribute("comm", taskService.getCommTask(tasks, user));
+        model.addAttribute("process", getProcessTask(tasks, user));
+        model.addAttribute("client", getClientTask(tasks, user));
+        model.addAttribute("tech", getTechTask(tasks, user));
+        model.addAttribute("comm", getCommTask(tasks, user));
         model.addAttribute("user", user);
         return "main-page";
+    }
+
+    private List<UserTaskForm> getProcessTask(List<Task> tasks, User user) {
+        List<UserTaskForm> processTasks = getUserTaskForms(tasks, user, "process");
+        return processTasks;
+    }
+
+    private List<UserTaskForm> getClientTask(List<Task> tasks, User user) {
+        List<UserTaskForm> techTasks = getUserTaskForms(tasks, user, "client");
+        return techTasks;
+    }
+
+    public List<UserTaskForm> getTechTask(List<Task> tasks, User user) {
+        List<UserTaskForm> techTasks = getUserTaskForms(tasks, user, "tech");
+        return techTasks;
+    }
+
+    private List<UserTaskForm> getCommTask(List<Task> tasks, User user) {
+        List<UserTaskForm> techTasks = getUserTaskForms(tasks, user, "comm");
+        return techTasks;
+    }
+
+    private List<UserTaskForm> getUserTaskForms(List<Task> tasks, User user, String type) {
+        List<UserTaskForm> processTasks = new ArrayList<UserTaskForm>();
+        for (Task task : tasks) {
+            if (type.equals(task.getType()))
+                processTasks.add(new UserTaskForm(task, ""));
+        }
+        if (user.getInProcess() != null) {
+            for (UserTaskForm taskForm : processTasks) {
+                if (user.getInProcess().contains(taskForm.getTask().getId())) {
+                    taskForm.setStatus("inProcess");
+                }
+            }
+        }
+
+        if (user.getFinished() != null) {
+            for (UserTaskForm taskForm : processTasks) {
+                if (user.getFinished().contains(taskForm.getTask().getId())) {
+                    taskForm.setStatus("finished");
+                }
+            }
+        }
+        return processTasks;
     }
 }
