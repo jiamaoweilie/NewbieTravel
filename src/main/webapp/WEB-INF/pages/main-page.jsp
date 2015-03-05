@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <html>
 <head>
     <title>Main Page</title>
@@ -7,23 +9,21 @@
     <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <link href="stylesheets/style.css" type="text/css" rel="stylesheet" >
+    <link href="/assets/stylesheets/style.css" type="text/css" rel="stylesheet" >
 </head>
 <body>
     <div class="banner">
         <div id="newbie-camp-title">Newbie Challenge</div>
         <div id="tw-logo">
-            <img src="image/tw_logo_white.png">
+            <img src="/assets/images/tw_logo_white.png">
         </div>
-        <span>${test}
-        </span>
     </div>
 
     <!-- light box -->
     <section id="sect-light-box" class="light_box">
         <div id="lb-task-type"></div>
         <div id="lb-task-img">
-            <img src="image/master.jpeg" alt="" class="img_lightbox">
+            <img src="/assets/images/master.jpeg" alt="" class="img_lightbox">
         </div>
         <div id="lb-task-description">
             打倒肉山大魔王指日可待
@@ -41,7 +41,7 @@
 
     <section id="sect-user-info" class="information">
         <div id="info-avatar" class="avatar">
-            <img src="image/sample.jpg" alt="" class="img_avatar"/>
+            <img src="/assets/images/sample.jpg" alt="" class="img_avatar"/>
         </div>
         <div id="info-profile" class="profile">
             <p>Name: XXX</p>
@@ -66,68 +66,104 @@
             <div class="task_map_header">
                 <div class="task_map_title">Client</div>
                 <div class="task_map_icon">
-                    <img src="image/client.png">
+                    <img src="/assets/images/client.png">
                 </div>
             </div>
-            <div id="taskcard-client1" class="task_card">
-                <div class="mark_in_progress">Task in Progress</div>
-                <img src="image/sample.jpg" alt="" class="img_unclicked" value="NOT_ACCEPTED"/>
-            </div>
-            <div id="taskcard-client2" class="task_card">
-                <div class="mark_in_progress">Task in Progress</div>
-                <img src="image/sample.jpg" alt="" class="img_unclicked"  value="NOT_ACCEPTED"/>
-            </div>
+            <c:forEach items="${tasks}" var="task">
+                <c:if test="${task.getType().equals('client')}">
+                    <div class="task_card">
+                        <div class="mark_in_progress">In Progress</div>
+                        <img src="/assets/images/sample.jpg" class="img_unclicked" value="NOT_ACCEPTED">
+                    </div>
+                </c:if>
+            </c:forEach>
+            <%--<div id="taskcard-client1" class="task_card">--%>
+                <%--<div class="mark_in_progress">Task in Progress</div>--%>
+                <%--&lt;%&ndash;<img src="image/sample.jpg" alt="" class="img_unclicked" value="NOT_ACCEPTED"/>&ndash;%&gt;--%>
+            <%--</div>--%>
+            <%--<div id="taskcard-client2" class="task_card">--%>
+                <%--<div class="mark_in_progress">Task in Progress</div>--%>
+                <%--&lt;%&ndash;<img src="image/sample.jpg" alt="" class="img_unclicked"  value="NOT_ACCEPTED"/>&ndash;%&gt;--%>
+            <%--</div>--%>
         </section>
         <section id="sect-tech-taskmap"class="task_map technical">
             <div class="task_map_header">
                 <div class="task_map_title">Technical</div>
                 <div class="task_map_icon">
-                    <img src="image/Technical.png">
+                    <img src="/assets/images/Technical.png">
                 </div>
             </div>
-            <div id="taskcard-tech1" class="task_card">
-                <div class="mark_in_progress">Task in Progress</div>
-                <img src="image/sample.jpg" alt="" class="img_unclicked" value="NOT_ACCEPTED"/>
-            </div>
-            <div id="taskcard-tech2" class="task_card">
-                <div class="mark_in_progress">Task in Progress</div>
-                <img src="image/sample.jpg" alt="" class="img_unclicked" value="NOT_ACCEPTED"/>
-            </div>
+            <c:forEach items="${tasks}" var="task">
+                <c:if test="${task.getType().equals('tech')}">
+                    <div class="task_card">
+                        <div class="mark_in_progress">In Progress</div>
+                        <img src="/assets/images/sample.jpg" class="img_unclicked" value="NOT_ACCEPTED">
+                    </div>
+                </c:if>
+            </c:forEach>
+            <%--<div id="taskcard-tech1" class="task_card">--%>
+                <%--<div class="mark_in_progress">Task in Progress</div>--%>
+                <%--&lt;%&ndash;<img src="image/sample.jpg" alt="" class="img_unclicked" value="NOT_ACCEPTED"/>&ndash;%&gt;--%>
+            <%--</div>--%>
+            <%--<div id="taskcard-tech2" class="task_card">--%>
+                <%--<div class="mark_in_progress">Task in Progress</div>--%>
+                <%--&lt;%&ndash;<img src="image/sample.jpg" alt="" class="img_unclicked" value="NOT_ACCEPTED"/>&ndash;%&gt;--%>
+            <%--</div>--%>
         </section>
         <section id="sect-process-taskmap" class="task_map process">
             <div class="task_map_header">
                 <div class="task_map_title">Process</div>
                 <div class="task_map_icon">
-                    <img src="image/process.png">
+                    <img src="/assets/images/process.png">
                 </div>
             </div>
-            <div id="taskcard-progress1" class="task_card">
-                <div class="mark_in_progress">Task in Progress</div>
-                <img src="image/jiukun.jpg" alt="" class="img_unclicked" value="NOT_ACCEPTED"/>
-            </div>
-            <div id="taskcard-progress2" class="task_card">
-                <div class="mark_in_progress">Task in Progress</div>
-                <img src="image/jiukun.jpg" alt="" class="img_unclicked" value="NOT_ACCEPTED"/>
-            </div>
+            <c:forEach items="${tasks}" var="task">
+                <c:if test="${task.getType().equals('process')}">
+                    <div class="task_card">
+                        <div class="mark_in_progress">In Progress</div>
+                        <img src="/assets/images/jiukun.jpg" class="img_unclicked" value="NOT_ACCEPTED">
+                    </div>
+                </c:if>
+            </c:forEach>
+            <%--<div id="taskcard-progress1" class="task_card">--%>
+                <%--<div class="mark_in_progress">Task in Progress</div>--%>
+                <%--&lt;%&ndash;<img src="image/jiukun.jpg" alt="" class="img_unclicked" value="NOT_ACCEPTED"/>&ndash;%&gt;--%>
+            <%--</div>--%>
+            <%--<div id="taskcard-progress2" class="task_card">--%>
+                <%--<div class="mark_in_progress">Task in Progress</div>--%>
+                <%--&lt;%&ndash;<img src="image/jiukun.jpg" alt="" class="img_unclicked" value="NOT_ACCEPTED"/>&ndash;%&gt;--%>
+            <%--</div>--%>
         </section>
         <section id="sec-comm-taskmap" class="task_map communication">
             <div class="task_map_header">
                 <div class="task_map_title">Communication</div>
                 <div class="task_map_icon">
-                    <img src="image/Communication.png">
+                    <img src="/assets/images/Communication.png">
                 </div>
             </div>
-            <div id="taskcard-comm1" class="task_card">
-                <div class="mark_in_progress">Task in Progress</div>
-                <img src="image/sample.jpg" alt="" class="img_unclicked" value="NOT_ACCEPTED"/>
-            </div>
-            <div id="taskcard-comm2" class="task_card">
-                <div class="mark_in_progress">Task in Progress</div>
-                <img src="image/sample.jpg" alt="" class="img_unclicked" value="NOT_ACCEPTED"/>
-            </div>
+            <c:forEach items="${tasks}" var="task">
+                <c:if test="${task.getType().equals('comm')}">
+                    <div class="task_card">
+                        <div class="mark_in_progress">In Progress</div>
+                        <img src="/assets/images/sample.jpg" class="img_unclicked" value="NOT_ACCEPTED">
+                    </div>
+                </c:if>
+            </c:forEach>
+            <%--<div id="taskcard-comm1" class="task_card">--%>
+                <%--<div class="mark_in_progress">Task in Progress</div>--%>
+                <%--&lt;%&ndash;<img src="image/sample.jpg" alt="" class="img_unclicked" value="NOT_ACCEPTED"/>&ndash;%&gt;--%>
+            <%--</div>--%>
+            <%--<div id="taskcard-comm2" class="task_card">--%>
+                <%--<div class="mark_in_progress">Task in Progress</div>--%>
+                <%--&lt;%&ndash;<img src="image/sample.jpg" alt="" class="img_unclicked" value="NOT_ACCEPTED"/>&ndash;%&gt;--%>
+            <%--</div>--%>
         </section>
     </section>
 
     <div class="footer"></div>
+    <script type="text/javascript" src="/assets/scripts/libs/jquery-2.1.3.js"></script>
+    <script type="text/javascript" src="/assets/scripts/page-init.js"></script>
+    <script type="text/javascript" src="/assets/scripts/task-maps.js"></script>
+    <script type="text/javascript" src="/assets/scripts/lightbox.js"></script>
 </body>
 </html>
