@@ -48,11 +48,12 @@ public class LoginController {
         }else {
             httpSession.setAttribute("userId", user.getId());
         }
-
         List<Task> tasks = taskService.findTask();
+        model.addAttribute("process", taskService.getProcessTask(tasks, user));
+        model.addAttribute("client", taskService.getClientTask(tasks, user));
+        model.addAttribute("tech", taskService.getTechTask(tasks, user));
+        model.addAttribute("comm", taskService.getCommTask(tasks, user));
         model.addAttribute("user", user);
-        model.addAttribute("tasks", tasks);
-        model.addAttribute("test", user.getId());
         return "main-page";
     }
 }
