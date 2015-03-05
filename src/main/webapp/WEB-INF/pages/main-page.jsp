@@ -44,7 +44,7 @@
             <img src="/assets/images/sample.jpg" alt="" class="img_avatar"/>
         </div>
         <div id="info-profile" class="profile">
-            <p>Name: ${user.getId()}</p>
+            <p>Name: ${user.getEmail()}</p>
             <ul>Honors:<br>
                 <li>FIRST BLOOD!</li>
                 <li>DOUBLE KILL!!</li>
@@ -85,17 +85,16 @@
             <c:forEach items="${client}" var="clientTask">
                 <div class="task_card">
                     <div class="mark_in_progress">In Progress</div>
-                        <c:choose>
-                            <c:when test="${clientTask.getTask().getGuard().equals('Qiu Juntao')}">
-                                <img src="/assets/images/sample.jpg" class="img_unclicked" value="NOT_ACCEPTED">
-                            </c:when>
-                            <c:otherwise>
-                                <img src="/assets/images/jiukun.jpg" class="img_unclicked" value="NOT_ACCEPTED">
-                            </c:otherwise>
-                        </c:choose>
-
+                    <c:choose>
+                        <c:when test="${clientTask.getTask().getGuard().equals('Qiu Juntao')}">
+                            <img src="/assets/images/sample.jpg" class="img_unclicked" value="NOT_ACCEPTED">
+                        </c:when>
+                        <c:otherwise>
+                            <img src="/assets/images/jiukun.jpg" class="img_unclicked" value="NOT_ACCEPTED">
+                        </c:otherwise>
+                    </c:choose>
                     <c:if test="${clientTask.getStatus().equals('inProcess')}">
-                        <%--<script>&lt;%&ndash;change task status&ndash;%&gt;</script>--%>
+                        <script><%--change task status--%></script>
                     </c:if>
                 </div>
             </c:forEach>
