@@ -54,9 +54,22 @@
         </div>
         <div id="info-tasks-accepted" value="0" class="tasks_accepted">
             <!-- <span id="count-tasks-accepted" style="display: none" value="0"></span> -->
-            <div class="accepted_task"></div>
-            <div class="accepted_task"></div>
-            <div class="accepted_task"></div>
+            <c:forEach items="${user.getInProcess()}" var="taskInProgress">
+                <div class="accepted_task">
+                    <c:choose>
+                        <c:when test="${taskInProgress.getGuard().equals('Zhang Jiukun')}">
+                            <img src="/assets/images/jiukun.jpg" class="img_task_accepted">
+                        </c:when>
+                        <c:when test="${taskInProgress.getGuard().equals('Qiu Juntao')}">
+                            <img src="/assets/images/sample.jpg" class="img_task_accepted">
+                        </c:when>
+                    </c:choose>
+                    <%--<img src="/assets/images/${taskInProgress.getGuard()}.jpg" class="img_task_accepted">--%>
+                </div>
+            </c:forEach>
+            <%--<div class="accepted_task"></div>--%>
+            <%--<div class="accepted_task"></div>--%>
+            <%--<div class="accepted_task"></div>--%>
         </div>
     </section>
 
