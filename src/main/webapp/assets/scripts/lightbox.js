@@ -1,5 +1,26 @@
 var lightbox = {
 
+    completeAccept: function(taskCard) {
+        var i;
+        var accepted_tasks = $(".accepted_task");
+        var imgUrl = $(taskCard).children("img").attr("src");
+
+        $("#sect-light-box").fadeOut("slow");
+        $("#light-box-bg").fadeOut("slow");
+
+        $(taskCard).children(".mark_in_progress").show();
+        $(taskCard).css("background-color", "#333");
+        for (i = 0; i < 3; i++) {
+            if (i === accepted_tasks.length) {
+                $("#info-tasks-accepted").append('<div class="accepted_task"><img src="'+ imgUrl +'" alt="" class="img_task_accepted"/></div>');
+                countTasksAccepted = '' + (i + 1);
+                $("#info-tasks-accepted").attr("value", ""+ (i + 1) );
+                $(taskCard).children("img").attr("value", "ACCEPTED");
+                break;
+            };
+        }
+    },
+
 	openLightbox: function(taskMapImg) {
 		var yButton = $("#btn-lightbox-accept");
 		var nButton = $("#btn-lightbox-back");
@@ -18,24 +39,12 @@ var lightbox = {
         };
 
         yButton.bind("click", taskMapImg, function(image){
-        	var accepted_tasks = $(".accepted_task");
-        	var i;
-        	var imgUrl = $(image.data).attr("src");
+            var taskId = $(image.data).parent().attr("id");
+            var requestUrl = "/task/accepted/" + taskId;
 	        image.preventDefault();
-	        $("#sect-light-box").fadeOut("slow");
-	        $("#light-box-bg").fadeOut("slow");
 
-	        $(image.data).siblings(".mark_in_progress").show();
-	        $(image.data).parent().css("background-color", "#333");
-	        for (i = 0; i < 3; i++) {
-	        	if (i === accepted_tasks.length) {
-	        		$("#info-tasks-accepted").append('<div class="accepted_task"><img src="'+ imgUrl +'" alt="" class="img_task_accepted"/></div>');
-	        		countTasksAccepted = '' + (i + 1);
-	        		$("#info-tasks-accepted").attr("value", ""+ (i + 1) );
-	        		$(image.data).attr("value", "ACCEPTED");
-	        		break;
-	        	};
-	        }
+            $.post(requestUrl, lightbox.completeAccept($(image.data).parent()));
+
 	        $(this).unbind();
 	    });
 

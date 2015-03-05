@@ -53,23 +53,7 @@
             </ul>
         </div>
         <div id="info-tasks-accepted" value="0" class="tasks_accepted">
-            <!-- <span id="count-tasks-accepted" style="display: none" value="0"></span> -->
-            <c:forEach items="${user.getInProcess()}" var="taskInProgress">
-                <div class="accepted_task">
-                    <c:choose>
-                        <c:when test="${taskInProgress.getGuard().equals('Zhang Jiukun')}">
-                            <img src="/assets/images/jiukun.jpg" class="img_task_accepted">
-                        </c:when>
-                        <c:when test="${taskInProgress.getGuard().equals('Qiu Juntao')}">
-                            <img src="/assets/images/sample.jpg" class="img_task_accepted">
-                        </c:when>
-                    </c:choose>
-                    <%--<img src="/assets/images/${taskInProgress.getGuard()}.jpg" class="img_task_accepted">--%>
-                </div>
-            </c:forEach>
-            <%--<div class="accepted_task"></div>--%>
-            <%--<div class="accepted_task"></div>--%>
-            <%--<div class="accepted_task"></div>--%>
+            <%@include file="/assets/parts/accepted-tasks.jsp" %>
         </div>
     </section>
 
@@ -82,31 +66,9 @@
                     <img src="/assets/images/client.png">
                 </div>
             </div>
-            <c:forEach items="${client}" var="clientTask">
-                <div class="task_card">
-                    <div class="mark_in_progress">In Progress</div>
-                    <c:choose>
-                        <c:when test="${clientTask.getTask().getGuard().equals('Qiu Juntao')}">
-                            <img src="/assets/images/sample.jpg" class="img_unclicked" value="NOT_ACCEPTED">
-                        </c:when>
-                        <c:otherwise>
-                            <img src="/assets/images/jiukun.jpg" class="img_unclicked" value="NOT_ACCEPTED">
-                        </c:otherwise>
-                    </c:choose>
-                    <c:if test="${clientTask.getStatus().equals('inProcess')}">
-                        <script><%--change task status--%></script>
-                    </c:if>
-                </div>
-            </c:forEach>
-            <%--<div id="taskcard-client1" class="task_card">--%>
-                <%--<div class="mark_in_progress">Task in Progress</div>--%>
-                <%--&lt;%&ndash;<img src="image/sample.jpg" alt="" class="img_unclicked" value="NOT_ACCEPTED"/>&ndash;%&gt;--%>
-            <%--</div>--%>
-            <%--<div id="taskcard-client2" class="task_card">--%>
-                <%--<div class="mark_in_progress">Task in Progress</div>--%>
-                <%--&lt;%&ndash;<img src="image/sample.jpg" alt="" class="img_unclicked"  value="NOT_ACCEPTED"/>&ndash;%&gt;--%>
-            <%--</div>--%>
+            <%@include file="/assets/parts/client-taskmap.jsp" %>
         </section>
+
         <section id="sect-tech-taskmap"class="task_map technical">
             <div class="task_map_header">
                 <div class="task_map_title">Technical</div>
@@ -114,32 +76,9 @@
                     <img src="/assets/images/Technical.png">
                 </div>
             </div>
-            <c:forEach items="${tech}" var="techTask">
-                <div class="task_card">
-                    <div class="mark_in_progress">In Progress</div>
-                    <c:choose>
-                        <c:when test="${techTask.getTask().getGuard().equals('Qiu Juntao')}">
-                            <img src="/assets/images/sample.jpg" class="img_unclicked" value="NOT_ACCEPTED">
-                        </c:when>
-                        <c:otherwise>
-                            <img src="/assets/images/jiukun.jpg" class="img_unclicked" value="NOT_ACCEPTED">
-                        </c:otherwise>
-                    </c:choose>
-
-                    <c:if test="${techTask.getStatus().equals('inProcess')}">
-                        <%--<script>&lt;%&ndash;change task status&ndash;%&gt;</script>--%>
-                    </c:if>
-                </div>
-            </c:forEach>
-            <%--<div id="taskcard-tech1" class="task_card">--%>
-                <%--<div class="mark_in_progress">Task in Progress</div>--%>
-                <%--&lt;%&ndash;<img src="image/sample.jpg" alt="" class="img_unclicked" value="NOT_ACCEPTED"/>&ndash;%&gt;--%>
-            <%--</div>--%>
-            <%--<div id="taskcard-tech2" class="task_card">--%>
-                <%--<div class="mark_in_progress">Task in Progress</div>--%>
-                <%--&lt;%&ndash;<img src="image/sample.jpg" alt="" class="img_unclicked" value="NOT_ACCEPTED"/>&ndash;%&gt;--%>
-            <%--</div>--%>
+            <%@include file="/assets/parts/tech-taskmap.jsp" %>
         </section>
+
         <section id="sect-process-taskmap" class="task_map process">
             <div class="task_map_header">
                 <div class="task_map_title">Process</div>
@@ -147,32 +86,9 @@
                     <img src="/assets/images/process.png">
                 </div>
             </div>
-            <c:forEach items="${process}" var="processTask">
-                <div class="task_card">
-                    <div class="mark_in_progress">In Progress</div>
-                    <c:choose>
-                        <c:when test="${processTask.getTask().getGuard().equals('Qiu Juntao')}">
-                            <img src="/assets/images/sample.jpg" class="img_unclicked" value="NOT_ACCEPTED">
-                        </c:when>
-                        <c:otherwise>
-                            <img src="/assets/images/jiukun.jpg" class="img_unclicked" value="NOT_ACCEPTED">
-                        </c:otherwise>
-                    </c:choose>
-
-                    <c:if test="${processTask.getStatus().equals('inProcess')}">
-                        <%--<script>&lt;%&ndash;change task status&ndash;%&gt;</script>--%>
-                    </c:if>
-                </div>
-            </c:forEach>
-            <%--<div id="taskcard-progress1" class="task_card">--%>
-                <%--<div class="mark_in_progress">Task in Progress</div>--%>
-                <%--&lt;%&ndash;<img src="image/jiukun.jpg" alt="" class="img_unclicked" value="NOT_ACCEPTED"/>&ndash;%&gt;--%>
-            <%--</div>--%>
-            <%--<div id="taskcard-progress2" class="task_card">--%>
-                <%--<div class="mark_in_progress">Task in Progress</div>--%>
-                <%--&lt;%&ndash;<img src="image/jiukun.jpg" alt="" class="img_unclicked" value="NOT_ACCEPTED"/>&ndash;%&gt;--%>
-            <%--</div>--%>
+            <%@include file="/assets/parts/process-taskmap.jsp" %>
         </section>
+
         <section id="sec-comm-taskmap" class="task_map communication">
             <div class="task_map_header">
                 <div class="task_map_title">Communication</div>
@@ -180,32 +96,9 @@
                     <img src="/assets/images/Communication.png">
                 </div>
             </div>
-            <c:forEach items="${comm}" var="commTask">
-                <div class="task_card">
-                    <div class="mark_in_progress">In Progress</div>
-                    <c:choose>
-                        <c:when test="${commTask.getTask().getGuard().equals('Qiu Juntao')}">
-                            <img src="/assets/images/sample.jpg" class="img_unclicked" value="NOT_ACCEPTED">
-                        </c:when>
-                        <c:otherwise>
-                            <img src="/assets/images/jiukun.jpg" class="img_unclicked" value="NOT_ACCEPTED">
-                        </c:otherwise>
-                    </c:choose>
-
-                    <c:if test="${commTask.getStatus().equals('inProcess')}">
-                        <%--<script>&lt;%&ndash;change task status&ndash;%&gt;</script>--%>
-                    </c:if>
-                </div>
-            </c:forEach>
-            <%--<div id="taskcard-comm1" class="task_card">--%>
-                <%--<div class="mark_in_progress">Task in Progress</div>--%>
-                <%--&lt;%&ndash;<img src="image/sample.jpg" alt="" class="img_unclicked" value="NOT_ACCEPTED"/>&ndash;%&gt;--%>
-            <%--</div>--%>
-            <%--<div id="taskcard-comm2" class="task_card">--%>
-                <%--<div class="mark_in_progress">Task in Progress</div>--%>
-                <%--&lt;%&ndash;<img src="image/sample.jpg" alt="" class="img_unclicked" value="NOT_ACCEPTED"/>&ndash;%&gt;--%>
-            <%--</div>--%>
+            <%@include file="/assets/parts/comm-taskmap.jsp" %>
         </section>
+
     </section>
 
     <div class="footer"></div>
