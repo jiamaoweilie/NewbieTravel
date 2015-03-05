@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -30,5 +31,14 @@ public class UserRepository {
         Query query = new Query();
         query.addCriteria(new Criteria("email").is(email));
         return mongoTemplate.find(query, User.class);
+    }
+
+    public void updateUser(User user) {
+        Query query = new Query();
+        query.addCriteria(new Criteria("id").is(user.getId()));
+        Update update = new Update();
+        update.set("inProcess", user.getInProcess());
+        update.set("finished", user.getFinished());
+        this.mongoTemplate.updateFirst(query, update, User.class);
     }
 }

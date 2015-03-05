@@ -6,20 +6,12 @@ import com.thoughtworks.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
     UserRepository userRepository;
-    @Override
-    public void login(String email) {
-        if(userRepository.findByEmail(email) == null) {
-            User user = new User(UUID.randomUUID().toString(), email);
-            userRepository.addUser(user);
-        }
-    }
-
     @Override
     public User findById(String id) {
         return userRepository.findById(id);
@@ -27,6 +19,20 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findByEmail(String email) {
-        return userRepository.findByEmail(email).get(0);
+        List<User> userList = userRepository.findByEmail(email);
+        if(!userList.isEmpty()) {
+            return userList.get(0);
+        }
+        return null;
+    }
+
+    @Override
+    public void createUser(User user) {
+        userRepository.addUser(user);
+    }
+
+    @Override
+    public void updateUser(User user) {
+        userRepository.updateUser(user);
     }
 }

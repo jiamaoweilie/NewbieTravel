@@ -8,6 +8,7 @@
 <form class="form-login" method="post" role="form">
     <input type="text" name="email" placeholder="email address"/>
     <button class="login" type="submit">Log in</button>
+    <p>${error}</p>
 </form>
 
 
