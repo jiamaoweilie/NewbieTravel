@@ -17,13 +17,13 @@
             <c:when test="${techTask.getTask().getGuard().equals('Qiu Juntao')}">
                 <c:choose>
                     <c:when test="${techTask.getStatus().equals('finished')}">
-                        <img src="/assets/images/dashi_thumb.jpg" class="img_clicked" value="FINISHED">
+                        <img src="/assets/images/dashi_thumb1.jpg" class="img_clicked" value="FINISHED">
                     </c:when>
                     <c:when test="${techTask.getStatus().equals('inProcess')}">
                         <img src="/assets/images/dashi.jpg" class="img_unclicked" value="ACCEPTED">
                     </c:when>
                     <c:otherwise>
-                        <img src="/assets/images/dashi.jpg" class="img_unclicked" value="NOT_ACCEPTED">
+                        <img src="/assets/images/dashi_1.jpg" class="img_unclicked" value="NOT_ACCEPTED">
                     </c:otherwise>
                 </c:choose>
             </c:when>

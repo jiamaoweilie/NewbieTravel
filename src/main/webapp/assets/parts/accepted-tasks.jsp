@@ -12,7 +12,7 @@
     <c:if test="${clientTask.getStatus().equals('inProcess')}">
         <div class="accepted_task">
             <c:choose>
-                <c:when test="${clientTask.getTask().getGuard().equals('Chan Chan')}">
+                <c:when test="${clientTask.getTask().getGuard().equals('Yu Chanchan')}">
                     <img src="/assets/images/chanchan.jpg" class="img_task_accepted">
                 </c:when>
                 <c:when test="${clientTask.getTask().getGuard().equals('Qiu Juntao')}">

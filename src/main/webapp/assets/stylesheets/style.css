@@ -76,7 +76,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* line 5, ../sass/style.scss */
 html {
-    background-image: url("../images/backgroud2.jpg");
+    //background-image: url("../images/backgroud2.jpg");
 
     display: -webkit-flex;
   display: flex;
@@ -99,8 +99,8 @@ body {
   display: -webkit-flex;
   display: flex;
   position: absolute;
-  //background-image: url(../images/header.png);
-    background-color: #ff4a4a;
+  background-image: url(../images/header3.jpg);
+   // background-color: #89b77f;
   background-size: 100% 100%;
   width: 100%;
   height: 298px;
@@ -164,6 +164,7 @@ body {
   top: 361px;
   border: solid;
   border-color: #26bdcf;
+    background-color: white;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
@@ -251,6 +252,10 @@ body {
   position: relative;
   width: 30%;
   height: 95%;
+    /*border: solid white;*/
+    /*-moz-border-radius: 5%;*/
+    /*-webkit-border-radius: 5%;*/
+    /*border-radius: 5%;*/
   -webkit-justify-content: center;
   justify-content: center;
   overflow: hidden;
@@ -261,14 +266,18 @@ body {
   position: relative;
   max-width: 100%;
   height: 100%;
+
 }
 
 /* line 176, ../sass/style.scss */
 .task_maps {
   position: relative;
   top: 28%;
-  padding-bottom: 10%;
+    padding-top: 3%;
+  padding-bottom: 7%;
   height: 48.6%;
+   // background-image: url("../images/xpic6864.jpg");
+    //background-color: white;
   display: -webkit-flex;
   display: flex;
   -webkit-flex-wrap: wrap;
@@ -279,34 +288,41 @@ body {
 /* line 191, ../sass/style.scss */
 .task_maps .client {
   color: #f78f31;
+    background-color: white;
 }
 /* line 193, ../sass/style.scss */
 .task_maps .client .task_card {
-  background-color: #f78f31;
+  //background-color: #f78f31;
 }
 /* line 197, ../sass/style.scss */
 .task_maps .technical {
   color: #89b77f;
+    background-color: white;
+
 }
 /* line 199, ../sass/style.scss */
 .task_maps .technical .task_card {
-  background-color: #89b77f;
+  //background-color: #89b77f;
 }
 /* line 203, ../sass/style.scss */
 .task_maps .process {
   color: #26bdcf;
+    background-color: white;
+
 }
 /* line 205, ../sass/style.scss */
 .task_maps .process .task_card {
-  background-color: #26bdcf;
+  //background-color: #26bdcf;
 }
 /* line 209, ../sass/style.scss */
 .task_maps .communication {
   color: #ef5ba1;
+    background-color: white;
+
 }
 /* line 211, ../sass/style.scss */
 .task_maps .communication .task_card {
-  background-color: #ef5ba1;
+  //background-color: #ef5ba1;
 }
 /* line 216, ../sass/style.scss */
 .task_maps .task_map {
@@ -396,7 +412,7 @@ body {
 .task_maps .task_map .task_card .img_unclicked {
   max-width: 100%;
   min-height: 100%;
-  opacity: 0.4;
+  //opacity: 0.4;
   background-color: white;
   -webkit-filter: gray;
   filter: gray;
@@ -418,10 +434,10 @@ body {
   height: 576px;
   border: dashed;
   border-color: #26bdcf;
-  background-color: white;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
+  background-color: #26bdcf;
+  /*-moz-border-radius: 5px;*/
+  /*-webkit-border-radius: 5px;*/
+  /*border-radius: 5px;*/
   padding: 5%;
   position: fixed;
   z-index: 1001;
@@ -445,7 +461,7 @@ body {
   font-size: 35px;
   //line-height: 200%;
   text-align: left;
-  color: #26bdcf;
+  color: #ffffff;
 }
 /* line 352, ../sass/style.scss */
 .light_box #lb-task-img {
@@ -466,9 +482,9 @@ body {
   position: absolute;
   -webkit-flex: 1 0;
   flex: 1 0;
-  max-width: 100%;
-  //width: 60%;
-  min-height: 100%;
+  //max-width: 100%;
+  width: 100%;
+  min-height: 50%;
     z-index: 2000;
 }
 /* line 368, ../sass/style.scss */
@@ -482,7 +498,7 @@ body {
   background-color: white;
     font-family: Arial, Helvetica, sans-serif;
   font-size: 30px;
-  color: #26bdcf;
+  color: #ffffff;
   text-align: left;
 }
 
@@ -503,24 +519,24 @@ body {
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 10%;
+  height: 15%;
 }
 /* line 387, ../sass/style.scss */
 .light_box #lb-buttons .btn_lightbox {
   display: box;
   position: relative;
-  -webkit-flex: 1 0;
-  flex: 1 0;
-  width: 20%;
+  //-webkit-flex: 1 0;
+  //flex: 1 0;
+  width: 15%;
   height: 100%;
 }
 
 .light_box #lb-buttons .btn_lightbox #tn-lightbox-accept {
-    background-image: url("../images/lb_btn_y.jpg");
+   // background-image: url("../images/lb_btn_y.jpg");
 }
 
 .light_box #lb-buttons .btn_lightbox #tn-lightbox-back {
-    background-image: url("../images/lb_btn_n.jpg");
+    //background-image: url("../images/lb_btn_n.jpg");
 }
 
 /* line 398, ../sass/style.scss */
@@ -538,7 +554,7 @@ body {
 
 /* line 410, ../sass/style.scss */
 .footer {
-  background-image: url(../images/footer.png);
+  background-image: url(../images/footer3.jpg);
   background-size: 100% 100%;
   position: absolute;
   top: 1224px;

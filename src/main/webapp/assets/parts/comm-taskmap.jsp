@@ -23,7 +23,7 @@
                         <img src="/assets/images/jiawei.jpg" class="img_unclicked" value="ACCEPTED">
                     </c:when>
                     <c:otherwise>
-                        <img src="/assets/images/jiawei.jpg" class="img_unclicked" value="NOT_ACCEPTED">
+                        <img src="/assets/images/jiawei_1.jpg" class="img_unclicked" value="NOT_ACCEPTED">
                     </c:otherwise>
                 </c:choose>
             </c:when>

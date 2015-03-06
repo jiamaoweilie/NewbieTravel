@@ -24,15 +24,15 @@
         <div id="" class="lb_task_id"></div>
         <div id="lb-task-type"></div>
         <div id="lb-task-img">
-            <img src="/assets/images/master.jpeg" alt="" class="img_lightbox">
+            <img src="/assets/images/example_avatar.jpg" alt="" class="img_lightbox">
         </div>
         <div id="lb-task-description">
             打倒肉山大魔王指日可待
         </div>
         <br>
         <div id="lb-buttons" class="lightbox_button_box">
-            <input src="/assets/images/lb_btn_y.jpg" type="button" id="btn-lightbox-accept" value="Accept" class="btn_lightbox">
-            <input src="/assets/images/lb_btn_y.jpg" type="button" id="btn-lightbox-back" value="Back" class="btn_lightbox">
+            <img src="/assets/images/lb_btn_y.jpg" id="btn-lightbox-accept" value="Accept" class="btn_lightbox">
+            <img src="/assets/images/lb_btn_n.jpg" id="btn-lightbox-back" value="Back" class="btn_lightbox">
         </div>
     </section>
     <div id="light-box-bg"></div>
@@ -45,7 +45,7 @@
             <img src="/assets/images/example_avatar.jpg" alt="" class="img_avatar"/>
         </div>
         <div id="info-profile" class="profile">
-            <p>Name: ${user.getEmail()}</p>
+            <p>Name: <br>${user.getEmail()}</p>
             <ul>Honors:<br>
                 <li>Client Tasks Clear</li>
                 <li>Tech Tasks Clear</li>
