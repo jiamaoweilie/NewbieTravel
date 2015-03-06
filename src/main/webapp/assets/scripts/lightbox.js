@@ -21,20 +21,34 @@ var lightbox = {
         }
     },
 
-	openLightbox: function(taskMapImg) {
-		var yButton = $("#btn-lightbox-accept");
-		var nButton = $("#btn-lightbox-back");
-		var countTasksAccepted = $("#info-tasks-accepted").attr("value");
-		var isAccepted = $(taskMapImg).attr("value");
+    buildLightbox: function(taskMapImg) {
+        var taskId = $(taskMapImg).parent().attr("id");
+        var taskName = $(taskMapImg).parent().attr("value");
+        var taskGuard = $(taskMapImg).siblings("#task-guard-" + taskId).attr("value");
+        var taskContent = $(taskMapImg).siblings("#task-content-" + taskId).attr("value");
 
-		$("#lb-task-type").html($(taskMapImg).parent().parent().children(".task_map_header").children(".task_map_title").text());
+        $(".lb_task_id").attr("id", taskId);
+
+        $("#lb-task-type").html($(taskMapImg).parent().parent().children(".task_map_header").children(".task_map_title").text());
+        $("#lb-task-description").html("<p>Task Name: " + taskName +"</p><p>Task Description: " + taskContent + "</p><p>Guard: " + taskGuard + "</p>");
 
         $("#sect-light-box").fadeIn("slow");
         $("#light-box-bg").fadeIn("slow");
+    },
+
+	openLightbox: function(taskMapImg) {
+		var yButton = $("#btn-lightbox-accept");
+		var nButton = $("#btn-lightbox-back");
+		var countTasksAccepted = $("#info-tasks-accepted").children(".accepted_task").length;
+		var isAccepted = $(taskMapImg).attr("value");
+        var getReqUrl = "/detail/" + $(taskMapImg).attr("id");
+
+        lightbox.buildLightbox(taskMapImg);
+
         $(yButton).show();
         $(nButton).show();
 
-        if ( 'ACCEPTED' === isAccepted || '3' === countTasksAccepted) {
+        if ( 'ACCEPTED' === isAccepted || 3 === countTasksAccepted || 'FINISHED' === isAccepted) {
         	$(yButton).hide();
         };
 

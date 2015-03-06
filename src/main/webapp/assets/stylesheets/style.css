@@ -388,8 +388,8 @@ body {
 }
 /* line 306, ../sass/style.scss */
 .task_maps .task_map .task_card .img_clicked {
-  width: 100%;
-  height: 100%;
+    max-width: 100%;
+    min-height: 100%;
   opacity: 1.0;
   -webkit-flex: 1 0;
   flex: 1 0;

@@ -9,13 +9,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <c:forEach items="${tech}" var="techTask">
-    <div id="${techTask.getTask().getId()}" value="${techTask.getStatus()}" class="task_card">
+    <div id="${techTask.getTask().getId()}" value="${techTask.getTask().getName()}" class="task_card">
+        <div id="task-guard-${techTask.getTask().getId()}" value="${techTask.getTask().getGuard()}"></div>
+        <div id="task-content-${techTask.getTask().getId()}" value="${techTask.getTask().getContext()}"></div>
         <div class="mark_in_progress">In Progress</div>
         <c:choose>
             <c:when test="${techTask.getTask().getGuard().equals('Qiu Juntao')}">
                 <c:choose>
                     <c:when test="${techTask.getStatus().equals('finished')}">
-                        <img src="/assets/images/sample.jpg" class="img_clicked" value="NOT_ACCEPTED">
+                        <img src="/assets/images/sample.jpg" class="img_clicked" value="FINISHED">
+                    </c:when>
+                    <c:when test="${techTask.getStatus().equals('inProcess')}">
+                        <img src="/assets/images/sample.jpg" class="img_unclicked" value="ACCEPTED">
                     </c:when>
                     <c:otherwise>
                         <img src="/assets/images/sample.jpg" class="img_unclicked" value="NOT_ACCEPTED">
@@ -25,7 +30,10 @@
             <c:otherwise>
                 <c:choose>
                     <c:when test="${techTask.getStatus().equals('finished')}">
-                        <img src="/assets/images/jiukun_thumb.jpg" class="img_clicked" value="NOT_ACCEPTED">
+                        <img src="/assets/images/jiukun_thumb.jpg" class="img_clicked" value="FINISHED">
+                    </c:when>
+                    <c:when test="${techTask.getStatus().equals('inProcess')}">
+                        <img src="/assets/images/jiukun.jpg" class="img_unclicked" value="ACCEPTED">
                     </c:when>
                     <c:otherwise>
                         <img src="/assets/images/jiukun.jpg" class="img_unclicked" value="NOT_ACCEPTED">
@@ -33,11 +41,5 @@
                 </c:choose>
             </c:otherwise>
         </c:choose>
-            <%--<c:if test="${techTask.getStatus().equals('inProcess')}">--%>
-            <%--<script type="text/javascript" src="/assets/scripts/libs/jquery-2.1.3.js">--%>
-            <%--$(this).siblings(".mark_in_progress").show();--%>
-            <%--$(this).parent().css("background-color", "#333");--%>
-            <%--</script>--%>
-            <%--</c:if>--%>
     </div>
 </c:forEach>

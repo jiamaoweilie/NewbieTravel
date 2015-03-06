@@ -21,6 +21,7 @@
 
     <!-- light box -->
     <section id="sect-light-box" class="light_box">
+        <div id="" class="lb_task_id"></div>
         <div id="lb-task-type"></div>
         <div id="lb-task-img">
             <img src="/assets/images/master.jpeg" alt="" class="img_lightbox">
@@ -46,15 +47,17 @@
         <div id="info-profile" class="profile">
             <p>Name: ${user.getEmail()}</p>
             <ul>Honors:<br>
-                <li>FIRST BLOOD!</li>
-                <li>DOUBLE KILL!!</li>
-                <li>TRIBLE KILL!!!</li>
-                <li>RAMPAGE!!!!!</li>
+                <li>Client Tasks Clear</li>
+                <li>Tech Tasks Clear</li>
+                <li>Process Tasks Clear</li>
+                <li>Comm Tasks Clear</li>
             </ul>
         </div>
+        <%--<c:set value="${user.getInProcess().length}" var="cnt-accepted" />--%>
         <div id="info-tasks-accepted" value="0" class="tasks_accepted">
             <%@include file="/assets/parts/accepted-tasks.jsp" %>
         </div>
+
     </section>
 
     <!-- task maps -->
