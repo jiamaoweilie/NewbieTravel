@@ -31,8 +31,8 @@
         </div>
         <br>
         <div id="lb-buttons" class="lightbox_button_box">
-            <input type="button" id="btn-lightbox-accept" value="Accept" class="btn_lightbox">
-            <input type="button" id="btn-lightbox-back" value="Back" class="btn_lightbox">
+            <input src="/assets/images/lb_btn_y.jpg" type="button" id="btn-lightbox-accept" value="Accept" class="btn_lightbox">
+            <input src="/assets/images/lb_btn_y.jpg" type="button" id="btn-lightbox-back" value="Back" class="btn_lightbox">
         </div>
     </section>
     <div id="light-box-bg"></div>
@@ -42,7 +42,7 @@
 
     <section id="sect-user-info" class="information">
         <div id="info-avatar" class="avatar">
-            <img src="/assets/images/sample.jpg" alt="" class="img_avatar"/>
+            <img src="/assets/images/example_avatar.jpg" alt="" class="img_avatar"/>
         </div>
         <div id="info-profile" class="profile">
             <p>Name: ${user.getEmail()}</p>
@@ -66,7 +66,7 @@
             <div class="task_map_header">
                 <div class="task_map_title">Client</div>
                 <div class="task_map_icon">
-                    <img src="/assets/images/client.png">
+                    <span class="icon-user"></span>
                 </div>
             </div>
             <%@include file="/assets/parts/client-taskmap.jsp" %>
@@ -76,7 +76,7 @@
             <div class="task_map_header">
                 <div class="task_map_title">Technical</div>
                 <div class="task_map_icon">
-                    <img src="/assets/images/Technical.png">
+                    <span class="icon-lab"></span>
                 </div>
             </div>
             <%@include file="/assets/parts/tech-taskmap.jsp" %>
@@ -86,7 +86,7 @@
             <div class="task_map_header">
                 <div class="task_map_title">Process</div>
                 <div class="task_map_icon">
-                    <img src="/assets/images/process.png">
+                    <span class="icon-shuffle"></span>
                 </div>
             </div>
             <%@include file="/assets/parts/process-taskmap.jsp" %>
@@ -96,7 +96,7 @@
             <div class="task_map_header">
                 <div class="task_map_title">Communication</div>
                 <div class="task_map_icon">
-                    <img src="/assets/images/Communication.png">
+                    <span class="icon-bubbles"></span>
                 </div>
             </div>
             <%@include file="/assets/parts/comm-taskmap.jsp" %>

@@ -30,7 +30,7 @@ var lightbox = {
         $(".lb_task_id").attr("id", taskId);
 
         $("#lb-task-type").html($(taskMapImg).parent().parent().children(".task_map_header").children(".task_map_title").text());
-        $("#lb-task-description").html("<p>Task Name: " + taskName +"</p><p>Task Description: " + taskContent + "</p><p>Guard: " + taskGuard + "</p>");
+        $("#lb-task-description").html("<div id='floating-placeholder' /><p>Task Name: " + taskName +"</p><br><p>Task Description: " + taskContent + "</p><br><p>Guard: " + taskGuard + "</p>");
 
         $("#sect-light-box").fadeIn("slow");
         $("#light-box-bg").fadeIn("slow");

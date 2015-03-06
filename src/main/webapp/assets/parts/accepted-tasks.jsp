@@ -12,11 +12,11 @@
     <c:if test="${clientTask.getStatus().equals('inProcess')}">
         <div class="accepted_task">
             <c:choose>
-                <c:when test="${clientTask.getTask().getGuard().equals('Zhang Jiukun')}">
-                    <img src="/assets/images/jiukun.jpg" class="img_task_accepted">
+                <c:when test="${clientTask.getTask().getGuard().equals('Chan Chan')}">
+                    <img src="/assets/images/chanchan.jpg" class="img_task_accepted">
                 </c:when>
                 <c:when test="${clientTask.getTask().getGuard().equals('Qiu Juntao')}">
-                    <img src="/assets/images/sample.jpg" class="img_task_accepted">
+                    <img src="/assets/images/dashi.jpg" class="img_task_accepted">
                 </c:when>
             </c:choose>
         </div>
@@ -30,7 +30,7 @@
                     <img src="/assets/images/jiukun.jpg" class="img_task_accepted">
                 </c:when>
                 <c:when test="${techTask.getTask().getGuard().equals('Qiu Juntao')}">
-                    <img src="/assets/images/sample.jpg" class="img_task_accepted">
+                    <img src="/assets/images/dashi.jpg" class="img_task_accepted">
                 </c:when>
             </c:choose>
         </div>
@@ -54,8 +54,8 @@
     <c:if test="${commTask.getStatus().equals('inProcess')}">
         <div class="accepted_task">
             <c:choose>
-                <c:when test="${commTask.getTask().getGuard().equals('Zhang Jiukun')}">
-                    <img src="/assets/images/jiukun.jpg" class="img_task_accepted">
+                <c:when test="${commTask.getTask().getGuard().equals('Jia Wei')}">
+                    <img src="/assets/images/jiawei.jpg" class="img_task_accepted">
                 </c:when>
                 <c:when test="${commTask.getTask().getGuard().equals('Qiu Juntao')}">
                     <img src="/assets/images/sample.jpg" class="img_task_accepted">
