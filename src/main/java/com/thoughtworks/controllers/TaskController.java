@@ -43,16 +43,7 @@ public class TaskController {
         model.addAttribute("message", "Successful add a task.");
         return "task";
     }
-
-    @RequestMapping(value = "/details/{id}", method = RequestMethod.GET)
-    public String showTaskDetails(@PathVariable("id") String taskId, Model model) {
-        if (!isTaskExist(taskId)) {
-            model.addAttribute("error", "We can not find this task.");
-        }
-        model.addAttribute("task", taskService.findTaskById(taskId));
-        return "light-box";
-    }
-
+    
     @RequestMapping(value = "/accepted/{id}", method = RequestMethod.POST)
     public String acceptTask(@PathVariable("id") String taskId, HttpSession httpSession, Model model) {
         String userId = (String) httpSession.getAttribute("userId");
