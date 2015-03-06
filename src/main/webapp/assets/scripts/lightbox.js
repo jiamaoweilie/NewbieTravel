@@ -33,8 +33,9 @@ var lightbox = {
 
         $(".lb_task_id").attr("id", taskId);
 
-        $("#lb-task-type").html($(taskMapImg).parent().parent().children(".task_map_header").children(".task_map_title").text());
-        $("#lb-task-description").html("<div id='floating-placeholder' /><p>Task Name: " + taskName +"</p><br><p>Task Description: " + taskContent + "</p><br><p>Guard: " + taskGuard + "</p>");
+        $("#lb-task-header").html($(taskMapImg).parent().parent().children(".task_map_header").children(".task_map_title").text());
+        $("#lb-task-content").html("<p>Task Name: " + taskName +"</p><br><p>Task Description: " + taskContent + "</p>");
+        $("#lb-task-guard").html("<p><b>Guard: </b>"+ taskGuard +"</p>");
 
         $("#sect-light-box").fadeIn("slow");
         $("#light-box-bg").fadeIn("slow");

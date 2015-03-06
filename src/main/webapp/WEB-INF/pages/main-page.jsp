@@ -22,17 +22,21 @@
     <!-- light box -->
     <section id="sect-light-box" class="light_box">
         <div id="" class="lb_task_id"></div>
-        <div id="lb-task-type"></div>
-        <div id="lb-task-img">
-            <img src="/assets/images/example_avatar.jpg" alt="" class="img_lightbox">
-        </div>
-        <div id="lb-task-description">
-            打倒肉山大魔王指日可待
-        </div>
-        <br>
-        <div id="lb-buttons" class="lightbox_button_box">
-            <img src="/assets/images/lb_btn_y.jpg" id="btn-lightbox-accept" value="Accept" class="btn_lightbox">
-            <img src="/assets/images/lb_btn_n.jpg" id="btn-lightbox-back" value="Back" class="btn_lightbox">
+        <div class="light_box_border">
+            <div id="lb-task-header"></div>
+            <div id="lb-task-description">
+                <div id="lb-task-content"></div>
+                <div id="lb-task-img">
+                    <img src="/assets/images/example_avatar.jpg" alt="" class="img_lightbox">
+                </div>
+            </div>
+            <div id="lb-task-footer">
+                <div id="lb-task-guard"></div>
+                <div id="lb-buttons" class="lightbox_button_box">
+                    <img src="/assets/images/lb_btn_y.jpg" id="btn-lightbox-accept" value="Accept" class="btn_lightbox">
+                    <img src="/assets/images/lb_btn_n.jpg" id="btn-lightbox-back" value="Back" class="btn_lightbox">
+                </div>
+            </div>
         </div>
     </section>
     <div id="light-box-bg"></div>
