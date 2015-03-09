@@ -19,6 +19,16 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Open-Sans-Bold';
+    src:url('../fonts/Open-Sans-Bold.ttf.woff') format('woff'),
+    url('../fonts/Open-Sans-Bold.ttf.svg#Open-Sans-Bold') format('svg'),
+    url('../fonts/Open-Sans-Bold.ttf.eot'),
+    url('../fonts/Open-Sans-Bold.ttf.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* line 5, ../../../.rvm/gems/ruby-2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -123,7 +133,7 @@ body {
     width: 90%;
     height: 20%;
     text-align: center;
-    font-family: open-sans-light;
+    font-family: open-sans-bold;
     font-size: 31px;
     font-weight: 900;
     letter-spacing: 0px;
@@ -235,7 +245,8 @@ body {
   -webkit-border-radius: 7px;
   border-radius: 7px;
   margin: 0.4%;
-  margin-top: 0.3%;
+  margin-top: auto;
+  margin-bottom: auto;
   margin-left: 0.8%;
   min-width: 45%;
   height: 95%;
@@ -368,7 +379,7 @@ body {
   padding-top: 4%;
   height: 12.5%;
   text-align: left;
-  font-family: "open-sans-light";
+  font-family: "open-sans-bold";
   font-size: 25px;
   font-weight: 900;
   font-variant: small-caps;
@@ -402,6 +413,7 @@ body {
   height: 20%;
   position: absolute;
   display: none;
+  font-family: open-sans-bold;
   font-size: 25px;
   color: inherit;
   text-align: center;
@@ -481,6 +493,7 @@ body {
 
 .light_box #lb-task-header #lb-task-type {
     font-weight: 900;
+    font-family: open-sans-bold;
 }
 
 .light_box #lb-task-header #lb-task-name {
@@ -507,15 +520,15 @@ body {
 }
 /* line 368, ../sass/style.scss */
 .light_box .light_box_border #lb-task-description {
-    -webkit-justify-content: center;
-    justify-content: center;
-    display: -webkit-flex;
-    display: flex;
-    position: relative;
+  -webkit-justify-content: center;
+  justify-content: center;
+  display: -webkit-flex;
+  display: flex;
+  position: relative;
   width: 100%;
   height: 65%;
   background-color: transparent;
-    font-family: open-sans-light;
+  font-family: open-sans-light;
   font-size: 30px;
   color: #ffffff;
   text-align: left;
