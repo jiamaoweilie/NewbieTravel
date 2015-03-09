@@ -38,9 +38,9 @@ var lightbox = {
         strHtmlTaskType = "<span id='lb-task-type'>" + $(taskMapImg).parent().parent().children(".task_map_header").children(".task_map_title").text() + ": </span>";
         strHtmlTaskTitle = "<span id='lb-task-name'>" + taskName + "</span>";
         $("#lb-task-header").html( strHtmlTaskType + strHtmlTaskTitle);
-        $("#lb-task-content").html("<p><b style='font-weight: 700; font-size: xx-large; font-family: open-sans-bold'>Task Description: </b><br/>" + taskContent +
-            "</p><br/><p><b style='font-weight: 700; font-family: open-sans-bold'>Link:</b> <a href='http://localhost:9090/login'>This is an example help link.</a></p>");
-        $("#lb-task-guard").html("<p><b style='font-weight: 700; font-size: xx-large; font-family: open-sans-bold'>Guard: </b><br><center>"+ taskGuard +"</center></p>");
+        $("#lb-task-content").html( taskContent +
+            "</p><br/><p><b style='font-weight: 900; font-family: open-sans'>Link: </b> <a href='www.thoughtworks.video.com' style='font-size: 20px'>www.thoughtworks.video.com</a></p>");
+        $("#lb-task-guard").html("<p><b style='font-weight: 900; font-size: xx-large; font-family: open-sans'>Guard: </b><br><center>"+ taskGuard +"</center></p>");
 
         $("#sect-light-box").fadeIn("slow");
         $("#light-box-bg").fadeIn("slow");
