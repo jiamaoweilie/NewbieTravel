@@ -200,7 +200,9 @@ body {
 /* line 117, ../sass/style.scss */
 #sect-user-info .profile {
   position: relative;
-  max-width: 20%;
+    /*-webkit-flex: 1 0;*/
+    /*flex: 1 0;*/
+  max-width: 30%;
     min-width: 16%;
   height: 100%;
   font-family: sans-serif;
