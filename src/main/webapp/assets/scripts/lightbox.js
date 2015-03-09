@@ -39,7 +39,7 @@ var lightbox = {
         strHtmlTaskTitle = "<span id='lb-task-name'>" + taskName + "</span>";
         $("#lb-task-header").html( strHtmlTaskType + strHtmlTaskTitle);
         $("#lb-task-content").html("<p><b style='font-weight: 700; font-size: xx-large'>Task Description: </b><br/>" + taskContent + "</p>");
-        $("#lb-task-guard").html("<p><b style='font-weight: 700; font-size: xx-large'>Guard: </b><br>"+ taskGuard +"</p>");
+        $("#lb-task-guard").html("<p><b style='font-weight: 700; font-size: xx-large'>Guard: </b><br><center>"+ taskGuard +"</center></p>");
 
         $("#sect-light-box").fadeIn("slow");
         $("#light-box-bg").fadeIn("slow");
