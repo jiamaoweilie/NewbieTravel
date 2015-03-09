@@ -110,8 +110,6 @@ html {
     display: flex;
     -webkit-justify-content: center;
     justify-content: center;
-    width: 956px;
-    height: 1288px;
 }
 
 /* line 11, ../sass/style.scss */
