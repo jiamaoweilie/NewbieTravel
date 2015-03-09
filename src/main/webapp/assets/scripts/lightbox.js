@@ -30,12 +30,16 @@ var lightbox = {
         var taskName = $(taskMapImg).parent().attr("value");
         var taskGuard = $(taskMapImg).siblings("#task-guard-" + taskId).attr("value");
         var taskContent = $(taskMapImg).siblings("#task-content-" + taskId).attr("value");
+        var strHtmlTaskType;
+        var strHtmlTaskTitle;
 
         $(".lb_task_id").attr("id", taskId);
 
-        $("#lb-task-header").html($(taskMapImg).parent().parent().children(".task_map_header").children(".task_map_title").text());
-        $("#lb-task-content").html("<p>Task Name: " + taskName +"</p><br><p>Task Description: " + taskContent + "</p>");
-        $("#lb-task-guard").html("<p><b>Guard: </b>"+ taskGuard +"</p>");
+        strHtmlTaskType = "<span id='lb-task-type'>" + $(taskMapImg).parent().parent().children(".task_map_header").children(".task_map_title").text() + ": </span>";
+        strHtmlTaskTitle = "<span id='lb-task-name'>" + taskName + "</span>";
+        $("#lb-task-header").html( strHtmlTaskType + strHtmlTaskTitle);
+        $("#lb-task-content").html("<p><b style='font-weight: 700; font-size: xx-large'>Task Description: </b><br/>" + taskContent + "</p>");
+        $("#lb-task-guard").html("<p><b style='font-weight: 700; font-size: xx-large'>Guard: </b><br>"+ taskGuard +"</p>");
 
         $("#sect-light-box").fadeIn("slow");
         $("#light-box-bg").fadeIn("slow");
