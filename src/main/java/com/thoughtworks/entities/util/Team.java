@@ -4,7 +4,7 @@ package com.thoughtworks.entities.util;
  * Created by wbzhao on 3/9/15.
  */
 public enum Team {
-    SWORDFISH(Constant.SWORDFISH), TERRACOTTA(Constant.TERRACOTTA), COMMON(Constant.TCOMMON);
+    SWORDFISH(Constant.SWORDFISH), TERRACOTTA(Constant.TERRACOTTA);
 
     private String tName;
 

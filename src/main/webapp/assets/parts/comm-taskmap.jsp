@@ -12,7 +12,7 @@
     <div id="${commTask.getTask().getId()}" value="${commTask.getTask().getName()}" class="task_card">
         <div id="task-guard-${commTask.getTask().getId()}" value="${commTask.getTask().getGuard()}"></div>
         <div id="task-content-${commTask.getTask().getId()}" value="${commTask.getTask().getContext()}"></div>
-        <div class="mark_in_progress">In Progress</div>
+        <div id="mark-comm" class="mark_in_progress communication">In Progress</div>
         <c:choose>
             <c:when test="${commTask.getTask().getGuard().equals('Jia Wei')}">
                 <c:choose>
@@ -23,7 +23,7 @@
                         <img src="/assets/images/jiawei.jpg" class="img_unclicked" value="ACCEPTED">
                     </c:when>
                     <c:otherwise>
-                        <img src="/assets/images/jiawei_1.jpg" class="img_unclicked" value="NOT_ACCEPTED">
+                        <img src="/assets/images/jiawei_card2.jpg" class="img_unclicked" value="NOT_ACCEPTED">
                     </c:otherwise>
                 </c:choose>
             </c:when>

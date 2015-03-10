@@ -1,6 +1,7 @@
 package com.thoughtworks.services.impl;
 
 import com.thoughtworks.entities.Task;
+import com.thoughtworks.entities.User;
 import com.thoughtworks.repositories.TaskRepository;
 import com.thoughtworks.services.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,8 @@ public class TaskServiceImpl implements TaskService {
     TaskRepository taskRepository;
 
     @Override
-    public List<Task> findTask() {
-        return taskRepository.findAll();
+    public List<Task> findTask(User user) {
+        return taskRepository.findAll(user);
     }
 
     @Override

@@ -25,12 +25,12 @@
     <c:if test="${isNewUser == true}">
         <p>For the first time login, you are asked to select your team and role, please:</p>
         <select name="team">
-            <option value="team_common">Not Assigned</option>
+            <%--<option value="team_common">Not Assigned</option>--%>
             <option value="team_swordfish">Swordfish</option>
             <option value="team_terracotta">Terracotta</option>
         </select>
         <select name="role">
-            <option value="role_common">Not Assigned</option>
+            <%--<option value="role_common">Not Assigned</option>--%>
             <option value="role_ba">BA</option>
             <option value="role_qa">QA</option>
             <option value="role_dev">Dev</option>

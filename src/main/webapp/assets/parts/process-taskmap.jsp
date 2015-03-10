@@ -12,7 +12,7 @@
     <div id="${processTask.getTask().getId()}" value="${processTask.getTask().getName()}" class="task_card">
         <div id="task-guard-${processTask.getTask().getId()}" value="${processTask.getTask().getGuard()}"></div>
         <div id="task-content-${processTask.getTask().getId()}" value="${processTask.getTask().getContext()}"></div>
-        <div class="mark_in_progress">In Progress</div>
+        <div id="mark-process" class="mark_in_progress process">In Progress</div>
         <c:choose>
             <c:when test="${processTask.getTask().getGuard().equals('Qiu Juntao')}">
                 <c:choose>

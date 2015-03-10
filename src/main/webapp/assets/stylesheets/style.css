@@ -309,8 +309,8 @@ body {
 }
 /* line 191, ../sass/style.scss */
 .task_maps .client {
-  color: #f78f31;
-  background-color: white;
+  color: #ffffff;
+  background-color: #f78f31;
 }
 /* line 193, ../sass/style.scss */
 .task_maps .client .task_card {
@@ -318,8 +318,8 @@ body {
 }
 /* line 197, ../sass/style.scss */
 .task_maps .technical {
-  color: #89b77f;
-  background-color: white;
+  color: #ffffff;
+  background-color: #89b77f;
 
 }
 /* line 199, ../sass/style.scss */
@@ -328,8 +328,8 @@ body {
 }
 /* line 203, ../sass/style.scss */
 .task_maps .process {
-  color: #26bdcf;
-  background-color: white;
+  color: #ffffff;
+  background-color: #26bdcf;
 }
 /* line 205, ../sass/style.scss */
 .task_maps .process .task_card {
@@ -337,8 +337,8 @@ body {
 }
 /* line 209, ../sass/style.scss */
 .task_maps .communication {
-  color: #ef5ba1;
-  background-color: white;
+  color: #ffffff;
+  background-color: #ef5ba1;
 }
 /* line 211, ../sass/style.scss */
 .task_maps .communication .task_card {
@@ -355,10 +355,10 @@ body {
   margin-bottom: 2.3%;
   width: 37.1%;
   height: 37.9%;
-  border: dashed;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
+  border: solid;
+  -moz-border-radius: 5%;
+  -webkit-border-radius: 5%;
+  border-radius: 5%;
   display: -webkit-flex;
   display: flex;
   -webkit-flex-wrap: wrap;
@@ -368,6 +368,8 @@ body {
   -webkit-justify-content: center;
   justify-content: center;
 }
+
+
 /* line 235, ../sass/style.scss */
 .task_maps .task_map .task_map_header {
   position: relative;
@@ -431,9 +433,30 @@ body {
   display: none;
   font-family: open-sans-bold;
   font-size: 25px;
-  color: inherit;
+  //color: inherit;
   text-align: center;
   z-index: 10;
+}
+#mark-client {
+    color: #f78f31;
+    background-color: transparent;
+}
+
+#mark-tech {
+    color: #89b77f;
+    background-color: transparent;
+}
+
+#mark-process {
+    color: #26bdcf;
+    background-color: transparent;
+
+}
+
+#mark-comm {
+    color: #ef5ba1;
+    background-color: transparent;
+
 }
 /* line 297, ../sass/style.scss */
 .task_maps .task_map .task_card .img_unclicked {

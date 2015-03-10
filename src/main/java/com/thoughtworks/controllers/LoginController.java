@@ -73,7 +73,7 @@ public class LoginController {
     private String doLogin(User user,
                            HttpSession httpSession,
                            Model model) {
-        List<Task> tasks = taskService.findTask();
+        List<Task> tasks = taskService.findTask(user);
         model.addAttribute("process", getProcessTask(tasks, user));
         model.addAttribute("client", getClientTask(tasks, user));
         model.addAttribute("tech", getTechTask(tasks, user));
