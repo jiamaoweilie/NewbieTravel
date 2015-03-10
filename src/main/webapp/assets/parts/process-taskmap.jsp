@@ -36,7 +36,7 @@
                         <img src="/assets/images/jiukun.jpg" class="img_unclicked" value="ACCEPTED">
                     </c:when>
                     <c:otherwise>
-                        <img src="/assets/images/jiukun_1.jpg" class="img_unclicked" value="NOT_ACCEPTED">
+                        <img src="/assets/images/jiukun_card2.jpg" class="img_unclicked" value="NOT_ACCEPTED">
                     </c:otherwise>
                 </c:choose>
             </c:otherwise>
