@@ -1,11 +1,16 @@
 package com.thoughtworks.entities;
 
+import com.thoughtworks.entities.util.Role;
+import com.thoughtworks.entities.util.Team;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import java.util.Set;
+
 @Entity
 public class Task {
     @Id
@@ -19,6 +24,12 @@ public class Task {
     String context;
     @NotEmpty
     String type;
+    @Column(name = "available_team")
+    @NotEmpty
+    private Set<Team> availableForTeam;
+    @Column(name = "available_team")
+    @NotEmpty
+    private Set<Role> availableForRole;
 
     public String getId() {
         return id;
@@ -58,5 +69,21 @@ public class Task {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public Set<Team> getAvailableForTeam() {
+        return availableForTeam;
+    }
+
+    public void setAvailableForTeam(Set<Team> availableForTeam) {
+        this.availableForTeam = availableForTeam;
+    }
+
+    public Set<Role> getAvailableForRole() {
+        return availableForRole;
+    }
+
+    public void setAvailableForRole(Set<Role> availableForRole) {
+        this.availableForRole = availableForRole;
     }
 }

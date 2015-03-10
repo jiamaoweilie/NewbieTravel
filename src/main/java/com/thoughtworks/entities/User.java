@@ -18,6 +18,30 @@ public class User {
     @NotNull
     private String email;
 
+//    private enum Team {swordfish, terracotta};
+//    @Column(name = "team")
+    private String team;
+
+//    private enum  Role {BA, QA, Dev};
+//    @Column(name = "role")
+    private String role;
+
+    public String getTeam() {
+        return this.team;
+    }
+
+    public void setTeam(String teamName) {
+        this.team = teamName;
+    }
+
+    public String getRole() {
+        return this.role;
+    }
+
+    public void setRole(String roleName) {
+        this.role = roleName;
+    }
+
     List<String> inProcess;
 
     List<String> finished;
@@ -25,7 +49,6 @@ public class User {
     public User(String email) {
         this.email = email;
     }
-
 
     public String getId() {
         return id;

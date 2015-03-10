@@ -34,6 +34,8 @@ public class LoginController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(
             @RequestParam(value = "email") String email,
+            @RequestParam(value = "team", required = false) String team,
+            @RequestParam(value = "role", required = false) String role,
             HttpSession httpSession,
             Model model) {
 
@@ -44,12 +46,33 @@ public class LoginController {
 
         User user = userService.findByEmail(email);
         if(null == user) {
+            if (null == team || null == role) {
+                model.addAttribute("isNewUser", true);
+                model.addAttribute("email", email);
+                return "login";
+            }
             user = new User(email);
+            user.setTeam(team);
+            user.setRole(role);
             userService.createUser(user);
             httpSession.setAttribute("userId", user.getId());
         }else {
+            if (null != team && (!team.equals(user.getTeam()))) {
+                model.addAttribute("error", "You chose a different Team with your previous setting.");
+                return "login";
+            }
+            if (null != role && (!role.equals(user.getRole()))) {
+                model.addAttribute("error", "You chose a different Role with your previous setting.");
+                return "login";
+            }
             httpSession.setAttribute("userId", user.getId());
         }
+        return doLogin(user, httpSession, model);
+    }
+
+    private String doLogin(User user,
+                           HttpSession httpSession,
+                           Model model) {
         List<Task> tasks = taskService.findTask();
         model.addAttribute("process", getProcessTask(tasks, user));
         model.addAttribute("client", getClientTask(tasks, user));
