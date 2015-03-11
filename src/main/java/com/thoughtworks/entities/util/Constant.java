@@ -12,4 +12,8 @@ public class Constant {
     public static String QA = "role_qa";
     public static String DEV = "role_dev";
     public static String RCOMMON = "role_common";
+
+    public static String GRAD = "level_grad";
+    public static String JUNIOR = "level_junior";
+    public static String SENIOR = "level_senior";
 }
