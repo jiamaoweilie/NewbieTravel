@@ -110,6 +110,7 @@ html {
     display: flex;
     -webkit-justify-content: center;
     justify-content: center;
+    background-color: #ffffff;
 }
 
 /* line 11, ../sass/style.scss */
