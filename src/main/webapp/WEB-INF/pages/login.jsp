@@ -43,38 +43,6 @@
                     <input id="radio-select-dev" type="radio" name="role" value="role_dev">DEV</radio>
                 </div>
             </div>
-            <div id="input-client-level">
-                <label for="client-level">Your Client Team: </label>
-                <select id="client-level" name="clientLevel">
-                    <option value="level-grad">Grad</option>
-                    <option value="level-junior">Junior</option>
-                    <option value="level-senior">Senior</option>
-                </select>
-            </div>
-            <div id="input-tech-level">
-                <label for="tech-level">Your Tech Team: </label>
-                <select id="tech-level" name="techLevel">
-                    <option value="level-grad">Grad</option>
-                    <option value="level-junior">Junior</option>
-                    <option value="level-senior">Senior</option>
-                </select>
-            </div>
-            <div id="input-process-level">
-                <label for="process-level">Your Process Team: </label>
-                <select id="process-level" name="processLevel">
-                    <option value="level-grad">Grad</option>
-                    <option value="level-junior">Junior</option>
-                    <option value="level-senior">Senior</option>
-                </select>
-            </div>
-            <div id="input-comm-level">
-                <label for="comm-level">Your communication Team: </label>
-                <select id="comm-level" name="commLevel">
-                    <option value="level-grad">Grad</option>
-                    <option value="level-junior">Junior</option>
-                    <option value="level-senior">Senior</option>
-                </select>
-            </div>
         </div>
     </c:if>
     <button id="btn-login" class="login" type="submit">Log in</button><br/>

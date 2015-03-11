@@ -13,4 +13,12 @@ public interface TaskService {
     void addTask(Task task);
 
     Task findTaskById(String taskId);
+
+    List<Task> findProcessTasks(User user);
+
+    List<Task> findClientTasks(User user);
+
+    List<Task> findTechTasks(User user);
+
+    List<Task> findCommTasks(User user);
 }
