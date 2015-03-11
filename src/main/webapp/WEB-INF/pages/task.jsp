@@ -9,8 +9,25 @@
     <input class="task-name" name="name" type="text" placeholder="name"/>
     <input class="task-guard" name="guard" type="text" placeholder="guard"/>
     <input class="task-context" name="context" type="text" placeholder="context"/>
+    <div id="task-type">
+        <label for="type-select">Task Type</label>
+        <select id="type-select" name="type">
+            <option value="client">Client</option>
+            <option value="tech">Technical</option>
+            <option value="process">Process</option>
+            <option value="comm">Communication</option>
+        </select>
+    </div>
+    <div id="task-level">
+        <label for="level-select">Task level</label>
+        <select id="level-select" name="level">
+            <option value="level_grad">Graduate</option>
+            <option value="level_junior">Junior</option>
+            <option value="level_senior">Senior</option>
+        </select>
+    </div>
     <br/>
-    <p><b>Available for Teams: </b></p>
+    <p>Available for Teams: </p>
     <input type="checkbox" name="available_team" id="available-team-swordfish" value="team_swordfish">
     <label for="available-team-swordfish">Swordfish</label>
     <input type="checkbox" name="available_team" id="available-team-terracotta" value="team_terracotta">
@@ -23,24 +40,6 @@
     <label for="available-role-qa">QA</label>
     <input type="checkbox" name="available_role" id="available-role-dev" value="role_dev">
     <label for="available-role-dev">DEV</label>
-    <br/>
-    <p><b>Set Task Level: </b></p>
-    <input type="radio" name="task_level" id="task-level-junior" value="level_junior">
-    <label for="task-level-junior">Junior</label>
-    <input type="radio" name="task_level" id="task-level-senior" value="level_senior">
-    <label for="task-level-senior">Senior</label>
-    <input type="radio" name="task_level" id="task-level-grad" value="level_grad">
-    <label for="task-level-grad">Grad</label>
-    <br/>
-    <div id="task-type">
-        <label for="type-select">Task Type</label>
-        <select id="type-select" name="type">
-            <option value="client">Client</option>
-            <option value="tech">Technical</option>
-            <option value="process">Process</option>
-            <option value="comm">Communication</option>
-        </select>
-    </div>
     <br/><br/>
     <button class="task-context" type="submit">Add Task</button>
     <p>${error}</p>
