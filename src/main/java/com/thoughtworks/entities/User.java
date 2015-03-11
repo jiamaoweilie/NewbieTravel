@@ -7,7 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.validation.constraints.NotNull;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Entity
 public class User {
@@ -17,29 +19,10 @@ public class User {
     @Email
     @NotNull
     private String email;
-
     private String team;
-
     private String role;
-
-    public String getTeam() {
-        return this.team;
-    }
-
-    public void setTeam(String team) {
-        this.team = team;
-    }
-
-    public String getRole() {
-        return this.role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
+    Map<String, String> levelDetails = new HashMap<String, String>();
     List<String> inProcess;
-
     List<String> finished;
 
     public User(String email) {
@@ -76,5 +59,29 @@ public class User {
 
     public void setFinished(List<String> finished) {
         this.finished = finished;
+    }
+
+    public String getTeam() {
+        return this.team;
+    }
+
+    public void setTeam(String team) {
+        this.team = team;
+    }
+
+    public String getRole() {
+        return this.role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public Map<String, String> getLevelDetails() {
+        return levelDetails;
+    }
+
+    public void setLevelDetails(Map<String, String> levelDetails) {
+        this.levelDetails = levelDetails;
     }
 }
