@@ -11,19 +11,28 @@
     <input class="task-context" name="context" type="text" placeholder="context"/>
     <input class="task-type" name="type" type="text" placeholder="type"/>
     <br/>
-    <p>Available for Teams: </p>
+    <p><b>Available for Teams: </b></p>
     <input type="checkbox" name="available_team" id="available-team-swordfish" value="team_swordfish">
     <label for="available-team-swordfish">Swordfish</label>
     <input type="checkbox" name="available_team" id="available-team-terracotta" value="team_terracotta">
     <label for="available-team-terracotta">Terracotta</label>
     <br/>
-    <p>Available for Roles: </p>
+    <p><b>Available for Roles: </b></p>
     <input type="checkbox" name="available_role" id="available-role-ba" value="role_ba">
     <label for="available-role-ba">BA</label>
     <input type="checkbox" name="available_role" id="available-role-qa" value="role_qa">
     <label for="available-role-qa">QA</label>
     <input type="checkbox" name="available_role" id="available-role-dev" value="role_dev">
     <label for="available-role-dev">DEV</label>
+    <br/>
+    <p><b>Set Task Level: </b></p>
+    <input type="radio" name="task_level" id="task-level-junior" value="level_junior">
+    <label for="task-level-junior">Junior</label>
+    <input type="radio" name="task_level" id="task-level-senior" value="level_senior">
+    <label for="task-level-senior">Senior</label>
+    <input type="radio" name="task_level" id="task-level-grad" value="level_grad">
+    <label for="task-level-grad">Grad</label>
+    <br/><br/>
     <button class="task-context" type="submit">Add Task</button>
     <p>${error}</p>
     <p>${message}</p>
