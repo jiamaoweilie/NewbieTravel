@@ -192,9 +192,9 @@ body {
   border: solid;
   border-color: #26bdcf;
     background-color: white;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
   padding: 0.5%;
   margin-left: 6%;
   margin-right: 6%;
@@ -355,10 +355,10 @@ body {
   margin-bottom: 2.3%;
   width: 37.1%;
   height: 37.9%;
-  border: solid;
-  -moz-border-radius: 5%;
-  -webkit-border-radius: 5%;
-  border-radius: 5%;
+  border: none;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
   display: -webkit-flex;
   display: flex;
   -webkit-flex-wrap: wrap;

@@ -55,6 +55,7 @@ public class LoginController {
             user.setTeam(team);
             user.setRole(role);
             userService.createUser(user);
+            model.addAttribute("showNewUserGuide", true);
             httpSession.setAttribute("userId", user.getId());
         }else {
             if (null != team && (!team.equals(user.getTeam()))) {

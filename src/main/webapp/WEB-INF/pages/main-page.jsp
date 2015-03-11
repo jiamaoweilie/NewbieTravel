@@ -10,6 +10,8 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <link href="/assets/stylesheets/style.css" type="text/css" rel="stylesheet" >
+    <link href="/assets/stylesheets/guideline.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="/assets/scripts/libs/jquery-2.1.3.js"></script>
 </head>
 <body>
     <div class="banner">
@@ -18,6 +20,9 @@
             <img src="/assets/images/tw_logo_white.png">
         </div>
     </div>
+
+    <!-- new user guideline -->
+    <%@include file="new-user-guide.jsp"%>
 
     <!-- light box -->
     <section id="sect-light-box" class="light_box">
@@ -109,7 +114,6 @@
     </section>
 
     <div class="footer"></div>
-    <script type="text/javascript" src="/assets/scripts/libs/jquery-2.1.3.js"></script>
     <script type="text/javascript" src="/assets/scripts/page-init.js"></script>
     <script type="text/javascript" src="/assets/scripts/task-maps.js"></script>
     <script type="text/javascript" src="/assets/scripts/lightbox.js"></script>
