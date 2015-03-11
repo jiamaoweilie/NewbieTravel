@@ -66,7 +66,7 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public List<Task> findCommTasks(User user) {
-        List<Task> tasks = taskRepository.findTaskByTypeAndLevel(TaskType.COMM, user.getLevelDetails().get(Constant.COMM));
+        List<Task> tasks = taskRepository.findTaskByTypeAndLevel(TaskType.COMM, user.getLevelDetails().get(TaskType.COMM));
         return filterTasksByTeamAndRole(user, tasks);
     }
 }

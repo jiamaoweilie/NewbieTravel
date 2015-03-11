@@ -28,7 +28,7 @@ public class LoginController {
     TaskService taskService;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String showLoginPage(){
+    public String showLoginPage() {
         return "login";
     }
 
@@ -40,13 +40,13 @@ public class LoginController {
             HttpSession httpSession,
             Model model) {
 
-        if(!EMAIL_PATTEN.matcher(email).matches()) {
+        if (!EMAIL_PATTEN.matcher(email).matches()) {
             model.addAttribute("error", "User email address is not valid.");
             return "login";
         }
 
         User user = userService.findByEmail(email);
-        if(null == user) {
+        if (null == user) {
             if (null == team || null == role) {
                 model.addAttribute("isNewUser", true);
                 model.addAttribute("email", email);
@@ -55,7 +55,7 @@ public class LoginController {
             user = createNewUser(email, team, role);
             model.addAttribute("showNewUserGuide", true);
             httpSession.setAttribute("userId", user.getId());
-        }else {
+        } else {
             if (null != team && (!team.equals(user.getTeam()))) {
                 model.addAttribute("error", "You chose a different Team with your previous setting.");
                 return "login";
@@ -103,13 +103,12 @@ public class LoginController {
     }
 
     private List<UserTaskForm> setTaskStatusForUser(List<Task> tasks, User user, String type) {
-        List<UserTaskForm> processTasks = new ArrayList<UserTaskForm>();
+        List<UserTaskForm> taskLists = new ArrayList<UserTaskForm>();
         for (Task task : tasks) {
-            if (type.equals(task.getType()))
-                processTasks.add(new UserTaskForm(task, ""));
+            taskLists.add(new UserTaskForm(task, ""));
         }
         if (user.getInProcess() != null) {
-            for (UserTaskForm taskForm : processTasks) {
+            for (UserTaskForm taskForm : taskLists) {
                 if (user.getInProcess().contains(taskForm.getTask().getId())) {
                     taskForm.setStatus("inProcess");
                 }
@@ -117,12 +116,12 @@ public class LoginController {
         }
 
         if (user.getFinished() != null) {
-            for (UserTaskForm taskForm : processTasks) {
+            for (UserTaskForm taskForm : taskLists) {
                 if (user.getFinished().contains(taskForm.getTask().getId())) {
                     taskForm.setStatus("finished");
                 }
             }
         }
-        return processTasks;
+        return taskLists;
     }
 }
