@@ -7,9 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.validation.constraints.NotNull;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Entity
 public class User {
@@ -24,6 +22,16 @@ public class User {
     Map<String, String> levelDetails = new HashMap<String, String>();
     List<String> inProcess;
     List<String> finished;
+
+    public Set<String> getAchievement() {
+        return achievement;
+    }
+
+    public void setAchievement(Set<String> achievement) {
+        this.achievement = achievement;
+    }
+
+    Set<String> achievement = new HashSet<String>();
 
     public User(String email) {
         this.email = email;

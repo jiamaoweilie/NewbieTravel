@@ -3,7 +3,7 @@ package com.thoughtworks.controllers;
 import com.thoughtworks.controllers.forms.UserTaskForm;
 import com.thoughtworks.entities.Task;
 import com.thoughtworks.entities.User;
-import com.thoughtworks.entities.util.Constant;
+import com.thoughtworks.entities.constants.TaskType;
 import com.thoughtworks.services.TaskService;
 import com.thoughtworks.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,6 +59,7 @@ public class LoginController {
                 return "login";
             }
             user = createNewUser(email, team, role, clientLevel, techLevel, processLevel, commLevel);
+//            user.setAchievment();
             model.addAttribute("showNewUserGuide", true);
             httpSession.setAttribute("userId", user.getId());
         }else {
@@ -78,10 +79,10 @@ public class LoginController {
     private User createNewUser(String email, String team, String role, String clientLevel, String techLevel, String processLevel, String commLevel) {
         User user;
         Map<String, String> levelDetails = new HashMap<String, String>();
-        levelDetails.put(Constant.CLIENT, clientLevel);
-        levelDetails.put(Constant.TECH, techLevel);
-        levelDetails.put(Constant.PROCESS, processLevel);
-        levelDetails.put(Constant.COMM, commLevel);
+        levelDetails.put(TaskType.CLIENT, clientLevel);
+        levelDetails.put(TaskType.TECH, techLevel);
+        levelDetails.put(TaskType.PROCESS, processLevel);
+        levelDetails.put(TaskType.COMM, commLevel);
         user = new User(email);
         user.setTeam(team);
         user.setRole(role);
@@ -93,31 +94,31 @@ public class LoginController {
     private String doLogin(User user,
                            Model model) {
         List<Task> tasks = taskService.findTaskForUser(user);
-        model.addAttribute("process", getProcessTask(tasks, user));
-        model.addAttribute("client", getClientTask(tasks, user));
-        model.addAttribute("tech", getTechTask(tasks, user));
-        model.addAttribute("comm", getCommTask(tasks, user));
+        model.addAttribute(TaskType.PROCESS, getProcessTask(tasks, user));
+        model.addAttribute(TaskType.CLIENT, getClientTask(tasks, user));
+        model.addAttribute(TaskType.TECH, getTechTask(tasks, user));
+        model.addAttribute(TaskType.COMM, getCommTask(tasks, user));
         model.addAttribute("user", user);
         return "main-page";
     }
 
     private List<UserTaskForm> getProcessTask(List<Task> tasks, User user) {
-        List<UserTaskForm> processTasks = getUserTaskForms(tasks, user, "process");
+        List<UserTaskForm> processTasks = getUserTaskForms(tasks, user, TaskType.PROCESS);
         return processTasks;
     }
 
     private List<UserTaskForm> getClientTask(List<Task> tasks, User user) {
-        List<UserTaskForm> techTasks = getUserTaskForms(tasks, user, "client");
+        List<UserTaskForm> techTasks = getUserTaskForms(tasks, user, TaskType.CLIENT);
         return techTasks;
     }
 
     public List<UserTaskForm> getTechTask(List<Task> tasks, User user) {
-        List<UserTaskForm> techTasks = getUserTaskForms(tasks, user, "tech");
+        List<UserTaskForm> techTasks = getUserTaskForms(tasks, user, TaskType.TECH);
         return techTasks;
     }
 
     private List<UserTaskForm> getCommTask(List<Task> tasks, User user) {
-        List<UserTaskForm> techTasks = getUserTaskForms(tasks, user, "comm");
+        List<UserTaskForm> techTasks = getUserTaskForms(tasks, user, TaskType.COMM);
         return techTasks;
     }
 

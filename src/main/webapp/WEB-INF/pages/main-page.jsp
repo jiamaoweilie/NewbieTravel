@@ -55,11 +55,14 @@
         </div>
         <div id="info-profile" class="profile">
             <p>Name: <br>${user.getEmail()}</p>
-            <ul>Honors:<br>
-                <li>Client Tasks Clear</li>
-                <li>Tech Tasks Clear</li>
-                <li>Process Tasks Clear</li>
-                <li>Comm Tasks Clear</li>
+            <ul>Achievements:<br>
+                <c:forEach items="${user.getAchievement()}" var="achievement">
+                    <li>${achievement}</li>
+                </c:forEach>
+                <%--<li>Client Tasks Clear</li>--%>
+                <%--<li>Tech Tasks Clear</li>--%>
+                <%--<li>Process Tasks Clear</li>--%>
+                <%--<li>Comm Tasks Clear</li>--%>
             </ul>
         </div>
         <%--<c:set value="${user.getInProcess().length}" var="cnt-accepted" />--%>

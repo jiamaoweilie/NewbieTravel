@@ -235,7 +235,7 @@ body {
   font-weight: 100;
   font-size: 15px;
   line-height: 120%;
-  letter-spacing: -1px;
+  /*letter-spacing: -1px;*/
   color: #f78f31;
 }
 /* line 130, ../sass/style.scss */
@@ -243,7 +243,7 @@ body {
   text-indent: 15px;
   font-size: 12px;
   line-height: 150%;
-  letter-space: -1px;
+  /*letter-space: 0px;*/
   font-weight: 100;
   font-variant: small-caps;
 }

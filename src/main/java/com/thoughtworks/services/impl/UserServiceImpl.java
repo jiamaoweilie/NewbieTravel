@@ -1,6 +1,7 @@
 package com.thoughtworks.services.impl;
 
 import com.thoughtworks.entities.User;
+import com.thoughtworks.entities.constants.Achievement;
 import com.thoughtworks.repositories.UserRepository;
 import com.thoughtworks.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void createUser(User user) {
+        user.getAchievement().add(Achievement.NEW_NEWBIE);
         userRepository.addUser(user);
     }
 
