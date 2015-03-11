@@ -9,8 +9,9 @@
     <input class="task-name" name="name" type="text" placeholder="name"/>
     <input class="task-guard" name="guard" type="text" placeholder="guard"/>
     <input class="task-context" name="context" type="text" placeholder="context"/>
+    <br/><br/>
     <div id="task-type">
-        <label for="type-select">Task Type</label>
+        <label for="type-select"><b>Task Type</b></label>
         <select id="type-select" name="type">
             <option value="client">Client</option>
             <option value="tech">Technical</option>
@@ -18,16 +19,16 @@
             <option value="comm">Communication</option>
         </select>
     </div>
+    <br/>
     <div id="task-level">
-        <label for="level-select">Task level</label>
+        <label for="level-select"><b>Task level</b></label>
         <select id="level-select" name="level">
             <option value="level_grad">Graduate</option>
             <option value="level_junior">Junior</option>
             <option value="level_senior">Senior</option>
         </select>
     </div>
-    <br/>
-    <p>Available for Teams: </p>
+    <p><b>Available for Teams: </b></p>
     <input type="checkbox" name="available_team" id="available-team-swordfish" value="team_swordfish">
     <label for="available-team-swordfish">Swordfish</label>
     <input type="checkbox" name="available_team" id="available-team-terracotta" value="team_terracotta">

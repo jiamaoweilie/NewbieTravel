@@ -33,6 +33,7 @@ public class TaskController {
     public String addTask(@Valid @ModelAttribute("task") Task task,
                           @RequestParam(value = "available_team") Set<String> availableTeam,
                           @RequestParam(value = "available_role") Set<String> availableRole,
+                          @RequestParam(value = "level") String level,
                           BindingResult result,
                           Model model) {
         if (result.hasErrors()) {
@@ -41,6 +42,7 @@ public class TaskController {
         }
         task.setAvailableForRole(availableRole);
         task.setAvailableForTeam(availableTeam);
+        task.setLevel(level);
         taskService.addTask(task);
         model.addAttribute("message", "Successful add a task.");
         return "task";
