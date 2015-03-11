@@ -7,6 +7,7 @@ import com.thoughtworks.services.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -15,8 +16,19 @@ public class TaskServiceImpl implements TaskService {
     TaskRepository taskRepository;
 
     @Override
-    public List<Task> findTask(User user) {
-        return taskRepository.findAll(user);
+    public List<Task> findTask() {
+        return taskRepository.findAll();
+    }
+
+    @Override
+    public List<Task> findTaskForUser(User user) {
+        List<Task> allTasks = taskRepository.findAll();
+        ArrayList<Task> allTasksForUser = new ArrayList<Task>();
+        for (Task task: allTasks) {
+            if (task.getAvailableForTeam().contains(user.getTeam()) && task.getAvailableForRole().contains(user.getRole()))
+                allTasksForUser.add(task);
+        }
+        return allTasksForUser;
     }
 
     @Override

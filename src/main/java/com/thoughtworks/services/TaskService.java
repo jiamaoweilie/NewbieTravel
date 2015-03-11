@@ -6,7 +6,9 @@ import com.thoughtworks.entities.User;
 import java.util.List;
 
 public interface TaskService {
-    List<Task> findTask(User user);
+    List<Task> findTask();
+
+    List<Task> findTaskForUser(User user);
 
     void addTask(Task task);
 
