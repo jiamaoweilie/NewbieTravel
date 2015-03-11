@@ -21,11 +21,9 @@ public class Task {
     String context;
     @NotEmpty
     String type;
-    //@Column(name = "available_team")
-    //@NotEmpty
+
     private Set<String> availableForTeam;
-    //@Column(name = "available_team")
-    //@NotEmpty
+
     private Set<String> availableForRole;
 
     public String getId() {

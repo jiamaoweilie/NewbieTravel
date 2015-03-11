@@ -9,10 +9,11 @@ var lightbox = {
         $("#light-box-bg").fadeOut("slow");
 
         $(taskCard).children(".mark_in_progress").show();
-        $(taskCard).children(".img_unclicked").css("opacity", 0.4);
+        $(taskCard).children("img").attr("class", "img_clicked");
+        $(taskCard).children("img").css("opacity", 0.4);
         $(taskCard).css("background-color", "#333");
         imgUrl = imgUrl.slice(0, (imgUrl.length) - 10) + ".jpg";
-        $(taskCard).children(".img_unclicked").attr("src", imgUrl);
+        $(taskCard).children("img").attr("src", imgUrl);
 
         for (i = 0; i < 3; i++) {
             if (i === accepted_tasks.length) {

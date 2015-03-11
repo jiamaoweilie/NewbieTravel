@@ -8,15 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 @RequestMapping(value = "/task")
@@ -33,12 +31,16 @@ public class TaskController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addTask(@Valid @ModelAttribute("task") Task task,
+                          @RequestParam(value = "available_team") Set<String> availableTeam,
+                          @RequestParam(value = "available_role") Set<String> availableRole,
                           BindingResult result,
                           Model model) {
         if (result.hasErrors()) {
             model.addAttribute("error", "Please check your input.");
             return "task";
         }
+        task.setAvailableForRole(availableRole);
+        task.setAvailableForTeam(availableTeam);
         taskService.addTask(task);
         model.addAttribute("message", "Successful add a task.");
         return "task";

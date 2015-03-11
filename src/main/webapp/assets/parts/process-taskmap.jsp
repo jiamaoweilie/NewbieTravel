@@ -13,21 +13,8 @@
         <div id="task-guard-${processTask.getTask().getId()}" value="${processTask.getTask().getGuard()}"></div>
         <div id="task-content-${processTask.getTask().getId()}" value="${processTask.getTask().getContext()}"></div>
         <div id="mark-process" class="mark_in_progress process">In Progress</div>
-        <c:choose>
-            <c:when test="${processTask.getTask().getGuard().equals('Qiu Juntao')}">
-                <c:choose>
-                    <c:when test="${processTask.getStatus().equals('finished')}">
-                        <img src="/assets/images/sample.jpg" class="img_clicked" value="FINISHED">
-                    </c:when>
-                    <c:when test="${processTask.getStatus().equals('inProcess')}">
-                        <img src="/assets/images/sample.jpg" class="img_unclicked" value="ACCEPTED">
-                    </c:when>
-                    <c:otherwise>
-                        <img src="/assets/images/sample.jpg" class="img_unclicked" value="NOT_ACCEPTED">
-                    </c:otherwise>
-                </c:choose>
-            </c:when>
-            <c:otherwise>
+        <%--<c:choose>--%>
+            <%--<c:otherwise>--%>
                 <c:choose>
                     <c:when test="${processTask.getStatus().equals('finished')}">
                         <img src="/assets/images/jiukun_thumb.jpg" class="img_clicked" value="FINISHED">
@@ -39,7 +26,7 @@
                         <img src="/assets/images/jiukun_card2.jpg" class="img_unclicked" value="NOT_ACCEPTED">
                     </c:otherwise>
                 </c:choose>
-            </c:otherwise>
-        </c:choose>
+            <%--</c:otherwise>--%>
+        <%--</c:choose>--%>
     </div>
 </c:forEach>

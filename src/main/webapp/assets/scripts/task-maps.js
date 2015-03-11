@@ -6,6 +6,7 @@ var taskMaps = {
 
         for (i = 0; i < taskImgs.length; i++) {
             if ($(taskImgs[i]).attr("value") === 'ACCEPTED') {
+                $(taskImgs[i]).attr("class", "img_clicked");
                 $(taskImgs[i]).css("opacity", 0.4);
                 $(taskImgs[i]).parent().css("background-color", "#333");
                 $(taskImgs[i]).siblings(".mark_in_progress").show();

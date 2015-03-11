@@ -13,8 +13,8 @@
         <div id="task-guard-${commTask.getTask().getId()}" value="${commTask.getTask().getGuard()}"></div>
         <div id="task-content-${commTask.getTask().getId()}" value="${commTask.getTask().getContext()}"></div>
         <div id="mark-comm" class="mark_in_progress communication">In Progress</div>
-        <c:choose>
-            <c:when test="${commTask.getTask().getGuard().equals('Jia Wei')}">
+        <%--<c:choose>--%>
+            <%--<c:when test="${commTask.getTask().getGuard().equals('Jia Wei')}">--%>
                 <c:choose>
                     <c:when test="${commTask.getStatus().equals('finished')}">
                         <img src="/assets/images/jiawei_thumb.jpg" class="img_clicked" value="FINISHED">
@@ -26,20 +26,7 @@
                         <img src="/assets/images/jiawei_card2.jpg" class="img_unclicked" value="NOT_ACCEPTED">
                     </c:otherwise>
                 </c:choose>
-            </c:when>
-            <%--<c:otherwise>--%>
-                <%--<c:choose>--%>
-                    <%--<c:when test="${commTask.getStatus().equals('finished')}">--%>
-                        <%--<img src="/assets/images/jiawei_thumb.jpg" class="img_clicked" value="FINISHED">--%>
-                    <%--</c:when>--%>
-                    <%--<c:when test="${commTask.getStatus().equals('inProcess')}">--%>
-                        <%--<img src="/assets/images/jiawei.jpg" class="img_unclicked" value="ACCEPTED">--%>
-                    <%--</c:when>--%>
-                    <%--<c:otherwise>--%>
-                        <%--<img src="/assets/images/jiawei.jpg" class="img_unclicked" value="NOT_ACCEPTED">--%>
-                    <%--</c:otherwise>--%>
-                <%--</c:choose>--%>
-            <%--</c:otherwise>--%>
-        </c:choose>
+            <%--</c:when>--%>
+        <%--</c:choose>--%>
     </div>
 </c:forEach>

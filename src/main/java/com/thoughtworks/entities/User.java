@@ -1,7 +1,5 @@
 package com.thoughtworks.entities;
 
-import com.thoughtworks.entities.util.Role;
-import com.thoughtworks.entities.util.Team;
 import org.hibernate.validator.constraints.Email;
 import org.springframework.data.annotation.Id;
 
@@ -20,34 +18,24 @@ public class User {
     @NotNull
     private String email;
 
-//    private enum Team {swordfish, terracotta};
-//    @Column(name = "team")
-    private Team team;
+    private String team;
 
-//    private enum  Role {BA, QA, Dev};
-//    @Column(name = "role")
-    private Role role;
+    private String role;
 
     public String getTeam() {
-        return this.team.getName();
+        return this.team;
     }
 
-    public void setTeam(String teamName) {
-        for (Team t : Team.values()) {
-            if (t.getName().equals(teamName))
-                this.team = t;
-        }
+    public void setTeam(String team) {
+        this.team = team;
     }
 
     public String getRole() {
-        return this.role.getName();
+        return this.role;
     }
 
-    public void setRole(String roleName) {
-        for (Role r : Role.values()) {
-            if (r.getName().equals(roleName))
-                this.role = r;
-        }
+    public void setRole(String role) {
+        this.role = role;
     }
 
     List<String> inProcess;
