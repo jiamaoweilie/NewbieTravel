@@ -50,20 +50,45 @@ html {
 
 body {
     position: relative;
-    width: 800px;
-    height: 600px;
-    display: -webkit-flex;
+    width: 100%;
+    height: 100%;
+    /*display: -webkit-flex;*/
+    /*display: flex;*/
+    /*-webkit-justify-content: center;*/
+    /*justify-content: center;*/
+    /*-webkit-align-items: center;*/
+    /*align-items: center;*/
+    overflow: hidden;
+    /*background-color: #89b77f;*/
+}
+body .login-page {
+    position: relative;
+    width: 100%;
+    height: 100%;
     display: flex;
-    -webkit-justify-content: center;
+    display: -webkit-flex;
     justify-content: center;
-    -webkit-align-items: center;
-    align-items: center;
+    -webkit-justify-content: center;
+    /*align-items: center;*/
+    /*-webkit-align-items: center;*/
+}
+body #login-page-1 {
+    color: #89b77f;
+    background-color: #89b77f;
+    border-color: #89b77f;
+}
+
+body #login-page-2 {
+    color: #ef5ba1;
+    background-color: #ef5ba1;
+    border-color: #ef5ba1;
 }
 
 .form-login {
     position: relative;
-    width: 400px;
-    height: 300px;
+    width: 755px;
+    height: 400px;
+    top: 200px;
     display: -webkit-flex;
     display: flex;
     -webkit-justify-content: center;
@@ -74,17 +99,19 @@ body {
     flex-wrap: wrap;
     line-height: 150%;
     font-family: open-sans;
+    background-color: #ffffff;
+    color: inherit;
+    border-color: inherit;
+    font-size: 40px;
     /*-webkit-flex-direction: column;*/
     /*flex-direction: column;*/
 }
 
-#input-line-email {
+.form-login .input-line-email {
     position: relative;
-    min-width: 100%;
+    width: 100%;
     display: -webkit-flex;
     display: flex;
-    -webkit-flex: 2 0;
-    flex: 2 0;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
     -webkit-flex-direction: row;
@@ -93,11 +120,49 @@ body {
     align-items: center;
     -webkit-justify-content: center;
     justify-content: center;
+    padding-left: 15%;
+    padding-right: 15%;
+    border-color: inherit;
 }
 
-#login-input-email {
-    width: 40%;
+.form-login .input-line-email .login_label {
+    position: relative;
+    -webkit-flex: 2 0;
+    flex: 2 0;
+}
 
+.form-login .input-line-email .login-input-email {
+    /*max-width: 80%;*/
+    /*min-width: 50%;*/
+    -webkit-flex: 5 0;
+    flex: 5 0;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-color: inherit;
+    border-style: dashed;
+    font-size: 40px;
+}
+
+.form-login .btn_login {
+    position: relative;
+    left: 20%;
+    width: 30%;
+    height: 15%;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+.form-login #btn-login-1 {
+    border: #89b77f solid;
+    color: #ffffff;
+    background-color: #89b77f;
+}
+
+.form-login #btn-login-2 {
+    border: #ef5ba1 solid;
+    color: #ffffff;
+    background-color: #ef5ba1;
 }
 
 #select-area {
