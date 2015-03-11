@@ -3,6 +3,7 @@ package com.thoughtworks.controllers;
 import com.thoughtworks.controllers.forms.UserTaskForm;
 import com.thoughtworks.entities.Task;
 import com.thoughtworks.entities.User;
+import com.thoughtworks.entities.util.Constant;
 import com.thoughtworks.services.TaskService;
 import com.thoughtworks.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 @Controller
@@ -36,6 +39,10 @@ public class LoginController {
             @RequestParam(value = "email") String email,
             @RequestParam(value = "team", required = false) String team,
             @RequestParam(value = "role", required = false) String role,
+            @RequestParam(value = "clientLevel", required = false) String clientLevel,
+            @RequestParam(value = "techLevel", required = false) String techLevel,
+            @RequestParam(value = "processLevel", required = false) String processLevel,
+            @RequestParam(value = "commLevel", required = false) String commLevel,
             HttpSession httpSession,
             Model model) {
 
@@ -51,10 +58,7 @@ public class LoginController {
                 model.addAttribute("email", email);
                 return "login";
             }
-            user = new User(email);
-            user.setTeam(team);
-            user.setRole(role);
-            userService.createUser(user);
+            user = createNewUser(email, team, role, clientLevel, techLevel, processLevel, commLevel);
             model.addAttribute("showNewUserGuide", true);
             httpSession.setAttribute("userId", user.getId());
         }else {
@@ -68,11 +72,25 @@ public class LoginController {
             }
             httpSession.setAttribute("userId", user.getId());
         }
-        return doLogin(user, httpSession, model);
+        return doLogin(user, model);
+    }
+
+    private User createNewUser(String email, String team, String role, String clientLevel, String techLevel, String processLevel, String commLevel) {
+        User user;
+        Map<String, String> levelDetails = new HashMap<String, String>();
+        levelDetails.put(Constant.CLIENT, clientLevel);
+        levelDetails.put(Constant.TECH, techLevel);
+        levelDetails.put(Constant.PROCESS, processLevel);
+        levelDetails.put(Constant.COMM, commLevel);
+        user = new User(email);
+        user.setTeam(team);
+        user.setRole(role);
+        user.setLevelDetails(levelDetails);
+        userService.createUser(user);
+        return user;
     }
 
     private String doLogin(User user,
-                           HttpSession httpSession,
                            Model model) {
         List<Task> tasks = taskService.findTaskForUser(user);
         model.addAttribute("process", getProcessTask(tasks, user));

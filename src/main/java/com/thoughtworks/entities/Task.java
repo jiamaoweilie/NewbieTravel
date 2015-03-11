@@ -21,10 +21,9 @@ public class Task {
     String context;
     @NotEmpty
     String type;
-
     private Set<String> availableForTeam;
-
     private Set<String> availableForRole;
+    String level;
 
     public String getId() {
         return id;
@@ -80,5 +79,13 @@ public class Task {
 
     public void setAvailableForRole(Set<String> availableForRole) {
         this.availableForRole = availableForRole;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
     }
 }

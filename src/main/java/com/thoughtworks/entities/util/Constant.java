@@ -16,4 +16,9 @@ public class Constant {
     public static String GRAD = "level_grad";
     public static String JUNIOR = "level_junior";
     public static String SENIOR = "level_senior";
+
+    public static String CLIENT = "client";
+    public static String TECH = "tech";
+    public static String PROCESS = "process";
+    public static String COMM = "comm";
 }
