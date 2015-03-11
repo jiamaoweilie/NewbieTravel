@@ -25,7 +25,6 @@
     <label for="available-role-qa">QA</label>
     <input type="checkbox" name="available_role" id="available-role-dev" value="role_dev">
     <label for="available-role-dev">DEV</label>
-=======
     <div id="task-type">
         <label for="type-select">Task Type</label>
         <select id="type-select" name="type">
@@ -35,7 +34,6 @@
             <option value="comm">Communication</option>
         </select>
     </div>
->>>>>>> add level for login
     <button class="task-context" type="submit">Add Task</button>
     <p>${error}</p>
     <p>${message}</p>
