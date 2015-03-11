@@ -20,7 +20,7 @@
     </div>
     <div id="task-level">
         <label for="level-select">Task level</label>
-        <select id="level-select" name="type">
+        <select id="level-select" name="level">
             <option value="level_grad">Graduate</option>
             <option value="level_junior">Junior</option>
             <option value="level_senior">Senior</option>
