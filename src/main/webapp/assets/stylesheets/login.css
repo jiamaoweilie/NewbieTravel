@@ -1,0 +1,163 @@
+@font-face {
+    font-family: 'icomoon';
+    src:url('../fonts/icomoon.eot?-67750g');
+    src:url('../fonts/icomoon.eot?#iefix-67750g') format('embedded-opentype'),
+    url('../fonts/icomoon.woff?-67750g') format('woff'),
+    url('../fonts/icomoon.ttf?-67750g') format('truetype'),
+    url('../fonts/icomoon.svg?-67750g#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open-Sans-Light';
+    src:url('../fonts/Open-Sans-Light.ttf.woff') format('woff'),
+    url('../fonts/Open-Sans-Light.ttf.svg#Open-Sans-Light') format('svg'),
+    url('../fonts/Open-Sans-Light.ttf.eot'),
+    url('../fonts/Open-Sans-Light.ttf.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open-Sans-Bold';
+    src:url('../fonts/Open-Sans-Bold.ttf.woff') format('woff'),
+    url('../fonts/Open-Sans-Bold.ttf.svg#Open-Sans-Bold') format('svg'),
+    url('../fonts/Open-Sans-Bold.ttf.eot'),
+    url('../fonts/Open-Sans-Bold.ttf.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open-Sans';
+    src:url('../fonts/Open-Sans.ttf.woff') format('woff'),
+    url('../fonts/Open-Sans.ttf.svg#Open-Sans') format('svg'),
+    url('../fonts/Open-Sans.ttf.eot'),
+    url('../fonts/Open-Sans.ttf.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+body {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.form-login {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    line-height: 150%;
+    font-family: open-sans;
+    /*-webkit-flex-direction: column;*/
+    /*flex-direction: column;*/
+}
+
+#input-line-email {
+    position: relative;
+    min-width: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex: 2 0;
+    flex: 2 0;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+#login-input-email {
+    width: 40%;
+
+}
+
+#select-area {
+    width: 100%;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+#input-line-team {
+    position: relative;
+    min-width: 30%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex: 1 0;
+    flex: 1 0;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+#team-select {
+    width: 40%;
+}
+
+#input-line-role {
+    position: relative;
+    min-width: 30%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex: 1 0;
+    flex: 1 0;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+#role-select {
+    width: 40%;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+}

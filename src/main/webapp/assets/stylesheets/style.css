@@ -420,9 +420,9 @@ body {
     -webkit-border-radius: 3%;
     -moz-border-radius: 3%;
     border-radius: 3%;
-    -webkit-box-shadow: #666 0 0 10px;
-    -moz-box-shadow: #666 0 0 10px;
-    box-shadow: #666 0 0 10px;
+    -webkit-box-shadow: #333 0 0 20px;
+    -moz-box-shadow: #333 0 0 20px;
+    box-shadow: #333 0 0 20px;
 }
 /* line 285, ../sass/style.scss */
 .task_maps .task_map .task_card .mark_in_progress {
@@ -460,8 +460,8 @@ body {
 }
 /* line 297, ../sass/style.scss */
 .task_maps .task_map .task_card .img_unclicked {
-  max-width: 100%;
-  min-height: 100%;
+  width: 100%;
+  height: 100%;
   -webkit-flex: 1 0;
   flex: 1 0;
 }
