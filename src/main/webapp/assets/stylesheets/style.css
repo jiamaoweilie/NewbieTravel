@@ -474,6 +474,40 @@ body {
   flex: 1 0;
 }
 
+.task_maps .task_map .task_card .checkmark {
+    position: absolute;
+    width: auto;
+    height: auto;
+    padding: 5px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    left: 72%;
+    top: 77%;
+    color: #00ff00;
+    //z-index: 11;
+}
+
+#checkmark-client{
+    background-color: #f78f31;
+}
+
+#checkmark-tech{
+    background-color: #89b77f;
+}
+
+#checkmark-process{
+    background-color: #26bdcf;
+}
+
+#checkmark-comm{
+    background-color: #ef5ba1;
+}
+
+.task_maps .task_map .task_card .checkmark .icon-checkmark{
+    font-size: 25px;
+}
+
 /* line 318, ../sass/style.scss */
 .light_box {
   width: 576px;

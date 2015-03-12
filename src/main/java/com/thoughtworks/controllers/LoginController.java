@@ -73,8 +73,8 @@ public class LoginController {
         User user;
         Map<String, String> levelDetails = new HashMap<String, String>();
 
-        levelDetails.put(TaskType.CLIENT, "level-grad");
-        levelDetails.put(TaskType.TECH, "level-grad");
+        levelDetails.put(TaskType.CLIENT, "level_grad");
+        levelDetails.put(TaskType.TECH, "level_grad");
         levelDetails.put(TaskType.PROCESS, "level_grad");
         levelDetails.put(TaskType.COMM, "level_grad");
         user = new User(email);
