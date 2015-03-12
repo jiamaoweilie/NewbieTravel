@@ -8,7 +8,9 @@
     <h3 class="signin-heading">Create a task for newbie</h3>
     <input class="task-name" name="name" type="text" placeholder="name"/>
     <input class="task-guard" name="guard" type="text" placeholder="guard"/>
-    <input class="task-context" name="context" type="text" placeholder="context"/>
+    <%--<input class="task-context" name="context" type="text" placeholder="context"/>--%>
+    <br/><br/>
+    <textarea name="context" placeholder="content" class="task-context"></textarea>
     <br/><br/>
     <div id="task-type">
         <label for="type-select"><b>Task Type</b></label>
