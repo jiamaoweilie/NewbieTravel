@@ -312,6 +312,9 @@ body {
 .task_maps .client {
   color: #ffffff;
   background-color: #f78f31;
+    -webkit-box-shadow: #f78f31 0 0 10px;
+    -moz-box-shadow: #f78f31 0 0 10px;
+    box-shadow: #f78f31 0 0 10px;
 }
 /* line 193, ../sass/style.scss */
 .task_maps .client .task_card {
@@ -321,6 +324,9 @@ body {
 .task_maps .technical {
   color: #ffffff;
   background-color: #89b77f;
+    -webkit-box-shadow: #89b77f 0 0 10px;
+    -moz-box-shadow: #89b77f 0 0 10px;
+    box-shadow: #89b77f 0 0 10px;
 
 }
 /* line 199, ../sass/style.scss */
@@ -331,6 +337,9 @@ body {
 .task_maps .process {
   color: #ffffff;
   background-color: #26bdcf;
+    -webkit-box-shadow: #26bdcf 0 0 10px;
+    -moz-box-shadow: #26bdcf 0 0 10px;
+    box-shadow: #26bdcf 0 0 10px;
 }
 /* line 205, ../sass/style.scss */
 .task_maps .process .task_card {
@@ -340,6 +349,9 @@ body {
 .task_maps .communication {
   color: #ffffff;
   background-color: #ef5ba1;
+    -webkit-box-shadow: #ef5ba1 0 0 10px;
+    -moz-box-shadow: #ef5ba1 0 0 10px;
+    box-shadow: #ef5ba1 0 0 10px;
 }
 /* line 211, ../sass/style.scss */
 .task_maps .communication .task_card {
@@ -378,8 +390,8 @@ body {
   height: 18%;
   display: -webkit-flex;
   display: flex;
-  -webkit-flex-wrap: unwrap;
-  flex-wrap: unwrap;
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: nowrap;
   -webkit-align-items: flex-start;
   align-items: flex-start;
   -webkit-justify-content: flex-start;
@@ -490,18 +502,30 @@ body {
 
 #checkmark-client{
     background-color: #f78f31;
+    -webkit-box-shadow: #f78f31 0 0 10px;
+    -moz-box-shadow: #f78f31 0 0 10px;
+    box-shadow: #f78f31 0 0 10px;
 }
 
 #checkmark-tech{
     background-color: #89b77f;
+    -webkit-box-shadow: #89b77f 0 0 10px;
+    -moz-box-shadow: #89b77f 0 0 10px;
+    box-shadow: #89b77f 0 0 10px;
 }
 
 #checkmark-process{
     background-color: #26bdcf;
+    -webkit-box-shadow: #26bdcf 0 0 10px;
+    -moz-box-shadow: #26bdcf 0 0 10px;
+    box-shadow: #26bdcf 0 0 10px;
 }
 
 #checkmark-comm{
     background-color: #ef5ba1;
+    -webkit-box-shadow: #ef5ba1 0 0 10px;
+    -moz-box-shadow: #ef5ba1 0 0 10px;
+    box-shadow: #ef5ba1 0 0 10px;
 }
 
 .task_maps .task_map .task_card .checkmark .icon-checkmark{

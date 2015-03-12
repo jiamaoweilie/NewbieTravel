@@ -12,7 +12,7 @@
     <div id="${techTask.getTask().getId()}" value="${techTask.getTask().getName()}" class="task_card">
         <div id="task-guard-${techTask.getTask().getId()}" value="${techTask.getTask().getGuard()}"></div>
         <div id="task-content-${techTask.getTask().getId()}" value="${techTask.getTask().getContext()}"></div>
-        <div id="mark-tech" class="mark_in_progress technical">In Progress</div>
+        <div id="mark-tech" class="mark_in_progress">In Progress</div>
         <%--<c:choose>--%>
             <%--<c:when test="${techTask.getTask().getGuard().equals('Qiu Juntao')}">--%>
                 <c:choose>
