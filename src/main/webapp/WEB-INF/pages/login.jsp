@@ -10,95 +10,108 @@
     <![endif]-->
     <link href="/assets/stylesheets/login.css" type="text/css" rel="stylesheet" >
     <script type="text/javascript" src="/assets/scripts/libs/jquery-2.1.3.js"></script>
+    <script type="text/javascript" src="/assets/scripts/libs/jquery.transit.js"></script>
+
 </head>
 <body>
 <section id="login-page-1" class="login-page">
+    <div class="login_banner">Newbie Challenge</div>
     <form class="form-login" method="post" role="form">
-        <div class="input-line-email">
-            <label for="email-1" class="login_label">Email: </label>
-            <c:choose>
-                <c:when test="${true == isNewUser}">
-                    <input id="email-1" class="login-input-email" type="text" name="email" placeholder="${email}" value="${email}"/>
-                </c:when>
-                <c:otherwise>
-                    <input id="email-1" class="login-input-email" type="text" name="email" placeholder="email address" />
-                </c:otherwise>
-            </c:choose>
+        <div class="login-box-top">
+            <img src="/assets/images/loginbox_edge_top_green.jpg">
         </div>
-        <button id="btn-login-1" class="btn_login" type="submit">Log in</button><br/>
-        <p>${error}</p>
+        <div class="form_body">
+            <div class="input_line">
+                <label for="email-1" class="login_label">Email: </label>
+                <c:choose>
+                    <c:when test="${true == isNewUser}">
+                        <input id="email-1" class="login-input-email" type="text" name="email" placeholder="${email}" value="${email}"/>
+                    </c:when>
+                    <c:otherwise>
+                        <input id="email-1" class="login-input-email" type="text" name="email" placeholder="email address" />
+                    </c:otherwise>
+                </c:choose>
+            </div>
+            <button id="btn-login-1" class="btn_login" type="submit">Log in</button><br/>
+            <p>${error}</p>
+        </div>
+        <div class="login-box-bottom">
+            <img src="/assets/images/loginbox_edge_bottom_green.jpg">
+        </div>
     </form>
-</section>
-<section id="login-page-2" class="login-page">
-    <form class="form-login" method="post" role="form">
-        <div id="input-line-email">
-            <label for="email-2">Email: </label>
-            <c:choose>
-                <c:when test="${true == isNewUser}">
-                    <input id="email-2" class="login-input-email" type="text" name="email" placeholder="${email}" value="${email}"/>
-                </c:when>
-                <c:otherwise>
-                    <input id="email-2" class="login-input-email" type="text" name="email" placeholder="email address" />
-                </c:otherwise>
-            </c:choose>
-        </div>
-        <c:if test="${isNewUser == true}">
-        <div id="select-area">
-            <p>For the first time login, please select your team and role:</p>
-            <div id="input-line-team">
-                <label for="team-select">Your Team: </label>
-                <select id="team-select" name="team">
-                    <option value="team_swordfish">Swordfish</option>
-                    <option value="team_terracotta">Terracotta</option>
-                </select>
-            </div>
-            <div id="input-line-role">
-                <label for="role-select">Your Role: </label>
-                <div id="role-select">
-                    <input id="radio-select-ba" type="radio" name="role" value="role_ba">BA</radio>
-                    <input id="radio-select-qa" type="radio" name="role" value="role_qa">QA</radio>
-                    <input id="radio-select-dev" type="radio" name="role" value="role_dev">DEV</radio>
-                </div>
-            </div>
-            <div id="input-client-level">
-                <label for="client-level">Your Client Team: </label>
-                <select id="client-level" name="clientLevel">
-                    <option value="level-grad">Grad</option>
-                    <option value="level-junior">Junior</option>
-                    <option value="level-senior">Senior</option>
-                </select>
-            </div>
-            <div id="input-tech-level">
-                <label for="tech-level">Your Tech Team: </label>
-                <select id="tech-level" name="techLevel">
-                    <option value="level-grad">Grad</option>
-                    <option value="level-junior">Junior</option>
-                    <option value="level-senior">Senior</option>
-                </select>
-            </div>
-            <div id="input-process-level">
-                <label for="process-level">Your Process Team: </label>
-                <select id="process-level" name="processLevel">
-                    <option value="level-grad">Grad</option>
-                    <option value="level-junior">Junior</option>
-                    <option value="level-senior">Senior</option>
-                </select>
-            </div>
-            <div id="input-comm-level">
-                <label for="comm-level">Your communication Team: </label>
-                <select id="comm-level" name="commLevel">
-                    <option value="level-grad">Grad</option>
-                    <option value="level-junior">Junior</option>
-                    <option value="level-senior">Senior</option>
-                </select>
-            </div>
-        </div>
-        </c:if>
-        <button id="btn-login-2" class="btn_login" type="submit">Log in</button><br/>
+    <div class="login_footer">
+        <img src="/assets/images/tw_logo_white.png">
+    </div>
 </section>
 
-    <p>${error}</p>
+<c:if test="${isNewUser == true}">
+    <section id="login-page-2" class="login-page">
+        <div class="login_banner">Newbie Challenge</div>
+        <form class="form-login" method="post" role="form">
+            <div class="login-box-top">
+                <img src="/assets/images/loginbox_edge_top_red.jpg">
+            </div>
+            <div class="form_body">
+                <div class="input_line">
+                    <label for="email-2" class="login_label">Email: </label>
+                    <c:choose>
+                        <c:when test="${true == isNewUser}">
+                            <input id="email-2" class="login-input-email" type="text" name="email" placeholder="${email}" value="${email}"/>
+                        </c:when>
+                        <c:otherwise>
+                            <input id="email-2" class="login-input-email" type="text" name="email" placeholder="email address" />
+                        </c:otherwise>
+                    </c:choose>
+                </div>
+                <p style="font-size: 15px; line-height: 100%">For the first time login, please select your team and role:</p>
+                <div id="input-line-team" class="input_line">
+                    <label for="team-select" class="login_label">Team: </label>
+                    <select id="team-select" name="team">
+                        <option value="team_swordfish">Swordfish</option>
+                        <option value="team_terracotta">Terracotta</option>
+                    </select>
+                </div>
+                <div id="input-line-role" class="input_line">
+                    <label for="role-select" class="login_label">Role: </label>
+                    <div id="role-select">
+                        <div class="input_radio">
+                            <label for="radio-select-dev" class="label_radio">
+                                <input id="radio-select-dev" type="radio" name="role" value="role_dev" checked="true"/>DEV
+                            </label>
+                        </div>
+                        <div class="input_radio">
+                            <label for="radio-select-qa" class="label_radio">
+                                <input id="radio-select-qa" type="radio" name="role" value="role_qa"/>QA
+                            </label>
+                        </div>
+                        <div class="input_radio">
+                            <label for="radio-select-ba" class="label_radio">
+                                <input id="radio-select-ba" type="radio" name="role" value="role_ba"/>BA
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <button id="btn-login-2" class="btn_login" type="submit">Log in</button><br/>
+                <p>${error}</p>
+            </div>
+            <div class="login-box-bottom">
+                <img src="/assets/images/loginbox_edge_bottom_red.jpg">
+            </div>
+        </form>
+        <div class="login_footer">
+            <img src="/assets/images/tw_logo_white.png">
+        </div>
+    </section>
+    <script>
+        $(document).ready(function() {
+            $(".login-page").transition({y: '-100%'});
+        });
+    </script>
+</c:if>
+
+
 </form>
+
 
 
 
