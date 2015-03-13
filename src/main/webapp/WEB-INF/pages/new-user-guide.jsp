@@ -25,6 +25,11 @@
                 $("#sect-new-user-guide").hide();
                 $("#guideline-bg").hide()
             });
+            for(var i = 0; i < 10; i++) {
+                $("#guideline-btn-skip").transition({'box-shadow': '#664422 0 0 30px', '-webkit-box-shadow': '#664422 0 0 30px', '-moz-box-shadow': '#664422 0 0 30px'},'800');
+                $("#guideline-btn-skip").transition({'box-shadow': '#664422 0 0 5px', '-webkit-box-shadow': '#664422 0 0 5px', '-moz-box-shadow': '#664422 0 0 5px'},'800');
+            }
+
         });
     </script>
 </c:if>

@@ -15,17 +15,18 @@
         <div id="mark-tech" class="mark_in_progress">In Progress</div>
         <%--<c:choose>--%>
             <%--<c:when test="${techTask.getTask().getGuard().equals('Qiu Juntao')}">--%>
-                <c:choose>
-                    <c:when test="${techTask.getStatus().equals('finished')}">
-                        <img src="/assets/images/dashi_thumb1.jpg" class="img_clicked" value="FINISHED">
-                    </c:when>
-                    <c:when test="${techTask.getStatus().equals('inProcess')}">
-                        <img src="/assets/images/dashi.jpg" class="img_unclicked" value="ACCEPTED">
-                    </c:when>
-                    <c:otherwise>
-                        <img src="/assets/images/dashi_card2.jpg" class="img_unclicked" value="NOT_ACCEPTED">
-                    </c:otherwise>
-                </c:choose>
+        <img src="/assets/images/dashi_card2.jpg" class="img_cardback">
+        <c:choose>
+            <c:when test="${techTask.getStatus().equals('finished')}">
+                <img src="/assets/images/dashi_thumb1.jpg" class="img_cardface" value="FINISHED">
+            </c:when>
+            <c:when test="${techTask.getStatus().equals('inProcess')}">
+                <img src="/assets/images/dashi.jpg" class="img_cardface" value="ACCEPTED">
+            </c:when>
+            <c:otherwise>
+                <img src="/assets/images/dashi.jpg" class="img_cardface" value="NOT_ACCEPTED">
+            </c:otherwise>
+        </c:choose>
             <%--</c:when>--%>
         <%--</c:choose>--%>
     </div>
