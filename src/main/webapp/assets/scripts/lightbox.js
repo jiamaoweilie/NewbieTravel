@@ -9,7 +9,7 @@ var lightbox = {
         $("#sect-light-box").hide();
         $("#light-box-bg").fadeOut("slow");
 
-        $(taskCard).children(".mark_in_progress").css({perspective: 100, rotateY: "-=180deg"});
+        $(taskCard).children(".mark_in_progress").css({perspective: 600, rotateY: "-=180deg"});
         $(taskCard).children(".mark_in_progress").show();
         $(taskCard).children("img").attr("class", "img_clicked");
         $(taskCard).children("img").css("opacity", 0.4);
@@ -62,12 +62,12 @@ var lightbox = {
         var i;
 
         if ($(taskMapImg).attr("value") === 'NOT_ACCEPTED') {
-            $(taskMapImg).parent().transition({perspective:100, rotateY: '+=180deg'}, '1000', function() {
+            $(taskMapImg).parent().transition({perspective: 600, rotateY: '+=180deg'}, '1000', function() {
                 var taskCard = this;
                 var imgUrl = $(this).children("img").attr("src");
 
                 imgUrl = imgUrl.slice(0, (imgUrl.length) - 10) + ".jpg";
-                $(taskCard).children("img").css({perspective: 100, rotateY: '-=180deg'});
+                $(taskCard).children("img").css({perspective: 600, rotateY: '-=180deg'});
                 $(taskCard).children("img").attr("src", imgUrl);
                 $(taskCard).children("img").attr("class", "img_clicked");
                 $(taskCard).children("img").css("opacity", 0.4);
@@ -100,12 +100,12 @@ var lightbox = {
             var imgUrl = $(image.data).attr("src");
 	        image.preventDefault();
             if ($(image.data).attr("value") === 'NOT_ACCEPTED') {
-                $(taskCard).transit({perspective: 100, rotateY: '-=180deg'}, '1000', function(){
+                $(taskCard).transit({perspective: 600, rotateY: '-=180deg'}, '1000', function(){
 
                 });
                 imgUrl = imgUrl.slice(0, (imgUrl.length) - 4) + "_card2.jpg";
                 $(image.data).attr("src", imgUrl);
-                $(image.data).css({perspective: 100, rotateY: '-=180deg'});
+                $(image.data).css({perspective: 600, rotateY: '-=180deg'});
                 $(image.data).attr("class", "img_unclicked");
                 $(image.data).css("opacity", 1.0);
                 $(taskCard).css("background-color", "transparent");
