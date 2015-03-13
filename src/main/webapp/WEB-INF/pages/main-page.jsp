@@ -12,6 +12,7 @@
     <link href="/assets/stylesheets/style.css" type="text/css" rel="stylesheet" >
     <link href="/assets/stylesheets/guideline.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="/assets/scripts/libs/jquery-2.1.3.js"></script>
+    <script type="text/javascript" src="/assets/scripts/libs/jquery.transit.js"></script>
 </head>
 <body>
     <div class="banner">

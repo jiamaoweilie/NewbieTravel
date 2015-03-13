@@ -42,6 +42,7 @@
 html {
     display: -webkit-flex;
     display: flex;
+    height: 100%;
     /*-webkit-justify-content: center;*/
     /*justify-content: center;*/
     /*-webkit-align-items: center;*/
@@ -241,6 +242,7 @@ body #login-page-2 {
     font-size: 20px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
+    border-radius: 5px;
 }
 
 .form-login #btn-login-1 {
