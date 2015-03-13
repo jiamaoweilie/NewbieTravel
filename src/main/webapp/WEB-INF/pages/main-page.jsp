@@ -55,7 +55,10 @@
             <img src="/assets/images/example_avatar.jpg" alt="" class="img_avatar"/>
         </div>
         <div id="info-profile" class="profile">
-            <p>Name: <br>${user.getEmail()}</p>
+            <p>Name: <br><span id="user-name">${user.getEmail()}</span></p>
+            <script type="text/javascript">
+                $("#user-name").text($("#user-name").text().split("@")[0]);
+            </script>
             <ul>Achievements:<br>
                 <c:forEach items="${user.getAchievement()}" var="achievement">
                     <li>${achievement}</li>
