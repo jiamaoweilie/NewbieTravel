@@ -5,15 +5,17 @@ var lightbox = {
         var accepted_tasks = $(".accepted_task");
         var imgUrl = $(taskCard).children("img").attr("src");
 
-        $("#sect-light-box").fadeOut("slow");
+        $("#sect-light-box").transit({scale: 0}, "slow");
+        $("#sect-light-box").hide();
         $("#light-box-bg").fadeOut("slow");
 
+        $(taskCard).children(".mark_in_progress").css({perspective: 100, rotateY: "-=180deg"});
         $(taskCard).children(".mark_in_progress").show();
         $(taskCard).children("img").attr("class", "img_clicked");
         $(taskCard).children("img").css("opacity", 0.4);
         $(taskCard).css("background-color", "#333");
-        imgUrl = imgUrl.slice(0, (imgUrl.length) - 10) + ".jpg";
-        $(taskCard).children("img").attr("src", imgUrl);
+        //imgUrl = imgUrl.slice(0, (imgUrl.length) - 10) + ".jpg";
+        //$(taskCard).children("img").attr("src", imgUrl);
 
         for (i = 0; i < 3; i++) {
             if (i === accepted_tasks.length) {
@@ -43,7 +45,9 @@ var lightbox = {
             "</p><br/><p><b style='font-weight: 900; font-family: open-sans'>Link: </b> <a href='www.thoughtworks.video.com' style='font-size: 20px'>www.thoughtworks.video.com</a></p>");
         $("#lb-task-guard").html("<p><b style='font-weight: 900; font-size: xx-large; font-family: open-sans'>Guard: </b><br><center>"+ taskGuard +"</center></p>");
 
-        $("#sect-light-box").fadeIn("slow");
+        $("#sect-light-box").css({scale: 0});
+        $("#sect-light-box").show();
+        $("#sect-light-box").transit({scale: 1}, 'slow');
         $("#light-box-bg").fadeIn("slow");
     },
 
@@ -53,6 +57,24 @@ var lightbox = {
 		var countTasksAccepted = $("#info-tasks-accepted").children(".accepted_task").length;
 		var isAccepted = $(taskMapImg).attr("value");
         var getReqUrl = "/detail/" + $(taskMapImg).attr("id");
+        var animStep = 10;
+        var ms = 100;
+        var i;
+
+        if ($(taskMapImg).attr("value") === 'NOT_ACCEPTED') {
+            $(taskMapImg).parent().transition({perspective:100, rotateY: '+=180deg'}, '1000', function() {
+                var taskCard = this;
+                var imgUrl = $(this).children("img").attr("src");
+
+                imgUrl = imgUrl.slice(0, (imgUrl.length) - 10) + ".jpg";
+                $(taskCard).children("img").css({perspective: 100, rotateY: '-=180deg'});
+                $(taskCard).children("img").attr("src", imgUrl);
+                $(taskCard).children("img").attr("class", "img_clicked");
+                $(taskCard).children("img").css("opacity", 0.4);
+                $(taskCard).css("background-color", "#333");
+            });
+        }
+
 
         lightbox.buildLightbox(taskMapImg);
 
@@ -73,9 +95,24 @@ var lightbox = {
 	        $(this).unbind();
 	    });
 
-	    nButton.bind("click", function(e){
-	        e.preventDefault();
-	        $("#sect-light-box").fadeOut("slow");
+	    nButton.bind("click", taskMapImg, function(image){
+            var taskCard = $(image.data).parent();
+            var imgUrl = $(image.data).attr("src");
+	        image.preventDefault();
+            if ($(image.data).attr("value") === 'NOT_ACCEPTED') {
+                $(taskCard).transit({perspective: 100, rotateY: '-=180deg'}, '1000', function(){
+
+                });
+                imgUrl = imgUrl.slice(0, (imgUrl.length) - 4) + "_card2.jpg";
+                $(image.data).attr("src", imgUrl);
+                $(image.data).css({perspective: 100, rotateY: '-=180deg'});
+                $(image.data).attr("class", "img_unclicked");
+                $(image.data).css("opacity", 1.0);
+                $(taskCard).css("background-color", "transparent");
+            }
+
+	        $("#sect-light-box").transit({scale: 0}, "slow");
+            $("#sect-light-box").hide();
 	        $("#light-box-bg").fadeOut("slow");
 	        $("#btn-lightbox-accept").unbind();
 	        $(this).unbind();
