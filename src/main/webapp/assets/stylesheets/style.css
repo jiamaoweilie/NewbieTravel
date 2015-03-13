@@ -557,7 +557,7 @@ body {
     border: solid #ffffff;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
-    borderer-radius: 10px;
+    border-radius: 10px;
     background-color: transparent;
     width: 99%;
     height: 99%;
@@ -689,7 +689,7 @@ body {
   position: relative;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
-  borderer-radius: 50%;
+  border-radius: 50%;
   width: 30%;
   height: 73%;
     margin: auto;
