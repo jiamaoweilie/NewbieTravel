@@ -11,7 +11,9 @@
     <![endif]-->
     <link href="/assets/stylesheets/style.css" type="text/css" rel="stylesheet" >
     <link href="/assets/stylesheets/guideline.css" type="text/css" rel="stylesheet">
+    <link href="/assets/stylesheets/infobar.css" type="text/css" rel="stylesheet">
     <link href="/assets/stylesheets/lightbox.css" type="text/css" rel="stylesheet">
+    <link href="/assets/stylesheets/taskmaps.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="/assets/scripts/libs/jquery-2.1.3.js"></script>
     <script type="text/javascript" src="/assets/scripts/libs/jquery.transit.js"></script>
 </head>
@@ -64,13 +66,8 @@
                 <c:forEach items="${user.getAchievement()}" var="achievement">
                     <li>${achievement}</li>
                 </c:forEach>
-                <%--<li>Client Tasks Clear</li>--%>
-                <%--<li>Tech Tasks Clear</li>--%>
-                <%--<li>Process Tasks Clear</li>--%>
-                <%--<li>Comm Tasks Clear</li>--%>
             </ul>
         </div>
-        <%--<c:set value="${user.getInProcess().length}" var="cnt-accepted" />--%>
         <div id="info-tasks-accepted" value="0" class="tasks_accepted">
             <%@include file="/assets/parts/accepted-tasks.jsp" %>
         </div>
