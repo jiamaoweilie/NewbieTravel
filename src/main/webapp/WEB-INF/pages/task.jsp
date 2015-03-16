@@ -48,6 +48,6 @@
     <p>${error}</p>
     <p>${message}</p>
 </form>
-
+<a href="/admin">Go Back to Admin Page</a>
 </body>
 </html>

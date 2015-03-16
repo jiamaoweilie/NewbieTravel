@@ -33,6 +33,10 @@ public class UserRepository {
         return mongoTemplate.find(query, User.class);
     }
 
+    public List<User> findAll() {
+        return mongoTemplate.findAll(User.class);
+    }
+
     public void updateUser(User user) {
         Query query = new Query();
         query.addCriteria(new Criteria("id").is(user.getId()));

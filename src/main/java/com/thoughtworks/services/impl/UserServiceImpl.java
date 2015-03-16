@@ -28,6 +28,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<User> findAll() {
+        return userRepository.findAll();
+    }
+
+    @Override
     public void createUser(User user) {
         user.getAchievement().add(Achievement.NEW_NEWBIE);
         userRepository.addUser(user);
