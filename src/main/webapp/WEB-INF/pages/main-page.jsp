@@ -26,7 +26,7 @@
     </div>
 
     <!-- new user guideline -->
-    <%@include file="new-user-guide.jsp"%>
+    <%@include file="main-page-parts/new-user-guide.jsp"%>
 
     <!-- light box -->
     <section id="sect-light-box" class="light_box">
@@ -69,7 +69,7 @@
             </ul>
         </div>
         <div id="info-tasks-accepted" value="0" class="tasks_accepted">
-            <%@include file="/assets/parts/accepted-tasks.jsp" %>
+            <%@include file="/WEB-INF/pages/main-page-parts/accepted-tasks.jsp" %>
         </div>
 
     </section>
@@ -83,7 +83,7 @@
                     <span class="icon-user"></span>
                 </div>
             </div>
-            <%@include file="/assets/parts/client-taskmap.jsp" %>
+            <%@include file="/WEB-INF/pages/main-page-parts/client-taskmap.jsp" %>
         </section>
 
         <section id="sect-tech-taskmap"class="task_map technical">
@@ -93,7 +93,7 @@
                     <span class="icon-lab"></span>
                 </div>
             </div>
-            <%@include file="/assets/parts/tech-taskmap.jsp" %>
+            <%@include file="/WEB-INF/pages/main-page-parts/tech-taskmap.jsp" %>
         </section>
 
         <section id="sect-process-taskmap" class="task_map process">
@@ -103,7 +103,7 @@
                     <span class="icon-shuffle"></span>
                 </div>
             </div>
-            <%@include file="/assets/parts/process-taskmap.jsp" %>
+            <%@include file="/WEB-INF/pages/main-page-parts/process-taskmap.jsp" %>
         </section>
 
         <section id="sec-comm-taskmap" class="task_map communication">
@@ -113,7 +113,7 @@
                     <span class="icon-bubbles"></span>
                 </div>
             </div>
-            <%@include file="/assets/parts/comm-taskmap.jsp" %>
+            <%@include file="/WEB-INF/pages/main-page-parts/comm-taskmap.jsp" %>
         </section>
 
     </section>
