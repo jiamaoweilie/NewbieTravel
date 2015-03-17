@@ -85,25 +85,30 @@ public class TaskController {
     }
 
     @RequestMapping(value = "/finished/{id}", method = RequestMethod.POST)
-    public String finishTask(@PathVariable("id") String taskId, HttpSession httpSession, Model model) {
-        String userId = (String) httpSession.getAttribute("userId");
-        if (!isUserLogin(userId)) {
-            model.addAttribute("error", "Please login.");
-            return "main-page";
-        }
+    @ResponseBody
+    public Task finishTask(@PathVariable("id") String taskId,
+                           @RequestParam(value = "userId") String userId,
+                           HttpSession httpSession, Model model) {
+//        String userId = (String) httpSession.getAttribute("userId");
+//        if (!isUserLogin(userId)) {
+//            model.addAttribute("error", "Please login.");
+//            return "main-page";
+//        }
         if (!isTaskExist(taskId)) {
             model.addAttribute("error", "We can not find this task.");
-            return "main-page";
+            return null;
         }
         User user = userService.findById(userId);
+        Task task = taskService.findTaskById(taskId);
         List<String> inProcess = user.getInProcess() == null ? new ArrayList<String>() : user.getInProcess();
         List<String> finished = user.getFinished() == null ? new ArrayList<String>() : user.getFinished();
         if (!inProcess.contains(taskId)) {
             model.addAttribute("error", "This task is not in process, we can not move it to finished.");
-            return "main-page";
+            return null;
         }
         if(finished.contains(taskId)) {
             model.addAttribute("error", "This task is already finished.");
+            return null;
         }
         inProcess.remove(inProcess.indexOf(taskId));
         user.setInProcess(inProcess);
@@ -111,6 +116,6 @@ public class TaskController {
         user.setFinished(finished);
         userService.updateUser(user);
 
-        return "main-page";
+        return task;
     }
 }
