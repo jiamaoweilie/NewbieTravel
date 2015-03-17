@@ -85,7 +85,7 @@
                     <c:forEach items="${user.getFinished()}" var="finishedTask">
                         <c:forEach items="${tasks}" var="task">
                             <c:if test="${task.getId().equals(finishedTask)}">
-                                ${task.getName()}
+                                ${task.getName()}<br/>
                             </c:if>
                         </c:forEach>
                     </c:forEach>

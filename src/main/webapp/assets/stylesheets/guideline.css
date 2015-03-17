@@ -66,14 +66,16 @@
 
 #guideline-body {
     position: relative;
-    padding: 5%;
+    padding: 10%;
     margin-top: 18%;
-    width: 80%;
-    height: 40%;
+    width: 49%;
+    height: 47%;
 
     border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
+    background-image: url("../images/guidelinepaper.png");
+    background-repeat: no-repeat;
 
     justify-content: center;
     -webkit-justify-content: center;
@@ -85,19 +87,36 @@
     -webkit-flex-wrap: wrap;
 
     font-family: open-sans-bold;
-    font-size: 50px;
-    line-height: 160%;
+    font-size: 17px;
+    line-height: 150%;
 
-    background-color: #9ac890;
+    /*background-color: #9ac890;*/
 
     z-index: 3002;
 }
 
 #guideline-btn-skip {
+    border-style: solid;
+    border-color: #263B76;
     border-radius: 10px;
-    background-color: rgb(38, 59, 118);
+    background-color: #26bdcf;
 
     font-size: 30px;
     font-family: open-sans-bold;
-    color: rgb(223, 135, 88);
+    color: #ffffff;
+}
+
+#guideline-body p {
+    width: 100%;
+    color: #26bdcf;
+}
+
+#guideline-body span {
+    /*width: 100%;*/
+    color: #26bdcf;
+}
+
+#guideline-body li{
+    color: #26bdcf;
+   width: 100%;
 }
