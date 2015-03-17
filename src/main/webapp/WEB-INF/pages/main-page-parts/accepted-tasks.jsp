@@ -10,7 +10,7 @@
 
 <c:forEach items="${client}" var="clientTask">
     <c:if test="${clientTask.getStatus().equals('inProcess')}">
-        <div class="accepted_task">
+        <div class="accepted_task" id="${clientTask.getTask().getId()}">
             <c:choose>
                 <c:when test="${clientTask.getTask().getGuard().equals('Yu Chanchan')}">
                     <img src="/assets/images/chanchan.jpg" class="img_task_accepted">
@@ -24,7 +24,7 @@
 </c:forEach>
 <c:forEach items="${tech}" var="techTask">
     <c:if test="${techTask.getStatus().equals('inProcess')}">
-        <div class="accepted_task">
+        <div class="accepted_task" id="${techTask.getTask().getId()}">
             <c:choose>
                 <c:when test="${techTask.getTask().getGuard().equals('Zhang Jiukun')}">
                     <img src="/assets/images/jiukun.jpg" class="img_task_accepted">
@@ -38,7 +38,7 @@
 </c:forEach>
 <c:forEach items="${process}" var="processTask">
     <c:if test="${processTask.getStatus().equals('inProcess')}">
-        <div class="accepted_task">
+        <div class="accepted_task" id="${processTask.getTask().getId()}">
             <c:choose>
                 <c:when test="${processTask.getTask().getGuard().equals('Zhang Jiukun')}">
                     <img src="/assets/images/jiukun.jpg" class="img_task_accepted">
@@ -52,7 +52,7 @@
 </c:forEach>
 <c:forEach items="${comm}" var="commTask">
     <c:if test="${commTask.getStatus().equals('inProcess')}">
-        <div class="accepted_task">
+        <div class="accepted_task"  id="${commTask.getTask().getId()}">
             <c:choose>
                 <c:when test="${commTask.getTask().getGuard().equals('Jia Wei')}">
                     <img src="/assets/images/jiawei.jpg" class="img_task_accepted">

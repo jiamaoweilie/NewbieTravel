@@ -16,12 +16,13 @@
     <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <link href="/assets/stylesheets/fonts.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="/assets/scripts/libs/jquery-2.1.3.js"></script>
     <script type="text/javascript" src="/assets/scripts/libs/jquery.transit.js"></script>
     <script type="text/javascript" src="/assets/scripts/libs/jquery.form.js"></script>
     <script type="text/javascript" src="/assets/scripts/admin.js"></script>
 </head>
-<body>
+<body style="font-family: open-sans">
 <section id="sect-tasks">
     <section id="sect-task-list">
         <h3>Task List</h3>
@@ -30,6 +31,9 @@
                 <th>Task Name</th>
                 <th>Task Type</th>
                 <th>Guard</th>
+                <th>Level</th>
+                <th>Available for Teams</th>
+                <th>Available for Roles</th>
                 <th>Task Content</th>
             </tr>
             <c:forEach items="${tasks}" var="task">
@@ -37,6 +41,17 @@
                     <td>${task.getName()}</td>
                     <td>${task.getType()}</td>
                     <td>${task.getGuard()}</td>
+                    <td>${task.getLevel()}</td>
+                    <td>
+                        <c:forEach items="${task.getAvailableForTeam()}" var="team">
+                            ${team},
+                        </c:forEach>
+                    </td>
+                    <td>
+                        <c:forEach items="${task.getAvailableForRole()}" var="role">
+                            ${role},
+                        </c:forEach>
+                    </td>
                     <td>${task.getContext()}</td>
                 </tr>
             </c:forEach>
