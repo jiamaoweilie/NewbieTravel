@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Controller
 @RequestMapping(value = "/task")
@@ -86,14 +84,9 @@ public class TaskController {
 
     @RequestMapping(value = "/finished/{id}", method = RequestMethod.POST)
     @ResponseBody
-    public Task finishTask(@PathVariable("id") String taskId,
+    public Map<String, Object> finishTask(@PathVariable("id") String taskId,
                            @RequestParam(value = "userId") String userId,
                            HttpSession httpSession, Model model) {
-//        String userId = (String) httpSession.getAttribute("userId");
-//        if (!isUserLogin(userId)) {
-//            model.addAttribute("error", "Please login.");
-//            return "main-page";
-//        }
         if (!isTaskExist(taskId)) {
             model.addAttribute("error", "We can not find this task.");
             return null;
@@ -115,7 +108,44 @@ public class TaskController {
         finished.add(taskId);
         user.setFinished(finished);
         userService.updateUser(user);
+        Map<String, Object> responseMap = new HashMap<String, Object>();
+        responseMap.put("user", user);
+        responseMap.put("task", task);
 
-        return task;
+        return responseMap;
+    }
+
+    @RequestMapping(value = "/rollback/{id}", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> rollbackTask(@PathVariable("id") String taskId,
+                             @RequestParam("userId") String userId,
+                             Model model) {
+        if (!isTaskExist(taskId)) {
+            model.addAttribute("error", "We can not find this task.");
+            return null;
+        }
+        User user = userService.findById(userId);
+        Task task = taskService.findTaskById(taskId);
+        List<String> inProcess = user.getInProcess() == null ? new ArrayList<String>() : user.getInProcess();
+        List<String> finished = user.getFinished() == null ? new ArrayList<String>() : user.getFinished();
+        if (!finished.contains(taskId)) {
+            model.addAttribute("error", "This task is not finished, we can not move it to in-progress.");
+            return null;
+        }
+        if(inProcess.contains(taskId)) {
+            model.addAttribute("error", "This task is still in-progress.");
+            return null;
+        }
+        finished.remove(finished.indexOf(taskId));
+        user.setFinished(finished);
+        inProcess.add(taskId);
+        user.setInProcess(inProcess);
+        userService.updateUser(user);
+
+        Map<String, Object> responseMap = new HashMap<String, Object>();
+        responseMap.put("user", user);
+        responseMap.put("task", task);
+
+        return responseMap;
     }
 }

@@ -4,37 +4,69 @@
 var admin = {
 
     initialise: function() {
-        $(document).ready(function(){
-            $("#btn-add-task").bind("click", function(e){
-                e.preventDefault();
-                var options = {
-                    //target: "#add-task-form"
-                    url: "admin/addtask",
-                    type: "POST",
-                    dataType: "json",
-                    success: function(response) {
-                        $.each(response.data.tasks, function(i, item) {
-                            $("#add-task-form").append("<tr>" +
-                                "<td>" + item.name + "</td>" +
-                                "<td>" + item.type + "</td>" +
-                                "<td>" + item.guard + "</td>" +
-                                "<td>" + item.context + "</td></tr>"
-                            );
-                        });
-                    }
-                };
+        var i;
+        for (i = 0; i < $("input[class='btn_finish_task']").length; i++) {
+            admin.bindFinishBtn($("input[class='btn_finish_task']")[i]);
+        }
+        for (i = 0; i < $("input[class='btn_rollback_task']").length; i++) {
+            admin.bindRollbackBtn($("input[class='btn_rollback_task']")[i]);
+        }
 
-                //var refresh = function() {
-                //    $.ajax({
-                //        url: "admin",
-                //        type: "GET"
-                //    });
-                //    return true;
-                //};
-                $("#add-task-form").ajaxSubmit(options);
-                //$("#add-task-form").resetForm();
-                //refresh();
-                return false;
+    },
+
+    bindFinishBtn: function(btnFinish) {
+        $(btnFinish).bind("click", function(e){
+            var urlString = '/task/finished/' + $(this).parent().attr("id");
+            var userId = $(this).parents(".user_entry").attr("id");
+            e.preventDefault();
+            $.ajax({
+                url: urlString,
+                type: "POST",
+                data: {userId: userId},
+                dataType: 'json',
+                success: function(response) {
+                    var taskSetFinish = response.task;
+                    var user = response.user;
+                    var taskHtmlElem = $("tr[class='user_entry'][id='" + user.id + "']").find(".in_doing_task[id='" + taskSetFinish.id + "']");
+                    var taskParentElem = $(taskHtmlElem).parents(".in_progress_list").siblings(".finished_list");
+                    var taskButton = $(".in_doing_task[id='" + taskSetFinish.id + "']").find("input[type='button']");
+                    if (taskSetFinish != null) {
+                        $(taskHtmlElem).remove()
+                            .appendTo($(taskParentElem))
+                            .attr("class", "finished_task")
+                            .find("input[type='button']").attr("class", "btn_rollback_task").attr("value", "Rollback");
+                        $(document).ready(admin.bindRollbackBtn(taskButton));
+
+                    }
+                }
+            });
+        });
+    },
+
+    bindRollbackBtn: function(btnRollback) {
+        $(btnRollback).bind("click", function(e){
+            var urlString = '/task/rollback/' + $(this).parent().attr("id");
+            var userId = $(this).parents(".user_entry").attr("id");
+            e.preventDefault();
+            $.ajax({
+                url: urlString,
+                type: "POST",
+                data: {userId: userId},
+                dataType: 'json',
+                success: function(response) {
+                    var taskSetRollback = response.task;
+                    var user = response.user;
+                    var taskHtmlElem = $("tr[class='user_entry'][id='" + user.id + "']").find(".finished_task[id='" + taskSetRollback.id + "']");
+                    var taskParentElem = $(taskHtmlElem).parents(".finished_list").siblings(".in_progress_list");
+                    var taskButton = $(".finished_task[id='" + taskSetRollback.id + "']").find("input[type='button']");
+                    if (taskSetRollback != null) {
+                        $(taskHtmlElem).remove()
+                            .appendTo($(taskParentElem))
+                            .attr("class", "in_doing_task")
+                            .find("input[type='button']").attr("class", "btn_finish_task").attr("value", "Finish");
+                        $(document).ready(admin.bindFinishBtn(taskButton));
+                    }
+                }
             });
         });
     }

@@ -85,7 +85,9 @@
                     <c:forEach items="${user.getFinished()}" var="finishedTask">
                         <c:forEach items="${tasks}" var="task">
                             <c:if test="${task.getId().equals(finishedTask)}">
-                                ${task.getName()}<br/>
+                                <div class="finished_task" id="${finishedTask}">
+                                        ${task.getName()}<input type="button" value="Rollback" class="btn_rollback_task"><br/>
+                                </div>
                             </c:if>
                         </c:forEach>
                     </c:forEach>
@@ -94,5 +96,10 @@
         </c:forEach>
     </table>
 </section>
-<script type="text/javascript" src="/assets/scripts/finish-task.js"></script>
+<script type="text/javascript" src="/assets/scripts/admin.js"></script>
+<script type="text/javascript">
+    $(document).ready(admin.initialise());
+</script>
+<%--<script type="text/javascript" src="/assets/scripts/finish-task.js"></script>--%>
+<%--<script type="text/javascript" src="/assets/scripts/rollback-task.js"></script>--%>
 </body>
