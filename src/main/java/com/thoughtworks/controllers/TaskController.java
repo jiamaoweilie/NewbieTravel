@@ -87,28 +87,31 @@ public class TaskController {
     public Map<String, Object> finishTask(@PathVariable("id") String taskId,
                            @RequestParam(value = "userId") String userId,
                            HttpSession httpSession, Model model) {
+        Map<String, Object> responseMap = new HashMap<String, Object>();
         if (!isTaskExist(taskId)) {
-            model.addAttribute("error", "We can not find this task.");
-            return null;
+//            model.addAttribute("error", "We can not find this task.");
+            responseMap.put("error", "We can not find this task.");
+            return responseMap;
         }
         User user = userService.findById(userId);
         Task task = taskService.findTaskById(taskId);
         List<String> inProcess = user.getInProcess() == null ? new ArrayList<String>() : user.getInProcess();
         List<String> finished = user.getFinished() == null ? new ArrayList<String>() : user.getFinished();
         if (!inProcess.contains(taskId)) {
-            model.addAttribute("error", "This task is not in process, we can not move it to finished.");
-            return null;
+//            model.addAttribute("error", "This task is not in process, we can not move it to finished.");
+            responseMap.put("error", "This task is not in process, we can not move it to finished.");
+            return responseMap;
         }
         if(finished.contains(taskId)) {
-            model.addAttribute("error", "This task is already finished.");
-            return null;
+//            model.addAttribute("error", "This task is already finished.");
+            responseMap.put("error", "This task is already finished.");
+            return responseMap;
         }
         inProcess.remove(inProcess.indexOf(taskId));
         user.setInProcess(inProcess);
         finished.add(taskId);
         user.setFinished(finished);
         userService.updateUser(user);
-        Map<String, Object> responseMap = new HashMap<String, Object>();
         responseMap.put("user", user);
         responseMap.put("task", task);
 
@@ -120,21 +123,30 @@ public class TaskController {
     public Map<String, Object> rollbackTask(@PathVariable("id") String taskId,
                              @RequestParam("userId") String userId,
                              Model model) {
+        Map<String, Object> responseMap = new HashMap<String, Object>();
         if (!isTaskExist(taskId)) {
-            model.addAttribute("error", "We can not find this task.");
-            return null;
+//            model.addAttribute("error", "We can not find this task.");
+            responseMap.put("error", "We can not find this task.");
+            return responseMap;
         }
         User user = userService.findById(userId);
         Task task = taskService.findTaskById(taskId);
         List<String> inProcess = user.getInProcess() == null ? new ArrayList<String>() : user.getInProcess();
         List<String> finished = user.getFinished() == null ? new ArrayList<String>() : user.getFinished();
         if (!finished.contains(taskId)) {
-            model.addAttribute("error", "This task is not finished, we can not move it to in-progress.");
-            return null;
+//            model.addAttribute("error", "This task is not finished, we can not move it to in-progress.");
+            responseMap.put("error", "This task is not finished, we can not move it to in-progress.");
+            return responseMap;
         }
         if(inProcess.contains(taskId)) {
-            model.addAttribute("error", "This task is still in-progress.");
-            return null;
+//            model.addAttribute("error", "This task is still in-progress.");
+            responseMap.put("error", "This task is still in-progress.");
+            return responseMap;
+        }
+        if(inProcess.size() >= 3) {
+//            model.addAttribute("error", "This user is already working on 3 tasks.");
+            responseMap.put("error", "This user is already working on 3 tasks.");
+            return responseMap;
         }
         finished.remove(finished.indexOf(taskId));
         user.setFinished(finished);
@@ -142,7 +154,7 @@ public class TaskController {
         user.setInProcess(inProcess);
         userService.updateUser(user);
 
-        Map<String, Object> responseMap = new HashMap<String, Object>();
+
         responseMap.put("user", user);
         responseMap.put("task", task);
 

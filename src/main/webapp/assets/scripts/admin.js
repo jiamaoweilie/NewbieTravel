@@ -27,6 +27,11 @@ var admin = {
                 success: function(response) {
                     var taskSetFinish = response.task;
                     var user = response.user;
+                    var errorMsg = response.error;
+                    if (errorMsg != null) {
+                        alert(errorMsg);
+                        return;
+                    }
                     var taskHtmlElem = $("tr[class='user_entry'][id='" + user.id + "']").find(".in_doing_task[id='" + taskSetFinish.id + "']");
                     var taskParentElem = $(taskHtmlElem).parents(".in_progress_list").siblings(".finished_list");
                     var taskButton = $(".in_doing_task[id='" + taskSetFinish.id + "']").find("input[type='button']");
@@ -54,6 +59,11 @@ var admin = {
                 data: {userId: userId},
                 dataType: 'json',
                 success: function(response) {
+                    var errorMsg = response.error;
+                    if (errorMsg != null) {
+                        alert(errorMsg);
+                        return;
+                    }
                     var taskSetRollback = response.task;
                     var user = response.user;
                     var taskHtmlElem = $("tr[class='user_entry'][id='" + user.id + "']").find(".finished_task[id='" + taskSetRollback.id + "']");
