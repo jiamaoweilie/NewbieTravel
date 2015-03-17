@@ -15,6 +15,7 @@ var admin = {
     },
 
     bindFinishBtn: function(btnFinish) {
+        $(btnFinish).unbind();
         $(btnFinish).bind("click", function(e){
             var urlString = '/task/finished/' + $(this).parent().attr("id");
             var userId = $(this).parents(".user_entry").attr("id");
@@ -34,7 +35,7 @@ var admin = {
                     }
                     var taskHtmlElem = $("tr[class='user_entry'][id='" + user.id + "']").find(".in_doing_task[id='" + taskSetFinish.id + "']");
                     var taskParentElem = $(taskHtmlElem).parents(".in_progress_list").siblings(".finished_list");
-                    var taskButton = $(".in_doing_task[id='" + taskSetFinish.id + "']").find("input[type='button']");
+                    var taskButton = $(taskHtmlElem).find("input[type='button']");
                     if (taskSetFinish != null) {
                         $(taskHtmlElem).remove()
                             .appendTo($(taskParentElem))
@@ -49,6 +50,7 @@ var admin = {
     },
 
     bindRollbackBtn: function(btnRollback) {
+        $(btnRollback).unbind();
         $(btnRollback).bind("click", function(e){
             var urlString = '/task/rollback/' + $(this).parent().attr("id");
             var userId = $(this).parents(".user_entry").attr("id");
@@ -68,7 +70,7 @@ var admin = {
                     var user = response.user;
                     var taskHtmlElem = $("tr[class='user_entry'][id='" + user.id + "']").find(".finished_task[id='" + taskSetRollback.id + "']");
                     var taskParentElem = $(taskHtmlElem).parents(".finished_list").siblings(".in_progress_list");
-                    var taskButton = $(".finished_task[id='" + taskSetRollback.id + "']").find("input[type='button']");
+                    var taskButton = $(taskHtmlElem).find("input[type='button']");
                     if (taskSetRollback != null) {
                         $(taskHtmlElem).remove()
                             .appendTo($(taskParentElem))
