@@ -14,6 +14,7 @@
     <link href="/assets/stylesheets/infobar.css" type="text/css" rel="stylesheet">
     <link href="/assets/stylesheets/lightbox.css" type="text/css" rel="stylesheet">
     <link href="/assets/stylesheets/taskmaps.css" type="text/css" rel="stylesheet">
+    <link href="/assets/stylesheets/honorflower.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="/assets/scripts/libs/jquery-2.1.3.js"></script>
     <script type="text/javascript" src="/assets/scripts/libs/jquery.transit.js"></script>
 </head>
@@ -27,6 +28,9 @@
 
     <!-- new user guideline -->
     <%@include file="main-page-parts/new-user-guide.jsp"%>
+
+    <%-- honor flower --%>
+    <%@include file="main-page-parts/honor-flower.jsp"%>
 
     <!-- light box -->
     <section id="sect-light-box" class="light_box">

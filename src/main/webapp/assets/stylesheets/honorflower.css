@@ -1,0 +1,18 @@
+#sect-honor-flower {
+    position: fixed;
+    /*top: 600px;*/
+    left: 70px;
+    width: 100px;
+    height: 80%;
+    z-index: 5000;
+}
+
+#flower-pot {
+    position: relative;
+    top: 90%;
+    width: 100%;
+}
+
+#flower-pot img {
+    width: 100%;
+}
