@@ -6,7 +6,6 @@ var lightbox = {
         var imgUrl = $(taskCard).children("img[class='img_cardface']").attr("src");
 
         $("#sect-light-box").transit({scale: 0, opacity: 0}, "slow");
-        //$("#sect-light-box").hide();
         $("#light-box-bg").fadeOut("slow");
 
         $(taskCard).children(".mark_in_progress").css({perspective: 600, rotateY: "-=180deg"}).show();

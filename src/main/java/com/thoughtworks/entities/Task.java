@@ -25,6 +25,16 @@ public class Task {
     private Set<String> availableForRole;
     String level;
 
+    int duration;
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
     public String getId() {
         return id;
     }

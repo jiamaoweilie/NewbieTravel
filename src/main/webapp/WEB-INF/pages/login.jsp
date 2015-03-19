@@ -68,7 +68,7 @@
                         <label for="team-select" class="login_label">Team: </label>
                         <select id="team-select" name="team">
                             <option value="team_swordfish">Swordfish</option>
-                            <option value="team_terracotta">Terracotta</option>
+                            <option value="team_dolphin">Dolphin</option>
                         </select>
                     </div>
                     <div id="input-line-role" class="input_line">

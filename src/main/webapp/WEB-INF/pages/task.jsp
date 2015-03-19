@@ -33,8 +33,8 @@
     <p><b>Available for Teams: </b></p>
     <input type="checkbox" name="available_team" id="available-team-swordfish" value="team_swordfish">
     <label for="available-team-swordfish">Swordfish</label>
-    <input type="checkbox" name="available_team" id="available-team-terracotta" value="team_terracotta">
-    <label for="available-team-terracotta">Terracotta</label>
+    <input type="checkbox" name="available_team" id="available-team-dolphin" value="team_dolphin">
+    <label for="available-team-dolphin">Dolphin</label>
     <br/>
     <p><b>Available for Roles: </b></p>
     <input type="checkbox" name="available_role" id="available-role-ba" value="role_ba">
@@ -43,6 +43,11 @@
     <label for="available-role-qa">QA</label>
     <input type="checkbox" name="available_role" id="available-role-dev" value="role_dev">
     <label for="available-role-dev">DEV</label>
+    <br/>
+    <div id="task-duration">
+        <label for="duration-input"><b>Duration(in days)</b></label>
+        <input id="duration-input" type="number" name="duration">
+    </div>
     <br/><br/>
     <button class="task-context" type="submit">Add Task</button>
     <p>${error}</p>

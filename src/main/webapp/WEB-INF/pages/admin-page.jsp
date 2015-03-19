@@ -32,6 +32,7 @@
                 <th>Task Type</th>
                 <th>Guard</th>
                 <th>Level</th>
+                <th>Duration</th>
                 <th>Available for Teams</th>
                 <th>Available for Roles</th>
                 <th>Task Content</th>
@@ -42,6 +43,7 @@
                     <td>${task.getType()}</td>
                     <td>${task.getGuard()}</td>
                     <td>${task.getLevel()}</td>
+                    <td>${task.getDuration()} day(s)</td>
                     <td>
                         <c:forEach items="${task.getAvailableForTeam()}" var="team">
                             ${team},
