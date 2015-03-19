@@ -12,6 +12,7 @@
     <div id="${clientTask.getTask().getId()}" value="${clientTask.getTask().getName()}" class="task_card">
         <div id="task-guard-${clientTask.getTask().getId()}" value="${clientTask.getTask().getGuard()}"></div>
         <div id="task-content-${clientTask.getTask().getId()}" value="${clientTask.getTask().getContext()}"></div>
+        <div id="task-duration-${clientTask.getTask().getId()}" value="${clientTask.getTask().getDuration()}"></div>
         <div id="mark-client" class="mark_in_progress">In Progress</div>
         <%--<c:choose>--%>
             <%--<c:when test="${clientTask.getTask().getGuard().equals('Yu Chanchan')}">--%>

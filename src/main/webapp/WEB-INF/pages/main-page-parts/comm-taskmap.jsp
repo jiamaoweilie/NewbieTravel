@@ -12,6 +12,7 @@
     <div id="${commTask.getTask().getId()}" value="${commTask.getTask().getName()}" class="task_card">
         <div id="task-guard-${commTask.getTask().getId()}" value="${commTask.getTask().getGuard()}"></div>
         <div id="task-content-${commTask.getTask().getId()}" value="${commTask.getTask().getContext()}"></div>
+        <div id="task-duration-${commTask.getTask().getId()}" value="${commTask.getTask().getDuration()}"></div>
         <div id="mark-comm" class="mark_in_progress">In Progress</div>
         <%--<c:choose>--%>
             <%--<c:when test="${commTask.getTask().getGuard().equals('Jia Wei')}">--%>
