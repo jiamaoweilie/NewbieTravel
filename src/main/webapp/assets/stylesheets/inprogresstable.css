@@ -1,0 +1,22 @@
+#in-doing-tasks {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+#in-doing-tasks tbody {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#in-doing-tasks .in_doing_table_row{
+    position: relative;
+    width: 100%;
+    height: 25%;
+}
+
+#in-doing-tasks .in_doing_table_head{
+    position: relative;
+    width: 100%;
+    height: 25%;
+}

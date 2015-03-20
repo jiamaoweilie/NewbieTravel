@@ -15,6 +15,7 @@
     <link href="/assets/stylesheets/lightbox.css" type="text/css" rel="stylesheet">
     <link href="/assets/stylesheets/taskmaps.css" type="text/css" rel="stylesheet">
     <link href="/assets/stylesheets/honorflower.css" type="text/css" rel="stylesheet">
+    <link href="/assets/stylesheets/inprogresstable.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="/assets/scripts/libs/jquery-2.1.3.js"></script>
     <script type="text/javascript" src="/assets/scripts/libs/jquery.transit.js"></script>
 </head>
