@@ -1,4 +1,5 @@
 <html>
+
 <head>
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +12,9 @@
     <script type="text/javascript" src="/assets/scripts/libs/jquery.transit.js"></script>
     <script type="text/javascript" src="/assets/scripts/login.js"></script>
 </head>
+
 <body>
+
     <section id="login-page-1" class="login-page">
         <div class="login_banner">Newbie Challenge</div>
         <form class="form-login" method="post" role="form">
@@ -36,60 +39,62 @@
     </section>
 
     <section id="login-page-2" class="login-page">
-            <div class="login_banner">Newbie Challenge</div>
-            <form class="form-login" method="post" role="form">
-                <div class="login-box-top">
-                    <img src="/assets/images/loginbox_edge_top_red.jpg">
+        <div class="login_banner">Newbie Challenge</div>
+        <form class="form-login" method="post" role="form">
+            <div class="login-box-top">
+                <img src="/assets/images/loginbox_edge_top_red.jpg">
+            </div>
+            <div class="form_body">
+                <div class="input_line">
+                    <label for="email-2" class="login_label">Email: </label>
+                    <input id="email-2" class="login-input-email" type="text" name="email" placeholder="email address" />
                 </div>
-                <div class="form_body">
-                    <div class="input_line">
-                        <label for="email-2" class="login_label">Email: </label>
-                        <input id="email-2" class="login-input-email" type="text" name="email" placeholder="email address" />
-                    </div>
-                    <p style="font-size: 15px; line-height: 100%">For the first time login, please select your team and role:</p>
-                    <div id="input-line-team" class="input_line">
-                        <label for="team-select" class="login_label">Team: </label>
-                        <select id="team-select" name="team">
-                            <option value="team_swordfish">Swordfish</option>
-                            <option value="team_dolphin">Dolphin</option>
-                        </select>
-                    </div>
-                    <div id="input-line-role" class="input_line">
-                        <label for="role-select" class="login_label">Role: </label>
-                        <div id="role-select">
-                            <div class="input_radio">
-                                <label for="radio-select-dev" class="label_radio">
-                                    <input id="radio-select-dev" type="radio" name="role" value="role_dev" checked="true"/>DEV
-                                </label>
-                            </div>
-                            <div class="input_radio">
-                                <label for="radio-select-qa" class="label_radio">
-                                    <input id="radio-select-qa" type="radio" name="role" value="role_qa"/>QA
-                                </label>
-                            </div>
-                            <div class="input_radio">
-                                <label for="radio-select-ba" class="label_radio">
-                                    <input id="radio-select-ba" type="radio" name="role" value="role_ba"/>BA
-                                </label>
-                            </div>
+                <p style="font-size: 15px; line-height: 100%">For the first time login, please select your team and role:</p>
+                <div id="input-line-team" class="input_line">
+                    <label for="team-select" class="login_label">Team: </label>
+                    <select id="team-select" name="team">
+                        <option value="team_swordfish">Swordfish</option>
+                        <option value="team_dolphin">Dolphin</option>
+                    </select>
+                </div>
+                <div id="input-line-role" class="input_line">
+                    <label for="role-select" class="login_label">Role: </label>
+                    <div id="role-select">
+                        <div class="input_radio">
+                            <label for="radio-select-dev" class="label_radio">
+                                <input id="radio-select-dev" type="radio" name="role" value="role_dev" checked="true"/>DEV
+                            </label>
+                        </div>
+                        <div class="input_radio">
+                            <label for="radio-select-qa" class="label_radio">
+                                <input id="radio-select-qa" type="radio" name="role" value="role_qa"/>QA
+                            </label>
+                        </div>
+                        <div class="input_radio">
+                            <label for="radio-select-ba" class="label_radio">
+                                <input id="radio-select-ba" type="radio" name="role" value="role_ba"/>BA
+                            </label>
                         </div>
                     </div>
-                    <button id="btn-login-2" class="btn_login" type="submit">Log in</button><br/>
-                    <p id="login-error-msg-2"></p>
                 </div>
-                <div class="login-box-bottom">
-                    <img src="/assets/images/loginbox_edge_bottom_red.jpg">
-                </div>
-            </form>
-            <div class="login_footer">
-                <img src="/assets/images/tw_logo_white.png">
+                <button id="btn-login-2" class="btn_login" type="submit">Log in</button><br/>
+                <p id="login-error-msg-2"></p>
             </div>
-        </section>
+            <div class="login-box-bottom">
+                <img src="/assets/images/loginbox_edge_bottom_red.jpg">
+            </div>
+        </form>
+        <div class="login_footer">
+            <img src="/assets/images/tw_logo_white.png">
+        </div>
+    </section>
+
     <script>
         $(document).ready(function() {
-//            <%--$(".login-page").transition({y: '-100%'});--%>
             login.initialize();
         });
     </script>
+
 </body>
+
 </html>

@@ -1,6 +1,5 @@
 package com.thoughtworks.controllers;
 
-import com.thoughtworks.controllers.forms.UserTaskForm;
 import com.thoughtworks.entities.Task;
 import com.thoughtworks.entities.User;
 import com.thoughtworks.entities.constants.Achievement;
@@ -9,11 +8,16 @@ import com.thoughtworks.services.TaskService;
 import com.thoughtworks.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 @Controller
@@ -26,8 +30,31 @@ public class LoginController {
     TaskService taskService;
 
     @RequestMapping(value = "/main-page", method = RequestMethod.GET)
-    public String gotoMainPage() {
+    public String gotoMainPage(@RequestParam(value = "userId", required = false) String userId,
+                               HttpSession httpSession) {
+        String sessionUid = (String) httpSession.getAttribute("userId");
+        if (userId != null && !userId.equals(sessionUid))
+            return "login-error-page";
         return "main-page";
+    }
+
+    @RequestMapping(value = "main-page/init-info", method = RequestMethod.GET)
+    @ResponseBody
+    public Map<String, Object> getMainPageInfo(HttpSession httpSession) {
+        Map<String, Object> result = new HashMap<String, Object>();
+
+        User user = userService.findById((String) httpSession.getAttribute("userId"));
+        if (user == null) {
+            result.put("errorRedirect", "login");
+            return result;
+        }
+        List<Task> tasks = taskService.findTaskForUser(user);
+
+        result.put("user", user);
+        result.put("tasks", tasks);
+        result.put("isNewUser", (Boolean)httpSession.getAttribute("isNewUser"));
+
+        return result;
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -35,48 +62,54 @@ public class LoginController {
         return "login";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public @ResponseBody Map<String, Object> login(
+    @RequestMapping(value = "/login/new", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> registerNewUser(
             @RequestParam(value = "email") String email,
             @RequestParam(value = "team", required = false) String team,
             @RequestParam(value = "role", required = false) String role,
-            HttpSession httpSession,
-            Model model) {
+            HttpSession httpSession) {
         Map<String, Object> result = new HashMap<String, Object>();
 
         if (!EMAIL_PATTEN.matcher(email).matches()) {
-//            model.addAttribute("error", "User email address is not valid.");
+            result.put("error", "User email address is not valid.");
+            return result;
+        }
+
+        User user = userService.findByEmail(email);
+        if (null == user && null != team && null != role) {
+            user = createNewUser(email, team, role);
+            httpSession.setAttribute("userId", user.getId());
+            httpSession.setAttribute("isNewUser", true);
+            result.put("goto", "main-page");
+            result.put("userId", user.getId());
+        }
+        return result;
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public @ResponseBody Map<String, Object> login(
+            @RequestParam(value = "email") String email,
+            HttpSession httpSession) {
+        Map<String, Object> result = new HashMap<String, Object>();
+
+        if (!EMAIL_PATTEN.matcher(email).matches()) {
             result.put("error", "User email address is not valid.");
             return result;
         }
 
         User user = userService.findByEmail(email);
         if (null == user) {
-            if (null == team || null == role) {
-//                model.addAttribute("isNewUser", true);
-//                model.addAttribute("email", email);
-                result.put("isNewUser", true);
-                result.put("email", email);
-                return result;
-            }
-            user = createNewUser(email, team, role);
-//            model.addAttribute("showNewUserGuide", true);
-            result.put("showNewUserGuide", true);
-            httpSession.setAttribute("userId", user.getId());
-        } else {
-            if (null != team && (!team.equals(user.getTeam()))) {
-//                model.addAttribute("error", "You chose a different Team with your previous setting.");
-                result.put("error", "You chose a different Team with your previous setting.");
-                return result;
-            }
-            if (null != role && (!role.equals(user.getRole()))) {
-//                model.addAttribute("error", "You chose a different Role with your previous setting.");
-                result.put("error", "You chose a different Role with your previous setting.");
-                return result;
-            }
-            httpSession.setAttribute("userId", user.getId());
+            result.put("isNewUser", true);
+            result.put("email", email);
+            return result;
         }
-        return doLogin(user, model);
+        httpSession.setAttribute("userId", user.getId());
+        httpSession.setAttribute("isNewUser", false);
+
+        result.put("goto", "main-page");
+        result.put("userId", user.getId());
+        return result;
     }
 
     private User createNewUser(String email, String team, String role) {
@@ -98,48 +131,26 @@ public class LoginController {
         return user;
     }
 
-    private Map doLogin(User user, Model model) {
-        List<Task> processTask = taskService.findProcessTasks(user);
-        List<Task> clientTask = taskService.findClientTasks(user);
-        List<Task> techTask = taskService.findTechTasks(user);
-        List<Task> commTask = taskService.findCommTasks(user);
-
-        Map<String, Object> result = new HashMap<String, Object>();
-
-//        model.addAttribute("process", setTaskStatusForUser(processTask, user, TaskType.PROCESS));
-//        model.addAttribute("client", setTaskStatusForUser(clientTask, user, TaskType.CLIENT));
-//        model.addAttribute("tech", setTaskStatusForUser(techTask, user, TaskType.TECH));
-//        model.addAttribute("comm", setTaskStatusForUser(commTask, user, TaskType.COMM));
-//        model.addAttribute("user", user);
-        result.put("process", setTaskStatusForUser(processTask, user, TaskType.PROCESS));
-        result.put("client", setTaskStatusForUser(clientTask, user, TaskType.CLIENT));
-        result.put("tech", setTaskStatusForUser(techTask, user, TaskType.TECH));
-        result.put("comm", setTaskStatusForUser(commTask, user, TaskType.COMM));
-        result.put("user", user);
-        //result.put("goto", "/WEB-INF/pages/main-page.jsp");
-        return result;
-    }
-
-    private List<UserTaskForm> setTaskStatusForUser(List<Task> tasks, User user, String type) {
-        List<UserTaskForm> taskLists = new ArrayList<UserTaskForm>();
-        for (Task task : tasks) {
-            taskLists.add(new UserTaskForm(task, ""));
-        }
-        if (user.getInProcess() != null) {
-            for (UserTaskForm taskForm : taskLists) {
-                if (user.getInProcess().contains(taskForm.getTask().getId())) {
-                    taskForm.setStatus("inProcess");
-                }
-            }
-        }
-
-        if (user.getFinished() != null) {
-            for (UserTaskForm taskForm : taskLists) {
-                if (user.getFinished().contains(taskForm.getTask().getId())) {
-                    taskForm.setStatus("finished");
-                }
-            }
-        }
-        return taskLists;
-    }
+//    private List<UserTaskForm> setTaskStatusForUser(List<Task> tasks, User user, String type) {
+//        List<UserTaskForm> taskLists = new ArrayList<UserTaskForm>();
+//        for (Task task : tasks) {
+//            taskLists.add(new UserTaskForm(task, ""));
+//        }
+//        if (user.getInProcess() != null) {
+//            for (UserTaskForm taskForm : taskLists) {
+//                if (user.getInProcess().contains(taskForm.getTask().getId())) {
+//                    taskForm.setStatus("inProcess");
+//                }
+//            }
+//        }
+//
+//        if (user.getFinished() != null) {
+//            for (UserTaskForm taskForm : taskLists) {
+//                if (user.getFinished().contains(taskForm.getTask().getId())) {
+//                    taskForm.setStatus("finished");
+//                }
+//            }
+//        }
+//        return taskLists;
+//    }
 }
