@@ -7,7 +7,6 @@ var taskMaps = {
 
         for (i = 0; i < taskImgs.length; i++) {
             if ($(taskImgs[i]).attr("value") === 'ACCEPTED') {
-                //$(taskImgs[i]).attr("class", "img_clicked");
                 $(taskImgs[i]).css("opacity", 0.4).css("z-index", 110);
                 $(taskImgs[i]).siblings(".img_cardback").css("z-index", 101).css({perspective: 600, rotateY: '+=180deg', opacity: 0});
                 $(taskImgs[i]).parent().css("background-color", "#333");

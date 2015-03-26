@@ -47,31 +47,36 @@ public class TaskController {
     }
     
     @RequestMapping(value = "/accepted/{id}", method = RequestMethod.POST)
-    public String acceptTask(@PathVariable("id") String taskId, HttpSession httpSession, Model model) {
-        String userId = (String) httpSession.getAttribute("userId");
-        if (!isUserLogin(userId)) {
-            model.addAttribute("error", "Please login.");
-            return "main-page";
+    @ResponseBody
+    public Map<String, Object> acceptTask(@PathVariable("id") String taskId,
+                                          @RequestParam(value = "userId") String userId,
+                                          HttpSession httpSession, Model model) {
+        Map<String, Object> result = new HashMap<String, Object>();
+        String sessionUserId = (String) httpSession.getAttribute("userId");
+        if (!isUserLogin(userId) && !userId.equals(sessionUserId)) {
+            result.put("error", "Please login.");
+            return result;
         }
         if (!isTaskExist(taskId)) {
-            model.addAttribute("error", "We can not find this task.");
-            return "main-page";
+            result.put("error", "We can not find this task.");
+            return result;
         }
         User user = userService.findById(userId);
         List<String> inProcess = user.getInProcess() == null ? new ArrayList<String>() : user.getInProcess();
         List<String> finished = user.getFinished() == null ? new ArrayList<String>() : user.getFinished();
         if (inProcess.contains(taskId)) {
-            model.addAttribute("error", "This task is already in process.");
-            return "main-page";
+            result.put("error", "This task is already in process.");
+            return result;
         }
         if (finished.contains(taskId)) {
-            model.addAttribute("error", "This task is already finished, we can not move it to in process.");
-            return "main-page";
+            result.put("error", "This task is already finished, we can not move it to in process.");
+            return result;
         }
         inProcess.add(taskId);
         user.setInProcess(inProcess);
         userService.updateUser(user);
-        return "main-page";
+        result.put("user", user);
+        return result;
     }
 
     private boolean isTaskExist(String taskId) {
@@ -89,7 +94,6 @@ public class TaskController {
                            HttpSession httpSession, Model model) {
         Map<String, Object> responseMap = new HashMap<String, Object>();
         if (!isTaskExist(taskId)) {
-//            model.addAttribute("error", "We can not find this task.");
             responseMap.put("error", "We can not find this task.");
             return responseMap;
         }
@@ -98,12 +102,10 @@ public class TaskController {
         List<String> inProcess = user.getInProcess() == null ? new ArrayList<String>() : user.getInProcess();
         List<String> finished = user.getFinished() == null ? new ArrayList<String>() : user.getFinished();
         if (!inProcess.contains(taskId)) {
-//            model.addAttribute("error", "This task is not in process, we can not move it to finished.");
             responseMap.put("error", "This task is not in process, we can not move it to finished.");
             return responseMap;
         }
         if(finished.contains(taskId)) {
-//            model.addAttribute("error", "This task is already finished.");
             responseMap.put("error", "This task is already finished.");
             return responseMap;
         }
@@ -125,7 +127,6 @@ public class TaskController {
                              Model model) {
         Map<String, Object> responseMap = new HashMap<String, Object>();
         if (!isTaskExist(taskId)) {
-//            model.addAttribute("error", "We can not find this task.");
             responseMap.put("error", "We can not find this task.");
             return responseMap;
         }
@@ -134,17 +135,14 @@ public class TaskController {
         List<String> inProcess = user.getInProcess() == null ? new ArrayList<String>() : user.getInProcess();
         List<String> finished = user.getFinished() == null ? new ArrayList<String>() : user.getFinished();
         if (!finished.contains(taskId)) {
-//            model.addAttribute("error", "This task is not finished, we can not move it to in-progress.");
             responseMap.put("error", "This task is not finished, we can not move it to in-progress.");
             return responseMap;
         }
         if(inProcess.contains(taskId)) {
-//            model.addAttribute("error", "This task is still in-progress.");
             responseMap.put("error", "This task is still in-progress.");
             return responseMap;
         }
         if(inProcess.size() >= 3) {
-//            model.addAttribute("error", "This user is already working on 3 tasks.");
             responseMap.put("error", "This user is already working on 3 tasks.");
             return responseMap;
         }
