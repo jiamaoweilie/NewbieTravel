@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="/assets/stylesheets/fonts.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="/assets/scripts/libs/jquery-2.1.3.js"></script>
+    <script type="text/javascript" src="/assets/scripts/libs/jquery.transit.js"></script>
+    <script type="text/javascript" src="/assets/scripts/libs/jquery.form.js"></script>
+    <script type="text/javascript" src="/assets/scripts/admin.js"></script>
+</head>
+<body style="font-family: open-sans">
+<section id="sect-tasks">
+    <section id="sect-task-list">
+        <h3>Task List</h3>
+        <table id="task-list-table" border="1">
+            <tr id="task-list-table-head">
+                <th>Task Name</th>
+                <th>Task Type</th>
+                <th>Guard</th>
+                <th>Level</th>
+                <th>Duration</th>
+                <th>Available for Teams</th>
+                <th>Available for Roles</th>
+                <th>Task Content</th>
+            </tr>
+        </table>
+    </section><br/>
+    <section id="sect-add-task">
+        <a href="/task/add">Create A New Task</a>
+    </section><br/>
+</section><br/>
+<section id="sect-users">
+    <h3>User List</h3>
+    <table id="user-table" border="1">
+        <tr id="user-table-head">
+            <th>Email</th>
+            <th>Team</th>
+            <th>Role</th>
+            <th>Client Level</th>
+            <th>Tech Level</th>
+            <th>Process Level</th>
+            <th>Comm Level</th>
+            <th>Doing</th>
+            <th>Finished</th>
+        </tr>
+    </table>
+</section>
+<script type="text/javascript" src="/assets/scripts/admin.js"></script>
+<script type="text/javascript">
+    $(document).ready(admin.initialise());
+</script>
+</body>

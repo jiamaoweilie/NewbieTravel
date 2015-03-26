@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Add Task</title>
@@ -8,7 +8,6 @@
     <h3 class="signin-heading">Create a task for newbie</h3>
     <input class="task-name" name="name" type="text" placeholder="name"/>
     <input class="task-guard" name="guard" type="text" placeholder="guard"/>
-    <%--<input class="task-context" name="context" type="text" placeholder="context"/>--%>
     <br/><br/>
     <textarea name="context" placeholder="content" class="task-context"></textarea>
     <br/><br/>
@@ -50,8 +49,8 @@
     </div>
     <br/><br/>
     <button class="task-context" type="submit">Add Task</button>
-    <p>${error}</p>
-    <p>${message}</p>
+    <!--<p>${error}</p>-->
+    <!--<p>${message}</p>-->
 </form>
 <a href="/admin">Go Back to Admin Page</a>
 </body>
