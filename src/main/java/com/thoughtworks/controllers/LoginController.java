@@ -131,26 +131,4 @@ public class LoginController {
         return user;
     }
 
-//    private List<UserTaskForm> setTaskStatusForUser(List<Task> tasks, User user, String type) {
-//        List<UserTaskForm> taskLists = new ArrayList<UserTaskForm>();
-//        for (Task task : tasks) {
-//            taskLists.add(new UserTaskForm(task, ""));
-//        }
-//        if (user.getInProcess() != null) {
-//            for (UserTaskForm taskForm : taskLists) {
-//                if (user.getInProcess().contains(taskForm.getTask().getId())) {
-//                    taskForm.setStatus("inProcess");
-//                }
-//            }
-//        }
-//
-//        if (user.getFinished() != null) {
-//            for (UserTaskForm taskForm : taskLists) {
-//                if (user.getFinished().contains(taskForm.getTask().getId())) {
-//                    taskForm.setStatus("finished");
-//                }
-//            }
-//        }
-//        return taskLists;
-//    }
 }
