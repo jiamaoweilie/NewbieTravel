@@ -120,7 +120,7 @@ var mainPage = {
                         "<tr class='in_doing_table_row " + task.type + "' type='" + task.type + "'>" +
                         "<td>" + task.name + "</td>" +
                         "<td>" + task.guard + "</td>" +
-                        "<td>" + task.duration + "</td>" +
+                        "<td>" + task.duration + " day(s)</td>" +
                         "</tr>"
                     );
                 }
