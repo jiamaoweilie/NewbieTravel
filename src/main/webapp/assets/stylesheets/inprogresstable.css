@@ -1,6 +1,6 @@
 #in-doing-tasks {
     position: relative;
-    width: 100%;
+    width: 98%;
     height: 92%;
     margin: 1%;
 }
@@ -10,14 +10,41 @@
     height: 100%;
 }
 
-#in-doing-tasks .in_doing_table_row{
+#in-doing-tasks .in_doing_table_row {
     position: relative;
     width: 100%;
     height: 25%;
+
+    font-family: open-sans-light;
+    font-size: 15px;
 }
+
+#in-doing-tasks .client {
+    color: #f78f31;
+}
+
+#in-doing-tasks .tech {
+    color: #89b77f;
+}
+
+#in-doing-tasks .process {
+    color: #26bdcf;
+}
+
+#in-doing-tasks .comm {
+    color: #ef5ba1;
+}
+
 
 #in-doing-tasks .in_doing_table_head{
     position: relative;
     width: 100%;
     height: 25%;
+
+    border-bottom: solid;
+    border-color: #66aaaa;
+
+    font-family: open-sans-bold;
+    font-size: 15px;
+    color: black;
 }

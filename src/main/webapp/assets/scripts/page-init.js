@@ -67,7 +67,7 @@ var mainPage = {
             taskCardHtml += "<div id='" + task.id + "' value='" + task.name + "' class='task_card'>";
             taskCardHtml += "<div id='task-guard-" + task.id + "' value='" + task.guard + "'></div>";
             taskCardHtml += "<div id='task-duration-" + task.id + "' value='" + task.duration + "'></div>";
-            taskCardHtml += "<div id='mark-" + type + "' class='mark_in_progress'>In Progress</div>";
+            taskCardHtml += "<div id='mark-" + type + "' class='mark_in_progress'>In Progress<br/><br/><p class='mark_in_progress_taskname'>" + task.name + "</p></div>";
             taskCardHtml += "<img src='/assets/images/" + type + "_card2.jpg' class='img_cardback'>";
 
             if (mainPage.user.inProcess != null && mainPage.user.inProcess.contains(task.id)) {
@@ -117,7 +117,7 @@ var mainPage = {
                 task = mainPage.tasks.findTaskById(taskId);
                 if (task != undefined) {
                     $("#in-doing-tasks").find("#tr-placeholder").before(
-                        "<tr class='in_doing_table_row' type='" + task.type + "'>" +
+                        "<tr class='in_doing_table_row " + task.type + "' type='" + task.type + "'>" +
                         "<td>" + task.name + "</td>" +
                         "<td>" + task.guard + "</td>" +
                         "<td>" + task.duration + "</td>" +
