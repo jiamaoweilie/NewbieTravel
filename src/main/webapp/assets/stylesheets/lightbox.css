@@ -139,9 +139,9 @@
 }
 
 .light_box .light_box_border #lb-task-description #lb-task-content {
-    border-right: dashed #ffffff;
+    /*border-right: dashed #ffffff;*/
     position: relative;
-    width: 64%;
+    width: 100%;
     height: 94%;
     padding-left: 2%;
     padding-right: 2%;

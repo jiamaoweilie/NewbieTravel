@@ -18,18 +18,18 @@
 .task_maps .client {
     color: #ffffff;
     background-color: #f78f31;
-    -webkit-box-shadow: #f78f31 0 0 10px;
-    -moz-box-shadow: #f78f31 0 0 10px;
-    box-shadow: #f78f31 0 0 10px;
+    /*-webkit-box-shadow: #f78f31 0 0 10px;*/
+    /*-moz-box-shadow: #f78f31 0 0 10px;*/
+    /*box-shadow: #f78f31 0 0 10px;*/
 }
 
 /* line 197, ../sass/style.scss */
 .task_maps .technical {
     color: #ffffff;
     background-color: #89b77f;
-    -webkit-box-shadow: #89b77f 0 0 10px;
-    -moz-box-shadow: #89b77f 0 0 10px;
-    box-shadow: #89b77f 0 0 10px;
+    /*-webkit-box-shadow: #89b77f 0 0 10px;*/
+    /*-moz-box-shadow: #89b77f 0 0 10px;*/
+    /*box-shadow: #89b77f 0 0 10px;*/
 
 }
 
@@ -37,18 +37,18 @@
 .task_maps .process {
     color: #ffffff;
     background-color: #26bdcf;
-    -webkit-box-shadow: #26bdcf 0 0 10px;
-    -moz-box-shadow: #26bdcf 0 0 10px;
-    box-shadow: #26bdcf 0 0 10px;
+    /*-webkit-box-shadow: #26bdcf 0 0 10px;*/
+    /*-moz-box-shadow: #26bdcf 0 0 10px;*/
+    /*box-shadow: #26bdcf 0 0 10px;*/
 }
 
 /* line 209, ../sass/style.scss */
 .task_maps .communication {
     color: #ffffff;
     background-color: #ef5ba1;
-    -webkit-box-shadow: #ef5ba1 0 0 10px;
-    -moz-box-shadow: #ef5ba1 0 0 10px;
-    box-shadow: #ef5ba1 0 0 10px;
+    /*-webkit-box-shadow: #ef5ba1 0 0 10px;*/
+    /*-moz-box-shadow: #ef5ba1 0 0 10px;*/
+    /*box-shadow: #ef5ba1 0 0 10px;*/
 }
 
 /* line 216, ../sass/style.scss */
