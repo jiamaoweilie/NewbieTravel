@@ -24,11 +24,10 @@ var taskMaps = {
                 $(taskImgs[i]).siblings(".img_cardback").css("z-index", 110).css("opacity", 1.0);
             }
         }
-		$("#sect-task-maps img").bind("click", function(e){
-			var that = this;
-
+		$(".task_card").on("click", $("img"), function(e){
+			var $that = this;
 	        e.preventDefault();
-	        lightbox.openLightbox(that);
+	        lightbox.openLightbox($that);
 	    });
 	}
 

@@ -64,18 +64,31 @@ var mainPage = {
         /* init tasks */
         var makeTaskCard = function(task, type) {
             var taskCardHtml = "";
-            taskCardHtml += "<div id='" + task.id + "' value='" + task.name + "' class='task_card'>";
-            taskCardHtml += "<div id='task-guard-" + task.id + "' value='" + task.guard + "'></div>";
-            taskCardHtml += "<div id='task-duration-" + task.id + "' value='" + task.duration + "'></div>";
+            var taskStatus;
+            var getTaskStatus = function(task) {
+                var Status;
+                if (mainPage.user.inProcess != null && mainPage.user.inProcess.contains(task.id)) {
+                    Status = "ACCEPTED";
+                } else if (mainPage.user.finished != null && mainPage.user.finished.contains(task.id)) {
+                    Status = "FINISHED";
+                } else {
+                    Status = "NOT_ACCEPTED";
+                }
+                return Status;
+            };
+            taskStatus = getTaskStatus(task);
+            taskCardHtml += "<div id='" + task.id + "' value='" + taskStatus + "' class='task_card'>";
+            //taskCardHtml += "<div id='task-guard-" + task.id + "' value='" + task.guard + "'></div>";
+            //taskCardHtml += "<div id='task-duration-" + task.id + "' value='" + task.duration + "'></div>";
             taskCardHtml += "<div id='mark-" + type + "' class='mark_in_progress'>In Progress</div>";
             taskCardHtml += "<img src='/assets/images/" + type + "_card2.jpg' class='img_cardback'>";
 
-            if (mainPage.user.inProcess != null && mainPage.user.inProcess.contains(task.id)) {
-                taskCardHtml += "<img src='/assets/images/" + type + ".jpg' class='img_cardface' value='ACCEPTED'>";
-            } else if (mainPage.user.finished != null && mainPage.user.finished.contains(task.id)) {
-                taskCardHtml += "<img src='/assets/images/" + type + "_thumb.jpg' class='img_cardface' value='FINISHED'>";
+            if (taskStatus == "ACCEPTED") {
+                taskCardHtml += "<img src='/assets/images/" + type + ".jpg' class='img_cardface'>";
+            } else if (taskStatus == "FINISHED") {
+                taskCardHtml += "<img src='/assets/images/" + type + "_thumb.jpg' class='img_cardface'>";
             } else {
-                taskCardHtml += "<img src='/assets/images/" + type + ".jpg' class='img_cardface' value='NOT_ACCEPTED'>";
+                taskCardHtml += "<img src='/assets/images/" + type + ".jpg' class='img_cardface'>";
             }
 
             taskCardHtml += "</div>";

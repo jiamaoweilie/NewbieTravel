@@ -26,12 +26,20 @@ var lightbox = {
         }
     },
 
-    buildLightbox: function(taskMapImg) {
-        var taskId = $(taskMapImg).parent().attr("id");
+    buildLightbox: function($taskCard, $yButton, $nButton) {
+        var taskId = $taskCard.attr("id");
+        var taskStatus = $taskCard.attr("value");
 
         var strHtmlTaskType;
         var strHtmlTaskTitle;
         var task = mainPage.tasks.findTaskById(taskId);
+
+        $yButton.show();
+        $nButton.show();
+
+        if ( 'ACCEPTED' === taskStatus || mainPage.user.inProcess.length >= 3 || 'FINISHED' === taskStatus) {
+            $yButton.hide();
+        }
 
         $(".lb_task_id").attr("id", taskId);
 
@@ -48,28 +56,23 @@ var lightbox = {
         $("#light-box-bg").fadeIn("slow");
     },
 
-	openLightbox: function(taskMapImg) {
-		var yButton = $("#btn-lightbox-accept");
-		var nButton = $("#btn-lightbox-back");
+	openLightbox: function($taskCard) {
+		var $yButton = $("#btn-lightbox-accept");
+		var $nButton = $("#btn-lightbox-back");
 		var countTasksAccepted = mainPage.user.inProcess == null ? 0 : mainPage.user.inProcess.length;
 		var isAccepted = $(taskMapImg).attr("value");
 
-        if ($(taskMapImg).attr("class") === 'img_cardback') {
-            $(taskMapImg).parent().transition({perspective: 600, rotateY: '+=180deg', 'background-color': '#333'}, '1000');
-            $(taskMapImg).transition({'z-index': 101, opacity: 0}, '1000');
-            $(taskMapImg).siblings(".img_cardface").transition({'z-index': 110, opacity: 0.4}, '1000');
+        if ($taskCard.attr("value") === 'NOT_ACCEPTED') {
+            $taskCard.transition({perspective: 600, rotateY: '+=180deg', 'background-color': '#333'}, '1000');
+            $taskCard.children(".img_cardback").transition({'z-index': 101, opacity: 0}, '1000');
+            $taskCard.children(".img_cardface").transition({'z-index': 110, opacity: 0.4}, '1000');
         }
 
-        lightbox.buildLightbox(taskMapImg);
+        lightbox.buildLightbox($taskCard, $yButton, $nButton);
 
-        $(yButton).show();
-        $(nButton).show();
 
-        if ( 'ACCEPTED' === isAccepted || countTasksAccepted >= 3 || 'FINISHED' === isAccepted) {
-        	$(yButton).hide();
-        }
 
-        yButton.bind("click", taskMapImg, function(image){
+        $yButton.bind("click", taskMapImg, function(image){
             var taskId = $(image.data).parent().attr("id");
             var requestUrl = "/task/accepted/" + taskId;
 	        image.preventDefault();
@@ -86,7 +89,7 @@ var lightbox = {
             $("#btn-lightbox-back").unbind();
 	    });
 
-	    nButton.bind("click", taskMapImg, function(image){
+	    $nButton.bind("click", taskMapImg, function(image){
             var taskCard = $(image.data).parent();
             var imgUrl = $(image.data).attr("src");
 	        image.preventDefault();
