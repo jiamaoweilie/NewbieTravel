@@ -6,15 +6,6 @@ var mainPage = {
 
     initialize: function() {
         var i;
-        var j;
-        var taskType;
-        var taskId;
-        var task;
-        var clientTasks = new Array();
-        var techTasks = new Array();
-        var processTasks = new Array();
-        var commTasks = new Array();
-
         Array.prototype.contains = function(item) {
             var i;
             for (i = 0; i < this.length; i++) {
@@ -23,8 +14,13 @@ var mainPage = {
             }
             return false;
         };
+        mainPage.getPageInfo();
+        guideline.initialize(mainPage.isNewUser);
+        mainPage.initUserInfoSect();
+        mainPage.initTaskMapsSect();
+    },
 
-        /* get user and tasks data from server */
+    getPageInfo: function() {
         $.ajax({
             url: "main-page/init-info",
             type: "GET",
@@ -49,80 +45,19 @@ var mainPage = {
                 }
             }
         });
+    },
 
-        guideline.initialize(mainPage.isNewUser);
-
-        /* init user info */
+    initUserInfoSect: function() {
         $("#user-name").text(mainPage.user.email.split("@")[0]);
-
         for (i = 0; i < mainPage.user.achievement.length; i++) {
             $("#info-profile ul").append("<li>" + mainPage.user.achievement[i] + "</li>");
         }
-
         mainPage.updateInProgressTable();
-
-        /* init tasks */
-        var makeTaskCard = function(task, type) {
-            var taskCardHtml = "";
-            var taskStatus;
-            var getTaskStatus = function(task) {
-                var Status;
-                if (mainPage.user.inProcess != null && mainPage.user.inProcess.contains(task.id)) {
-                    Status = "ACCEPTED";
-                } else if (mainPage.user.finished != null && mainPage.user.finished.contains(task.id)) {
-                    Status = "FINISHED";
-                } else {
-                    Status = "NOT_ACCEPTED";
-                }
-                return Status;
-            };
-            taskStatus = getTaskStatus(task);
-            taskCardHtml += "<div id='" + task.id + "' value='" + taskStatus + "' class='task_card'>";
-            //taskCardHtml += "<div id='task-guard-" + task.id + "' value='" + task.guard + "'></div>";
-            //taskCardHtml += "<div id='task-duration-" + task.id + "' value='" + task.duration + "'></div>";
-            taskCardHtml += "<div id='mark-" + type + "' class='mark_in_progress'>In Progress</div>";
-            taskCardHtml += "<img src='/assets/images/" + type + "_card2.jpg' class='img_cardback'>";
-
-            if (taskStatus == "ACCEPTED") {
-                taskCardHtml += "<img src='/assets/images/" + type + ".jpg' class='img_cardface'>";
-            } else if (taskStatus == "FINISHED") {
-                taskCardHtml += "<img src='/assets/images/" + type + "_thumb.jpg' class='img_cardface'>";
-            } else {
-                taskCardHtml += "<img src='/assets/images/" + type + ".jpg' class='img_cardface'>";
-            }
-
-            taskCardHtml += "</div>";
-            return taskCardHtml;
-        };
-
-        for (i = 0; i < mainPage.tasks.length; i++) {
-            task = mainPage.tasks[i];
-            taskId = task.id;
-            taskType = task.type;
-            switch(mainPage.tasks[i].type) {
-                case "client": clientTasks[clientTasks.length] = mainPage.tasks[i];
-                    $("#sect-client-taskmap").append(makeTaskCard(mainPage.tasks[i], "client"));
-                    break;
-                case "tech": techTasks[techTasks.length] = mainPage.tasks[i];
-                    $("#sect-tech-taskmap").append(makeTaskCard(mainPage.tasks[i], "tech"));
-                    break;
-                case "process": processTasks[processTasks.length] = mainPage.tasks[i];
-                    $("#sect-process-taskmap").append(makeTaskCard(mainPage.tasks[i], "process"));
-                    break;
-                case "comm": commTasks[commTasks.length] = mainPage.tasks[i];
-                    $("#sect-comm-taskmap").append(makeTaskCard(mainPage.tasks[i], "comm"));
-                    break;
-                default : break;
-            }
-        }
-
-        taskMaps.initialize();
     },
 
     updateInProgressTable: function() {
         var taskId;
         var task;
-
         if (mainPage.user.inProcess != null) {
             $("#in-doing-tasks").find(".in_doing_table_row").remove();
             for (i = 0; i < mainPage.user.inProcess.length; i++) {
@@ -139,7 +74,61 @@ var mainPage = {
                 }
             }
         }
-    }
+    },
 
+    initTaskMapsSect: function() {
+        var taskType;
+        var taskId;
+        var task;
+        var makeTaskCard = function(task, type) {
+            var taskCardHtml = "";
+            var taskStatus;
+            var getTaskStatus = function(task) {
+                var Status;
+                if (mainPage.user.inProcess != null && mainPage.user.inProcess.contains(task.id)) {
+                    Status = "ACCEPTED";
+                } else if (mainPage.user.finished != null && mainPage.user.finished.contains(task.id)) {
+                    Status = "FINISHED";
+                } else {
+                    Status = "NOT_ACCEPTED";
+                }
+                return Status;
+            };
+            taskStatus = getTaskStatus(task);
+            taskCardHtml += "<div id='" + task.id + "' value='" + taskStatus + "' class='task_card'>";
+            taskCardHtml += "<div id='mark-" + type + "' class='mark_in_progress'>In Progress</div>";
+            taskCardHtml += "<img src='/assets/images/" + type + "_card2.jpg' class='img_cardback'>";
+            if (taskStatus == "ACCEPTED") {
+                taskCardHtml += "<img src='/assets/images/" + type + ".jpg' class='img_cardface'>";
+            } else if (taskStatus == "FINISHED") {
+                taskCardHtml += "<img src='/assets/images/" + type + "_thumb.jpg' class='img_cardface'>";
+            } else {
+                taskCardHtml += "<img src='/assets/images/" + type + ".jpg' class='img_cardface'>";
+            }
+            taskCardHtml += "</div>";
+            return taskCardHtml;
+        };
+        for (i = 0; i < mainPage.tasks.length; i++) {
+            task = mainPage.tasks[i];
+            taskId = task.id;
+            taskType = task.type;
+            switch(mainPage.tasks[i].type) {
+                case "client":
+                    $("#sect-client-taskmap").append(makeTaskCard(mainPage.tasks[i], "client"));
+                    break;
+                case "tech":
+                    $("#sect-tech-taskmap").append(makeTaskCard(mainPage.tasks[i], "tech"));
+                    break;
+                case "process":
+                    $("#sect-process-taskmap").append(makeTaskCard(mainPage.tasks[i], "process"));
+                    break;
+                case "comm":
+                    $("#sect-comm-taskmap").append(makeTaskCard(mainPage.tasks[i], "comm"));
+                    break;
+                default : break;
+            }
+        }
+        taskMaps.initialize();
+    }
 
 }
