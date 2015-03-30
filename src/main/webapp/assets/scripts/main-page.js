@@ -68,7 +68,7 @@ var mainPage = {
                 task = mainPage.tasks.findTaskById(taskId);
                 if (task != undefined) {
                     $("#in-doing-tasks").find("#tr-placeholder").before(
-                        "<tr class='in_doing_table_row' type='" + task.type + "'>" +
+                        "<tr class='in_doing_table_row " + task.type + "' type='" + task.type + "'>" +
                         "<td>" + task.name + "</td>" +
                         "<td>" + task.guard + "</td>" +
                         "<td>" + task.duration + "</td>" +
@@ -99,7 +99,7 @@ var mainPage = {
             };
             taskStatus = getTaskStatus(task);
             taskCardHtml += "<div id='" + task.id + "' value='" + taskStatus + "' class='task_card'>";
-            taskCardHtml += "<div id='mark-" + type + "' class='mark_in_progress'>In Progress</div>";
+            taskCardHtml += "<div id='mark-" + type + "' class='mark_in_progress'>In Progress<br/><p class='mark_in_progress_taskname'>" + task.name + "</p></div>";
             taskCardHtml += "<img src='/assets/images/" + type + "_card2.jpg' class='img_cardback'>";
             if (taskStatus == "ACCEPTED") {
                 taskCardHtml += "<img src='/assets/images/" + type + ".jpg' class='img_cardface'>";
