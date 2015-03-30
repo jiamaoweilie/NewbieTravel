@@ -21,14 +21,6 @@ var login = {
                         $("#email-2").attr("value",response.email);
                         $(".login-page").transition({y: '-100%'});
                     } else if (response.goto != null) {
-                        //$.ajax({
-                        //    url: response.goto,
-                        //    data: {userId: response.userId},
-                        //    type: "GET",
-                        //    success: function(response){
-                        //        document.write(response);
-                        //    }
-                        //});
                         window.location.href = response.goto;
                     }
                 }
@@ -48,14 +40,6 @@ var login = {
                     if (response.error != null) {
                         $("#login-error-msg-2").html(response.error);
                     } else if (response.goto != null) {
-                        //$.ajax({
-                        //    url: response.goto,
-                        //    data: {userId: response.userId},
-                        //    type: "GET",
-                        //    success: function(response){
-                        //        document.write(response);
-                        //    }
-                        //});
                         window.location.href = response.goto;
                     }
                 }

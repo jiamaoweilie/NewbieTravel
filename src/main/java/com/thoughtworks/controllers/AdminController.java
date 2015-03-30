@@ -63,31 +63,4 @@ public class AdminController {
         return result;
     }
 
-//    @RequestMapping(value = "/admin/addtask", method = RequestMethod.GET)
-//    public String showAddTaskPage() {
-//        return "task";
-//    }
-
-//    @RequestMapping(value = "/admin/addtask", method = RequestMethod.POST)
-//    public String addTask(@Valid @ModelAttribute("task") Task task,
-//                          @RequestParam(value = "available_team") Set<String> availableTeam,
-//                          @RequestParam(value = "available_role") Set<String> availableRole,
-//                          @RequestParam(value = "level") String level,
-//                          BindingResult result,
-//                          Model model) {
-//        if (result.hasErrors()) {
-//            model.addAttribute("error", "Please check your input.");
-//            return "task";
-//        }
-//        task.setAvailableForRole(availableRole);
-//        task.setAvailableForTeam(availableTeam);
-//        task.setLevel(level);
-//        taskService.addTask(task);
-//        model.addAttribute("message", "Successful add a task.");
-//        List<User> userList = userService.findAll();
-//        List<Task> taskList = taskService.findTask(); // find all tasks in the mongoDB
-//        model.addAttribute("users", userList);
-//        model.addAttribute("tasks", taskList);
-//        return "task";
-//    }
 }
