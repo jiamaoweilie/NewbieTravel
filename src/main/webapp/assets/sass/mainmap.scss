@@ -1,0 +1,78 @@
+@mixin font-smoothing($value: antialiased) {
+  @if $value == antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  } @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
+$background-color: #FB7A25;
+
+body {
+  font-size: 62.5%;
+  font-family: "Open Sans", "Microsoft YaHei", "Hiragino Sans GB", "Hiragino Sans GB W3", "微软雅黑", "Helvetica Neue", Arial, sans-serif;
+  font-weight: normal;
+  position: relative;
+  @include font-smoothing;
+  background-image: url("../images/main-map.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  .self-info {
+    display: none;
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    font-size: 1.5em;
+    padding: 1.5%;
+    background-color: $background-color;
+    z-index: 2;
+    opacity: .7;
+    color: white;
+
+    .name {
+      font-weight: bolder;
+    }
+  }
+
+  .task {
+    width: 3%;
+    height: 55%;
+    padding: 1%;
+    background-color: #333333;
+    border-color: yellow;
+    border-radius: 100%;
+    //position: absolute;
+  }
+
+  .task1 {
+    float: left;
+    position: absolute;
+    top: 950%;
+    left: 2%;
+  }
+
+  .task2 {
+    float: left;
+    position: absolute;
+    top: 930%;
+    left: 18%;
+  }
+
+  .task3 {
+    float:left;
+    position: absolute;
+    top: 850%;
+    left: 27%;
+  }
+
+  .task4 {
+    float:left;
+    position: absolute;
+    top: 400%;
+    left: 16%;
+  }
+
+}

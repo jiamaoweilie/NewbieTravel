@@ -38,6 +38,14 @@ public class LoginController {
         return "main-page";
     }
 
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public String gotoTestPage() {
+//        String sessionUid = (String) httpSession.getAttribute("userId");
+//        if (userId != null && !userId.equals(sessionUid))
+//            return "login-error-page";
+        return "main-page2";
+    }
+
     @RequestMapping(value = "main-page/init-info", method = RequestMethod.GET)
     @ResponseBody
     public Map<String, Object> getMainPageInfo(HttpSession httpSession) {

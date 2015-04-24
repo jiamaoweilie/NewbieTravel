@@ -1,0 +1,58 @@
+body {
+  font-size: 62.5%;
+  font-family: "Open Sans", "Microsoft YaHei", "Hiragino Sans GB", "Hiragino Sans GB W3", "微软雅黑", "Helvetica Neue", Arial, sans-serif;
+  font-weight: normal;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url("../images/main-map.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+body .self-info {
+  display: none;
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  font-size: 1.5em;
+  padding: 1.5%;
+  background-color: #fb7a25;
+  z-index: 2;
+  opacity: .7;
+  color: white;
+}
+body .self-info .name {
+  font-weight: bolder;
+}
+body .task {
+  width: 3%;
+  height: 55%;
+  padding: 1%;
+  background-color: #333333;
+  border-color: yellow;
+  border-radius: 100%;
+}
+body .task1 {
+  float: left;
+  position: absolute;
+  top: 950%;
+  left: 2%;
+}
+body .task2 {
+  float: left;
+  position: absolute;
+  top: 930%;
+  left: 18%;
+}
+body .task3 {
+  float: left;
+  position: absolute;
+  top: 850%;
+  left: 27%;
+}
+body .task4 {
+  float: left;
+  position: absolute;
+  top: 400%;
+  left: 16%;
+}
