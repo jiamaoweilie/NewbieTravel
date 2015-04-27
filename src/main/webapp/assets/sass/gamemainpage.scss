@@ -1,0 +1,174 @@
+@mixin font-smoothing($value: antialiased) {
+  @if $value == antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  } @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
+$background-color: #3f5699;
+
+html {
+  display: flex;
+  display: -webkit-flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+body {
+  font-size: 62.5%;
+  font-family: "Open Sans", "Microsoft YaHei", "Hiragino Sans GB", "Hiragino Sans GB W3", "Helvetica Neue", Arial, sans-serif;
+  font-weight: normal;
+  position: relative;
+  padding: 0%;
+  margin: 0%;
+  width: 1440px;
+  height: 900px;
+  @include font-smoothing;
+  background-color: rgb(8, 20, 49);
+
+  #user-panel {
+    display: block;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 154px;
+    height: 200px;
+    font-size: 1.5em;
+    padding: 16px;
+    padding-left: 24px;
+    z-index: 10;
+    opacity: .7;
+    color: white;
+    vertical-align: middle;
+
+    .info_splitter {
+      width: 100%;
+      height: auto;
+      font-size: 0em;
+      margin: 4px;
+
+      .info_splitter_img {
+        position: relative;
+        left: -28px;
+      }
+    }
+
+    #info {
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      display: flex;
+      display: -webkit-flex;
+
+      width: 100%;
+      height: auto;
+
+      margin-bottom: 7px;
+
+      #avatar {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+
+        background-image: url("../images/materials/avatar.png");
+        background-repeat: no-repeat;
+
+        overflow: hidden;
+
+        #avatar-img {
+          border-radius: 50%;
+          -webkit-border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          margin: 7px;
+        }
+      }
+
+      #name {
+        margin: auto;
+        height: 1.5em;
+        width: 96px;
+        text-align: end;
+        font-weight: bolder;
+      }
+    }
+
+    #badges {
+      display: flex;
+      display: -webkit-flex;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      font-size: 0em;
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+    }
+
+    #time-boards {
+      display: flex;
+      display: -webkit-flex;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      text-align: center;
+      justify-content: space-between;
+
+      margin-top: 7px;
+
+      .time_board {
+        display: flex;
+        display: -webkit-flex;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        width: 35%;
+
+        #traveled-days {
+          color: #33F0BE;
+        }
+
+        #remain-days {
+          color: #22B9FE;
+        }
+
+        .days {
+          font-size: 1.4em;
+          font-weight: 900;
+          opacity: 1.0;
+          height: 2em;
+          line-height: 2.4em;
+        }
+      }
+    }
+  }
+
+  #space-map {
+    position: absolute;
+
+    #space-map-img {
+      position: absolute;
+      z-index: 0;
+    }
+
+    #route-img {
+      position: absolute;
+      z-index: 1;
+    }
+
+    .task_group {
+      position: absolute;
+      z-index: 2;
+    }
+
+    #group-1 {
+    }
+
+    #group-2 {}
+
+    #group-3 {}
+
+    #group-4 {}
+
+  }
+
+}

@@ -43,7 +43,7 @@ public class LoginController {
 //        String sessionUid = (String) httpSession.getAttribute("userId");
 //        if (userId != null && !userId.equals(sessionUid))
 //            return "login-error-page";
-        return "main-page2";
+        return "game-main-page";
     }
 
     @RequestMapping(value = "main-page/init-info", method = RequestMethod.GET)

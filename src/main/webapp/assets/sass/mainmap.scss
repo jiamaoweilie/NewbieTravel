@@ -12,11 +12,11 @@ $background-color: #FB7A25;
 
 body {
   font-size: 62.5%;
-  font-family: "Open Sans", "Microsoft YaHei", "Hiragino Sans GB", "Hiragino Sans GB W3", "微软雅黑", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Open Sans", "Microsoft YaHei", "Hiragino Sans GB", "Hiragino Sans GB W3", "Helvetica Neue", Arial, sans-serif;
   font-weight: normal;
   position: relative;
   @include font-smoothing;
-  background-image: url("../images/main-map.jpeg");
+  background-image: url("../images/materials/space.png");
   background-size: cover;
   background-repeat: no-repeat;
 
