@@ -90,7 +90,7 @@ body {
 
       #name {
         margin: auto;
-        width: 95px;
+        width: 89px;
         text-align: end;
         font-weight: bolder;
         font-size: 15px;
@@ -149,8 +149,9 @@ body {
 
   #space-map {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 1440px;
+    height: 900px;
+    overflow: hidden;
 
     #space-map-background {
       position: absolute;
@@ -168,14 +169,20 @@ body {
 
     #space-map-foreground {
       position: absolute;
+      z-index: 3;
+
+      #rocket {
+        display: none;
+        z-index: 10;
+      }
 
       .task_group {
         position: absolute;
-        z-index: 2;
+        z-index: 4;
 
         .task_group_planet {  position: absolute;  }
 
-        .lock {  z-index: 3;  }
+        .lock {  z-index: 6;  }
 
         .task {
           border-radius: 50%;
@@ -183,7 +190,7 @@ body {
           position: relative;
           background-size: contain;
           background-repeat: no-repeat;
-          z-index: 4;
+          z-index: 5;
           opacity: 1.0;
         }
 
