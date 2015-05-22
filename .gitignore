@@ -1,4 +1,10 @@
 .idea
 target
-NewbieTravelInTT.iml
-newbie-travel.iml
+
+*.pid
+.DS_Store
+
+*.ipr
+*.iml
+*.iws
+.gradle
